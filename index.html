@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOGOinformatiques (Maternelle à Lycée)</title>
+  <link rel="stylesheet" href="styles.css?v=14.0">
+</head>
+<body class="role-admin">
+  <div class="app-container">
+    
+    <!-- BARRE LATÉRALE DE NAVIGATION -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">EG</div>
+        <span class="logo-text">by KOGOinformatiques</span>
+      </div>
+      
+      <nav class="nav-menu">
+        <div class="nav-section-title">Global</div>
+        <a href="#" class="nav-item active" data-view="dashboard">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"></path></svg>
+          Tableau de Bord
+        </a>
+        
+        <div class="nav-section-title">Scolarité & Effectifs</div>
+        <a href="#" class="nav-item" data-view="students">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          Élèves & Inscriptions
+        </a>
+        <a href="#" class="nav-item" data-view="teachers">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          Corps Enseignant
+        </a>
+        <a href="#" class="nav-item" data-view="classes">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a 2 0 011 1v5m-4 0h4"></path></svg>
+          Classes (Maternelle->Lycée)
+        </a>
+        
+        <div class="nav-section-title">Pédagogie & Vie Scolaire</div>
+        <a href="#" class="nav-item" data-view="grades">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          Notes, Matières & Bulletins
+        </a>
+        <a href="#" class="nav-item" data-view="attendance">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          Présences & Surveillance
+        </a>
+        
+        <div class="nav-section-title">Économat & Administration</div>
+        <a href="#" class="nav-item" data-view="finance">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Finances, Caisse & A5
+        </a>
+        
+        <!-- ONGLET STRICTEMENT RÉSÉRVÉ À L'ADMINISTRATEUR GÉNÉRAL -->
+        <a href="#" class="nav-item btn-admin-only" data-view="settings" style="border:1px dashed #ef4444; background:rgba(239, 68, 68, 0.08); color:#fca5a5;">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          🔐 Paramètres & Licence (Admin)
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <span>St-Exupéry v14.0 Pro</span>
+        <span style="color: #38bdf8; font-weight:700;">🟢 En ligne</span>
+      </div>
+    </aside>
+
+    <!-- ZONE DU CONTENU PRINCIPAL -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <h1 id="page-title" class="page-title">Tableau de Bord</h1>
+        </div>
+        
+        <div class="header-right">
+          <!-- Bascule rapide facultative (Mode démo) -->
+          <div class="role-selector-container" title="Bascule de test rapide (Mode démo)">
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">RÔLE ACTIF :</span>
+            <select id="role-selector">
+              <option value="admin">🧑‍💻 Administrateur</option>
+              <option value="secretaire">📋 Secrétaire</option>
+              <option value="econome">💰 Économe</option>
+              <option value="surveillant">🛡️ Surveillant</option>
+              <option value="professeur">👨‍🏫 Enseignant</option>
+              <option value="direction">👔 Directeur (Lecture Seule)</option>
+            </select>
+          </div>
+
+          <div class="search-bar">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <input type="text" id="global-search" placeholder="Recherche rapide élève, ID...">
+          </div>
+          
+          <!-- AFFICHAGE SESSION COMPTE CONNEXION -->
+          <div class="user-profile" style="display:flex; align-items:center; gap:10px;">
+            <span id="active-role-badge" class="role-badge-display role-admin">🧑‍💻 Administrateur</span>
+            <span id="logged-user-name" style="font-weight:800; font-size:0.95rem; color:var(--text-main);">Admin Principal</span>
+            <button class="btn-logout" onclick="logout()" title="Déconnexion sécurisée">
+              🚪 Déconnexion
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- CORPS DE LA PAGE -->
+      <div class="page-body">
+
+        <!-- ================= VUE 1: TABLEAU DE BORD ================= -->
+        <section id="view-dashboard" class="view-section active">
+          <div style="background:linear-gradient(135deg, #1e293b, #334155); color:white; padding:1.5rem; border-radius:var(--radius); margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow-lg);">
+            <div>
+              <h2 style="font-size:1.5rem; font-weight:800; margin:4px 0;">Bienvenue chez KOGOinformatiques (Édition Binôme GesSco)</h2>
+              <p style="font-size:0.875rem; opacity:0.85;">Sécurité RBAC stricte, protection anti-copie liée au matériel, monnaie à rendre et traçabilité.</p>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:0.75rem; opacity:0.8;">ANNÉE SCOLAIRE</span>
+              <div style="font-size:1.4rem; font-weight:900; color:#38bdf8;">2025 - 2026</div>
+            </div>
+          </div>
+
+          <!-- BOUTONS D'ACTION RAPIDE DIRECTS SUR LE DASHBOARD -->
+          <div class="card" style="margin-bottom:2rem; background:#f8fafc; border:2px solid var(--primary-light);">
+            <h3 style="font-size:1.05rem; font-weight:900; margin-bottom:1rem; color:#1e293b;">⚡ Accès Rapide & Actions Immédiates</h3>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <button class="btn btn-primary btn-secretaire-only" onclick="openAddStudentModal();" style="flex:1; min-width:200px; padding:12px; font-size:0.95rem; font-weight:800;">✨ + Inscrire un Élève</button>
+              <button class="btn btn-success btn-econome-only" onclick="openAddPaymentModal();" style="flex:1; min-width:200px; padding:12px; font-size:0.95rem; font-weight:800;">💰 + Encaisser un Versement</button>
+              <button class="btn btn-warning btn-prof-only" onclick="switchView('grades');" style="flex:1; min-width:200px; padding:12px; font-size:0.95rem; font-weight:800;">📝 Saisir des Notes</button>
+              <button class="btn btn-secondary" onclick="switchView('attendance');" style="flex:1; min-width:200px; padding:12px; font-size:0.95rem; font-weight:800;">🛡️ Feuille d'Appel & Incidents</button>
+              <button class="btn btn-primary btn-admin-only" onclick="switchView('settings');" style="flex:1; min-width:200px; padding:12px; font-size:0.95rem; font-weight:900; background:#991b1b; border:2px solid #ef4444; color:white; box-shadow:0 4px 15px rgba(239, 68, 68, 0.4);">🔐 Paramètres, Licence & Sécurité</button>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Effectif Élèves</h3>
+                <div id="stat-students" class="stat-value">--</div>
+                <div class="stat-trend trend-up">↗ Maternelle au Lycée</div>
+              </div>
+              <div class="stat-icon icon-indigo">🎓</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Professeurs</h3>
+                <div id="stat-teachers" class="stat-value">--</div>
+                <div class="stat-trend trend-up">↗ 100% actifs</div>
+              </div>
+              <div class="stat-icon icon-blue">👩‍🏫</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Cycles & Classes</h3>
+                <div id="stat-classes" class="stat-value">16</div>
+                <div class="stat-trend" style="color:var(--text-muted);">PS -> Terminale</div>
+              </div>
+              <div class="stat-icon icon-orange">🏫</div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Assiduité Globale</h3>
+                <div id="stat-attendance" class="stat-value">--</div>
+                <div class="stat-trend trend-up">↗ Moyenne du lycée</div>
+              </div>
+              <div class="stat-icon icon-green">📊</div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:0.35rem;">Recouvrement des Frais de Scolarité (Économat)</h3>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Évolutions mensuelles des encaissements sur l'année 2025-2026</p>
+              <div id="chart-revenue-container"></div>
+            </div>
+            <div class="card">
+              <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:0.35rem;">Taux de Présence par Cycle</h3>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Répartition des pointages effectués par les surveillants</p>
+              <div id="chart-attendance-container"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <h3 style="font-size:1.05rem; font-weight:800;">Dernières Opérations Financières (Caisse & Mobile Money)</h3>
+              <button class="btn btn-secondary btn-sm" onclick="switchView('finance')">Voir tout le journal</button>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Élève & Matricule</th>
+                    <th>Motif & Moyen de Paiement</th>
+                    <th>Montant Encaissé</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-recent-activity"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VUE 2: GESTION DES ÉLÈVES ================= -->
+        <section id="view-students" class="view-section">
+          <div class="filter-toolbar">
+            <div class="filter-group">
+              <input type="text" id="student-search" class="form-control" placeholder="Recherche nom, matricule..." style="width: 220px;">
+              
+              <select id="filter-cycle" class="form-control" style="width: 160px;">
+                <option value="">Tous les cycles</option>
+                <option value="maternelle">Maternelle</option>
+                <option value="primaire">Primaire</option>
+                <option value="college">Collège</option>
+                <option value="lycee">Lycée</option>
+              </select>
+
+              <select id="filter-class" class="form-control" style="width: 180px;">
+                <option value="">Toutes les classes</option>
+              </select>
+            </div>
+            
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <button class="btn btn-primary btn-secretaire-only" onclick="openAddStudentModal()" style="font-size:0.95rem; font-weight:800;">✨ + Inscrire un nouvel élève</button>
+              <button class="btn btn-warning btn-admin-only" onclick="promoteAllStudents()" title="Passage automatique en fin d'année">🚀 Passage de classe (Fin d'année)</button>
+            </div>
+          </div>
+
+          <div class="table-container shadow-sm">
+            <table>
+              <thead>
+                <tr>
+                  <th>Matricule & Photo</th>
+                  <th>Nom & Prénom / Naissance</th>
+                  <th>Classe</th>
+                  <th>Cycle</th>
+                  <th>Moy. Passée</th>
+                  <th>Scolarité / Solde</th>
+                  <th>Filiation (Papa & Maman)</th>
+                  <th>Actions & QR</th>
+                </tr>
+              </thead>
+              <tbody id="students-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= VUE 3: PROFESSEURS ================= -->
+        <section id="view-teachers" class="view-section">
+          <div class="filter-toolbar">
+            <div>
+              <h3 style="font-weight:800; font-size:1.1rem;">Répertoire du Personnel Enseignant</h3>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Enseignants autorisés à saisir les présences et les notes selon leurs classes</p>
+            </div>
+            <button class="btn btn-primary btn-admin-only" onclick="openAddTeacherModal()">✨ + Ajouter un enseignant</button>
+          </div>
+          <div class="table-container shadow-sm">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom de l'Enseignant</th>
+                  <th>Matière Enseignée</th>
+                  <th>Email Professionnel</th>
+                  <th>Téléphone</th>
+                  <th>Classes Assignées</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="teachers-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= VUE 4: CLASSES & COURS ================= -->
+        <section id="view-classes" class="view-section">
+          <div style="margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <h3 style="font-weight:800; font-size:1.2rem;">Panorama des 16 classes (Maternelle au Lycée)</h3>
+              <p style="color:var(--text-muted); font-size:0.875rem;">Consultez l'état des lieux par classe ou effectuez un scan QR instantané.</p>
+            </div>
+          </div>
+          <div id="classes-grid-container" class="grid-4"></div>
+        </section>
+
+        <!-- ================= VUE 5: NOTES, MATIÈRES & BULLETINS ================= -->
+        <section id="view-grades" class="view-section">
+          
+          <div class="section-switcher" style="display:flex; gap:10px; margin-bottom:1.5rem; flex-wrap:wrap;">
+            <button class="btn btn-secondary switch-btn active" data-target="panel-grades-entry" style="font-size:0.95rem; font-weight:800; padding:12px 20px;">📝 1. Saisie et Dépôt des Notes (Professeurs)</button>
+            <button class="btn btn-secondary switch-btn" data-target="panel-subjects-config" style="font-size:0.95rem; font-weight:800; padding:12px 20px;">⚙️ 2. Configurer Matières & Coefficients (Flexibilité)</button>
+            <button class="btn btn-secondary switch-btn" data-target="panel-bulletins-print" style="font-size:0.95rem; font-weight:800; padding:12px 20px;">📄 3. Générer Bulletin Officiel (A4)</button>
+          </div>
+
+          <div id="panel-grades-entry" class="sub-panel active">
+            <div class="card" style="margin-bottom:1.5rem; border-left:6px solid var(--primary); background:#f8fafc;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                <div>
+                  <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a; margin-bottom:4px;">📝 Espace Enseignants : Saisie des Devoirs et Compositions</h3>
+                  <p style="font-size:0.85rem; color:#475569;">Sélectionnez le trimestre, votre classe et votre discipline. Les notes enregistrées ici calculent immédiatement les moyennes et rangs du bulletin correspondant.</p>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center;">
+                  <div>
+                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">TRIMESTRE :</label><br>
+                    <select id="grade-trimester-select" class="form-control" style="width:180px; font-weight:800; border:2px solid #4f46e5;" onchange="changeGradeTrimester(this.value)">
+                      <option value="T1">1er Trimestre</option>
+                      <option value="T2">2ème Trimestre</option>
+                      <option value="T3">3ème Trimestre</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">CLASSE :</label><br>
+                    <select id="prof-class-select" class="form-control" style="width:160px; font-weight:700;"></select>
+                  </div>
+                  <div>
+                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">DISCIPLINE :</label><br>
+                    <select id="prof-subject-select" class="form-control" style="width:240px; font-weight:700;"></select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <h3 style="font-weight:800; font-size:1.05rem;">Grille de Notation par Élève</h3>
+                <button class="btn btn-success btn-prof-only" onclick="saveProfGrades()" style="font-weight:900; font-size:0.95rem; padding:10px 20px;">💾 Enregistrer et Valider les Notes</button>
+              </div>
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Élève & Matricule</th>
+                      <th>Devoir 1 / 20</th>
+                      <th>Devoir 2 / 20</th>
+                      <th>Compo / Examen / 20</th>
+                      <th>Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody id="prof-grades-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-subjects-config" class="sub-panel">
+            <div class="card" style="margin-bottom:1.5rem; border-left:6px solid #8b5cf6; background:#f8fafc;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                <div>
+                  <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a; margin-bottom:4px;">⚙️ Flexibilité Pédagogique : Matières & Coefficients</h3>
+                  <p style="font-size:0.85rem; color:#475569;">Créez et ajustez librement les matières par classe pour répondre à la diversité des programmes et établissements.</p>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center;">
+                  <div>
+                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">CLASSE À CONFIGURER :</label><br>
+                    <select id="sub-class-select" class="form-control" style="width:220px; font-weight:800;"></select>
+                  </div>
+                  <button class="btn btn-primary btn-prof-only" onclick="openAddSubjectModal()" style="font-weight:800; margin-top:16px;">✨ + Ajouter une discipline / Coef</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 style="font-weight:800; font-size:1.05rem; margin-bottom:1rem;">Liste des Matières et Coefficients de la Classe</h3>
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Discipline / Matière</th>
+                      <th>Coefficient</th>
+                      <th>Enseignant Responsable</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="subjects-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-bulletins-print" class="sub-panel">
+            <div class="filter-toolbar">
+              <div class="filter-group">
+                <label style="font-weight:800; font-size:0.9rem;">Sélection Élève :</label>
+                <select id="bulletin-student-select" class="form-control" style="width:340px;"></select>
+                <label style="font-weight:800; font-size:0.9rem; margin-left:0.5rem;">Période :</label>
+                <select id="bulletin-trimester-select" class="form-control" style="width:200px; font-weight:800; border:2px solid #4f46e5;" onchange="bulletinTrimester=this.value;">
+                  <option value="T1">1er Trimestre</option>
+                  <option value="T2">2ème Trimestre</option>
+                  <option value="T3">3ème Trimestre</option>
+                  <option value="general">Bulletin Général (Annuel)</option>
+                </select>
+                <button class="btn btn-primary" onclick="generateBulletin()">📄 Générer Bulletin</button>
+              </div>
+              <button class="btn btn-secondary" onclick="printBulletin()" title="Imprimer ou Enregistrer en PDF">🖨️ Imprimer / A4 PDF</button>
+            </div>
+            
+            <div id="bulletin-render-area">
+              <div class="card" style="text-align:center; padding:4.5rem; color:var(--text-muted);">
+                <div style="font-size:3.5rem; margin-bottom:1rem;">🎓</div>
+                <h3 style="font-size:1.2rem; font-weight:800;">Générateur Officiel de Bulletins de Notes</h3>
+                  <p style="font-size:0.9rem; max-width:500px; margin:0.5rem auto;">Sélectionnez un élève et une période ci-dessus pour générer son bulletin trimestriel ou annuel conforme avec logo, coefficients, rang, signature et cachet du Directeur.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================= VUE 6: PRÉSENCES & SURVEILLANCE ================= -->
+        <section id="view-attendance" class="view-section">
+          
+          <div class="section-switcher" style="display:flex; gap:10px; margin-bottom:1.5rem; flex-wrap:wrap;">
+            <button class="btn btn-secondary switch-btn active" data-target="panel-att-rollcall" style="font-size:0.95rem; font-weight:800; padding:12px 20px;">📋 1. Feuille d'Appel Quotidien par Classe</button>
+            <button class="btn btn-secondary switch-btn" data-target="panel-att-incidents" style="font-size:0.95rem; font-weight:800; padding:12px 20px;">🚨 2. Journal & Signalement des Incidents (Discipline)</button>
+          </div>
+
+          <!-- PANEL 1: FEUILLE D'APPEL PAR CLASSE -->
+          <div id="panel-att-rollcall" class="sub-panel active">
+            <div class="card" style="margin-bottom:1.5rem; border-left:6px solid #f59e0b; background:#f8fafc;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                <div>
+                  <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a; margin-bottom:4px;">📋 Surveillance : Feuille d'Appel Quotidien de la Classe</h3>
+                  <p style="font-size:0.85rem; color:#475569;">Sélectionnez une classe pour afficher uniquement ses élèves et pointer en un clic les présences ou retards.</p>
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#64748b;">CLASSE À POINTER :</label><br>
+                  <select id="att-class-select" class="form-control" style="width:200px; font-weight:800;"></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 style="font-weight:800; font-size:1.05rem; margin-bottom:1rem;">Liste d'Appel de la Classe</h3>
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Élève & Matricule</th>
+                      <th>Assiduité Globale</th>
+                      <th>Pointage du Jour (Présent / Retard / Absent)</th>
+                      <th>Discipline</th>
+                    </tr>
+                  </thead>
+                  <tbody id="att-rollcall-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 2: JOURNAL DES INCIDENTS & INFIRMERIE -->
+          <div id="panel-att-incidents" class="sub-panel">
+            <div class="filter-toolbar" style="background:#f8fafc;">
+              <div>
+                <h3 style="font-weight:900; font-size:1.1rem; color:#0f172a;">🚨 Registre des Incidents et Événements de Vie Scolaire</h3>
+                <p style="font-size:0.8rem; color:var(--text-muted);">Consultez l'historique chronologique des retards, avertissements, convocations et infirmerie.</p>
+              </div>
+              <button class="btn btn-warning btn-surveillant-only" onclick="openAddIncidentModal();" style="font-size:0.95rem; font-weight:800;">🚨 + Signaler un Incident ou Événement</button>
+            </div>
+
+            <div class="card">
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Élève Concerné & Classe</th>
+                      <th>Nature du Signalement & Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="att-incidents-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================= VUE 7: FINANCES, CAISSE, SCOLARITÉS & A5 ================= -->
+        <section id="view-finance" class="view-section">
+          
+          <div class="card" style="margin-bottom:2rem; border-left:6px solid #10b981; background:#f8fafc;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
+              <div>
+                <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a;">⚙️ Tarifs Dynamiques de Scolarité par Cycle</h3>
+                <p style="font-size:0.85rem; color:#475569;">Modifiez ici les frais de scolarité annuels. Chaque élève inscrit se verra attribuer automatiquement le tarif de son cycle !</p>
+              </div>
+              <button class="btn btn-success btn-econome-only" onclick="saveDynamicFees()" style="font-weight:800;">💾 Enregistrer les nouveaux tarifs</button>
+            </div>
+            <div class="table-container shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Cycle Scolaire</th>
+                    <th>Montant Scolarité Annuelle (FCFA)</th>
+                    <th>Application</th>
+                  </tr>
+                </thead>
+                <tbody id="dynamic-fees-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="card stat-card" style="border-left-color:#10b981;">
+              <div class="stat-info">
+                <h3>Recettes Encaisées (T1 & T2)</h3>
+                <div class="stat-value" style="color:#059669;">375 000 FCFA</div>
+                <div class="stat-trend trend-up">↗ Mobile Money & Espèces</div>
+              </div>
+            </div>
+            <div class="card stat-card" style="border-left-color:#f59e0b;">
+              <div class="stat-info">
+                <h3>Arriérés & Rappels à Émettre</h3>
+                <div class="stat-value" style="color:#d97706;">225 000 FCFA</div>
+                <div class="stat-trend">Concerne 3 élèves</div>
+              </div>
+            </div>
+            <div class="card stat-card" style="border-left-color:#4f46e5;">
+              <div class="stat-info">
+                <h3>Période de Bilan Journalier</h3>
+                <div style="display:flex; gap:4px; margin-top:8px;">
+                  <input type="date" id="fin-start-date" class="form-control" style="padding:2px 6px; font-size:0.75rem;" value="2026-07-01">
+                  <input type="date" id="fin-end-date" class="form-control" style="padding:2px 6px; font-size:0.75rem;" value="2026-07-03">
+                </div>
+                <button class="btn btn-sm btn-secondary" style="margin-top:6px; width:100%;" onclick="filterFinancialPeriod()">Filtrer le Bilan</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SÉLECTEUR A5 GARANTI INTÉGRÉ AU JOURNAL -->
+          <div class="card" style="margin-bottom:1.5rem; background:#f8fafc; border:2px solid #3b82f6;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <h3 style="font-size:1.1rem; font-weight:900; color:#1e3a8a; margin:0;">🖨️ Délivrance d'Actes & Reçus (Feuille A5 - Spécification Économe)</h3>
+                <p style="font-size:0.8rem; color:#1d4ed8; margin:2px 0 0;">Sélectionnez un élève ci-dessous pour imprimer son état des lieux financier en un clic ou par WhatsApp.</p>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <select id="a5-student-select" class="form-control" style="width:280px; font-weight:800; border:2px solid #3b82f6;"></select>
+                <button class="btn btn-warning btn-econome-only" onclick="generateA5Reminder('rappel')" style="font-weight:900;">📄 Avis de Rappel (A5)</button>
+                <button class="btn btn-primary btn-econome-only" onclick="generateA5Reminder('redevance')" style="font-weight:900;">📜 Bulletin Redevance / Non-Redevance (A5)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-toolbar">
+            <div>
+              <h3 style="font-size:1.1rem; font-weight:800;">Journal des Encaissements de la Caisse</h3>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Suivi des versements OrangeMoney, MoovMoney, Virement et Espèces avec référence</p>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-success btn-econome-only" onclick="openAddPaymentModal()" style="font-size:0.95rem; font-weight:900; padding:10px 18px;">✨ + Enregistrer un versement</button>
+              <button class="btn btn-danger btn-admin-only" onclick="purgeAllTransactions()" title="Effacer tout l'historique financier et remettre à zéro">🧹 Purger le journal</button>
+            </div>
+          </div>
+
+          <div class="table-container shadow-sm">
+            <table>
+              <thead>
+                <tr>
+                  <th>Référence</th>
+                  <th>Élève & Matricule</th>
+                  <th>Motif & Mode de Paiement</th>
+                  <th>Montant Encaissé</th>
+                  <th>Date</th>
+                  <th>Statut</th>
+                  <th>Actions (Reçu / Supprimer)</th>
+                </tr>
+              </thead>
+              <tbody id="finance-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= VUE 8: PARAMÈTRES & UTILISATEURS (RÉSÉRVÉ À L'ADMIN SEUL) ================= -->
+        <section id="view-settings" class="view-section">
+          
+          <!-- PROTECTION ANTI-COPIE ET LICENCE VERROUILLÉE SUR LE MATÉRIEL -->
+          <div class="card" style="margin-bottom:2rem; border-left:6px solid #ef4444; background:#fff1f2;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+              <div>
+                <span class="badge badge-danger" style="margin-bottom:6px;">🔐 Protection Anti-Copie & Licence Verrouillée</span>
+                <h3 style="font-size:1.15rem; font-weight:900; color:#991b1b; margin:0;">Licence Logiciel liée au Matériel (Hardware Fingerprint)</h3>
+                <p style="font-size:0.85rem; color:#7f1d1d; margin-top:4px;">Ce logiciel est protégé contre la copie et le piratage. Sa clé d'activation est mathématiquement verrouillée sur la carte mère et l'identifiant MAC de ce serveur.</p>
+              </div>
+              <div style="background:white; padding:12px 18px; border-radius:10px; border:2px solid #fca5a5; text-align:right; min-width:260px;">
+                <span style="font-size:0.7rem; color:#64748b; font-weight:800; display:block;">ID MATÉRIEL SERVEUR (UUID) :</span>
+                <code id="machine-id-display" style="font-size:1.15rem; font-weight:900; color:#dc2626; font-family:monospace;">8A2F-9B10-4C3D</code>
+                <span id="license-status-display" style="font-size:0.75rem; color:#059669; font-weight:800; display:block; margin-top:4px;">🟢 LICENCE VALIDE (EXP: 31/07/2027)</span>
+              </div>
+            </div>
+
+            <!-- BOÎTIER DE CONFIGURATION DE LA PÉRIODE DE LICENCE (ADMIN SEUL) -->
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px dashed #fca5a5; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <label style="font-size:0.85rem; font-weight:800; color:#991b1b;">⏱️ Période de Validité (Contrat Client) :</label>
+                <select id="set-license-period" class="form-control" style="width:240px; font-weight:800; border:2px solid #fca5a5; color:#7f1d1d; background:white;" onchange="updateLicensePeriodPreview()">
+                  <option value="perpetual">♾️ Perpétuelle (À vie - Illimitée)</option>
+                  <option value="annual" selected>🗓️ Annuelle (1 An / Année Scolaire)</option>
+                  <option value="biennial">📆 Biennale (2 Ans - Renouvelable)</option>
+                  <option value="demo">⏱️ Démo / Essai (6 Mois)</option>
+                  <option value="custom">✏️ Date Personnalisée...</option>
+                </select>
+                <input type="date" id="set-license-custom-date" class="form-control" style="width:160px; display:none; font-weight:700; border:2px solid #fca5a5; background:white;">
+              </div>
+              <button type="button" class="btn btn-sm btn-danger" onclick="saveLicenseConfiguration()" style="font-weight:900; padding:10px 18px; box-shadow:0 4px 12px rgba(239, 68, 68, 0.35);">💾 Appliquer & Verrouiller</button>
+            </div>
+          </div>
+
+          <!-- CONTRÔLE SÉCURITÉ AFFICHAGE MOTS DE PASSE & INACTIVITÉ -->
+          <div class="card" style="margin-bottom:2rem; border-left:6px solid #f59e0b; background:#fffbeb;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+              <div>
+                <span class="badge badge-warning" style="margin-bottom:6px;">🛡️ Sécurité & Confidentialité du Système</span>
+                <h3 style="font-size:1.15rem; font-weight:900; color:#92400e; margin:0;">Configuration de l'Écran de Connexion & Verrouillage d'Inactivité</h3>
+                <p style="font-size:0.85rem; color:#b45309; margin-top:4px;">En <b>Mode Production (en école)</b>, protégez les données en masquant les identifiants et en activant la fermeture automatique de session après inactivité.</p>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                <div>
+                  <label style="font-size:0.75rem; font-weight:800; color:#92400e; display:block; margin-bottom:2px;">👁️ Aide de Connexion :</label>
+                  <select id="set-login-security-mode" class="form-control" style="width:230px; font-weight:800; border:2px solid #fbd38d; background:white; color:#92400e;" onchange="toggleLoginSecurityMode()">
+                    <option value="demo">👁️ Mode Démo (Afficher l'aide)</option>
+                    <option value="production" selected>🔒 Mode Production (Masquer tout)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:800; color:#92400e; display:block; margin-bottom:2px;">⏱️ Déconnexion Auto (Inactivité) :</label>
+                  <select id="set-inactivity-timeout" class="form-control" style="width:210px; font-weight:800; border:2px solid #fbd38d; background:white; color:#92400e;" onchange="toggleInactivityTimeout()">
+                    <option value="5">⚡ 5 Minutes (Sécurité Max)</option>
+                    <option value="10">⏱️ 10 Minutes (Recommandé)</option>
+                    <option value="15" selected>🛡️ 15 Minutes (Standard)</option>
+                    <option value="30">⏳ 30 Minutes (Bureaux privés)</option>
+                    <option value="60">☕ 60 Minutes (Longue session)</option>
+                    <option value="0">♾️ Désactivé (Sans limite)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:2rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div>
+                <h3 style="font-size:1.15rem; font-weight:800;">👥 Comptes et Profils Utilisateurs (RBAC)</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Gérez les identifiants de connexion et droits d'accès de chaque membre de l'école.</p>
+              </div>
+              <button class="btn btn-primary btn-admin-only" onclick="openAddUserModal()">✨ + Créer un profil utilisateur</button>
+            </div>
+            <div class="table-container shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nom du Membre & Email</th>
+                    <th>Rôle Assigné</th>
+                    <th>Identifiant (Username)</th>
+                    <th>Mot de passe</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="users-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- CONFIGURATION DIRECTION ET SIGNATAIRES PAR CYCLE -->
+          <div class="card" style="margin-bottom:2rem; border-left:6px solid #4f46e5;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:1rem; border-bottom:1px solid #e2e8f0; padding-bottom:0.75rem;">
+              <div>
+                <h3 style="font-size:1.15rem; font-weight:900; margin:0; color:#1e1b4b;">👔 Direction et Signataires Officiels par Cycle</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Chaque cycle scolaire (Maternelle, Primaire, Collège, Lycée) possède son propre Directeur. Le logiciel signera automatiquement les actes selon la classe de l'élève !</p>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm btn-admin-only" onclick="saveDirectorsConfiguration()" style="font-weight:800;">💾 Enregistrer les Directeurs</button>
+            </div>
+            
+            <div class="grid-4" style="gap:1rem;">
+              <div class="form-group" style="margin-bottom:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+                <label class="form-label" style="font-weight:900; color:#4f46e5; margin-bottom:4px;">👶 Maternelle (PS à GS)</label>
+                <input type="text" id="set-dir-maternelle" class="form-control" style="font-weight:800; color:#1e293b;" value="Mme Aminata KINDA">
+                <span style="font-size:0.7rem; color:#64748b; display:block; margin-top:4px;">Titre : Directrice Maternelle</span>
+              </div>
+              <div class="form-group" style="margin-bottom:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+                <label class="form-label" style="font-weight:900; color:#059669; margin-bottom:4px;">👦 Primaire (CP au CM2)</label>
+                <input type="text" id="set-dir-primaire" class="form-control" style="font-weight:800; color:#1e293b;" value="M. Ousmane COMPAORÉ">
+                <span style="font-size:0.7rem; color:#64748b; display:block; margin-top:4px;">Titre : Directeur Primaire</span>
+              </div>
+              <div class="form-group" style="margin-bottom:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+                <label class="form-label" style="font-weight:900; color:#d97706; margin-bottom:4px;">🧑 Collège (6ème à 3ème)</label>
+                <input type="text" id="set-dir-college" class="form-control" style="font-weight:800; color:#1e293b;" value="Dr. Alassane DIARRA">
+                <span style="font-size:0.7rem; color:#64748b; display:block; margin-top:4px;">Titre : Principal Collège</span>
+              </div>
+              <div class="form-group" style="margin-bottom:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+                <label class="form-label" style="font-weight:900; color:#dc2626; margin-bottom:4px;">👨‍🎓 Lycée (2nde à Tle)</label>
+                <input type="text" id="set-dir-lycee" class="form-control" style="font-weight:800; color:#1e293b;" value="M. Christian SANOU">
+                <span style="font-size:0.7rem; color:#64748b; display:block; margin-top:4px;">Titre : Proviseur Lycée</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="font-size:1.15rem; font-weight:800; margin-bottom:1rem; border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">Configuration de l'Établissement</h3>
+              <form id="form-settings" onsubmit="saveSettings(event)">
+                <div class="form-group">
+                  <label class="form-label">Nom du Lycée / Groupe Scolaire</label>
+                  <input type="text" id="set-school-name" class="form-control" value="Lycée & Groupe Scolaire Saint-EMMANUEL">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Devise officielle du Pays / École</label>
+                  <input type="text" id="set-school-motto" class="form-control" value="Unité - Progrès - Justice">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Année Scolaire en cours</label>
+                  <input type="text" id="set-school-year" class="form-control" value="2025 - 2026">
+                </div>
+                <button type="submit" class="btn btn-primary btn-admin-only">Enregistrer les modifications</button>
+              </form>
+            </div>
+
+            <div class="card">
+              <h3 style="font-size:1.15rem; font-weight:800; margin-bottom:1rem; border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">Maintenance & Réinitialisation</h3>
+              <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Toutes vos données d'essai sont stockées en local dans votre navigateur. Vous pouvez à tout moment les réinitialiser aux valeurs d'origine.</p>
+              <button class="btn btn-danger btn-admin-only" onclick="resetDemoData()">⚠️ Réinitialiser les données d'essai</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= MODALS INTERACTIVES ================= -->
+
+  <!-- MODAL : CONNEXION SÉCURISÉE (AUTHENTIFICATION) -->
+  <div id="modal-login" class="modal-overlay" style="z-index:9999; background:rgba(15, 23, 42, 0.9);">
+    <div class="modal" style="max-width:440px; padding:2rem; text-align:center; border:2px solid var(--primary);">
+      <div style="width:60px; height:60px; background:var(--primary-gradient); border-radius:16px; display:flex; align-items:center; justify-content:center; color:white; font-weight:900; font-size:1.8rem; margin:0 auto 1rem;">EG</div>
+      <h3 style="font-size:1.4rem; font-weight:900; color:var(--text-main); margin-bottom:0.25rem;">Connexion à EduGest Pro</h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.5rem;">Veuillez vous authentifier pour accéder à votre session de travail</p>
+      
+      <form id="form-login" onsubmit="handleLogin(event)" style="text-align:left;" autocomplete="off">
+        <div id="login-error-msg" style="display:none; background:#fee2e2; color:#991b1b; padding:10px; border-radius:8px; font-size:0.85rem; font-weight:700; margin-bottom:1rem; text-align:center;"></div>
+        
+        <div class="form-group">
+          <label class="form-label" style="font-weight:800;">Identifiant / Nom d'utilisateur :</label>
+          <input type="text" id="login-username" class="form-control" placeholder="Ex: admin, secretaire, econome..." required style="padding:10px 14px; font-weight:700;" autocomplete="off">
+        </div>
+        
+        <div class="form-group" style="margin-bottom:1.75rem;">
+          <label class="form-label" style="font-weight:800;">Mot de passe :</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required style="padding:10px 14px; font-weight:700;" autocomplete="new-password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:12px; font-size:1rem; font-weight:900; box-shadow:0 6px 20px rgba(79, 70, 229, 0.4);">🚀 Se Connecter</button>
+      </form>
+
+      <div id="login-helper-box" style="margin-top:1.5rem; padding:12px; background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px; text-align:left; font-size:0.75rem; color:#475569; display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; border-bottom:1px solid #cbd5e1; padding-bottom:4px;">
+          <b style="color:var(--primary);">💡 Aide de Connexion (Mode Démo) :</b>
+          <span class="badge badge-warning" style="font-size:0.65rem;">Masqué en Production</span>
+        </div>
+        • <b>KOGOinformatiques</b> / <code style="background:#fee2e2; color:#991b1b; padding:1px 6px; border-radius:4px; font-weight:800;">••••••••</code> <i>(Mot de passe protégé)</i><br>
+        • <b>admin</b> / <code style="background:#fee2e2; color:#991b1b; padding:1px 6px; border-radius:4px; font-weight:800;">••••••••</code> <i>(Mot de passe protégé)</i><br>
+        • <b>secretaire</b> / <code>sec123</code> (Inscriptions & Élèves)<br>
+        • <b>econome</b> / <code>eco123</code> (Caisse & A5)<br>
+        • <b>surveillant</b> / <code>surv123</code> (Présences & Incidents)<br>
+        • <b>professeur</b> / <code>prof123</code> (Notes & Appel)<br>
+        • <b>directeur</b> / <code>dir123</code> (Lecture Seule)
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal : Ajouter / Inscrire un élève -->
+  <div id="modal-add-student" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Inscrire un nouvel élève (Secrétariat)</h3>
+        <button class="btn-close" onclick="closeAddStudentModal()">&times;</button>
+      </div>
+      <form id="form-add-student" onsubmit="handleAddStudent(event)">
+        <div class="modal-body">
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Cycle Scolaire *</label>
+              <select id="stu-cycle" class="form-control" required>
+                <option value="maternelle">Maternelle (PS, MS, GS)</option>
+                <option value="primaire">Primaire (CP1 au CM2)</option>
+                <option value="college">Collège (6ème à 3ème)</option>
+                <option value="lycee">Lycée (2nde à Terminale)</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Classe correspondante *</label>
+              <select id="stu-class" class="form-control" required></select>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Nom de famille *</label>
+              <input type="text" id="stu-lastname" class="form-control" placeholder="Ex: KABORÉ" required>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Prénom(s) *</label>
+              <input type="text" id="stu-firstname" class="form-control" placeholder="Ex: Aminata" required>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Matricule (Auto-généré) *</label>
+              <input type="text" id="stu-id" class="form-control" readonly style="background:#f1f5f9; font-weight:700; color:var(--primary);">
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Tarif Scolarité (Dynamique) *</label>
+              <input type="text" id="stu-fee-preview" class="form-control" readonly style="background:#ecfdf5; font-weight:800; color:#059669;" value="150 000 FCFA / an">
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Sexe * & Date de Naissance (12 mois max) *</label>
+              <div style="display:flex; gap:6px;">
+                <select id="stu-gender" class="form-control" style="width:100px;" required>
+                  <option value="F">Féminin</option>
+                  <option value="M">Masculin</option>
+                </select>
+                <input type="date" id="stu-birthdate" class="form-control" value="2014-05-14" required>
+              </div>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Moyenne passée & Redoublant</label>
+              <div style="display:flex; gap:6px;">
+                <input type="number" step="0.1" id="stu-average" class="form-control" placeholder="14.5" style="width:100px;">
+                <select id="stu-repeating" class="form-control">
+                  <option value="Non">Non</option>
+                  <option value="Oui">Oui</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">École / Lycée d'origine</label>
+            <input type="text" id="stu-origin" class="form-control" placeholder="Ex: École Sainte-Marie">
+          </div>
+
+          <div style="display:flex; gap:1rem; background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #e2e8f0;">
+            <div class="form-group" style="flex:1; margin-bottom:0;">
+              <label class="form-label">Nom du Père & Téléphone *</label>
+              <input type="text" id="stu-father" class="form-control" placeholder="M. Kaboré (+226 70 00 00 00)" required>
+            </div>
+            <div class="form-group" style="flex:1; margin-bottom:0;">
+              <label class="form-label">Nom de la Mère *</label>
+              <input type="text" id="stu-mother" class="form-control" placeholder="Mme. Kaboré" required>
+            </div>
+          </div>
+
+          <!-- SECTION PHOTO D'IDENTITÉ / BADGE PVC -->
+          <div style="margin-top:1rem; padding:12px; background:#eff6ff; border:1px dashed #3b82f6; border-radius:10px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div id="stu-photo-preview-box" style="width:55px; height:70px; background:white; border:2px solid #3b82f6; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;">👩🏾‍🎓</div>
+              <div>
+                <label class="form-label" style="color:#1e40af; font-weight:800; margin-bottom:2px;">📸 Photo pour Carte d'Élève & Badge :</label>
+                <p style="font-size:0.75rem; color:#3b82f6; margin:0;">Format portrait ID (JPG/PNG). Capture caméra web ou fichier.</p>
+                <input type="file" id="stu-photo-file" accept="image/*" class="form-control" style="font-size:0.75rem; margin-top:4px; width:220px;" onchange="handleStudentPhotoSelect(event)">
+              </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="clearStudentPhotoSelect()">❌ Effacer</button>
+            <input type="hidden" id="stu-photo-base64" value="">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddStudentModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Valider l'inscription & Matricule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Ajouter un professeur -->
+  <div id="modal-add-teacher" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Ajouter un enseignant</h3>
+        <button class="btn-close" onclick="closeAddTeacherModal()">&times;</button>
+      </div>
+      <form id="form-add-teacher" onsubmit="handleAddTeacher(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Nom et Titre *</label>
+            <input type="text" id="tea-name" class="form-control" placeholder="Ex: M. Emmanuel KOGO" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Matière Enseignée *</label>
+            <input type="text" id="tea-subject" class="form-control" placeholder="Ex: Mathématiques, SVT..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email professionnel</label>
+            <input type="email" id="tea-email" class="form-control" placeholder="KOGOinformatiques@Saint-EMMANUEL.bf">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone</label>
+            <input type="text" id="tea-phone" class="form-control" placeholder="+226 76 00 00 00">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Classe principale assignée</label>
+            <input type="text" id="tea-classes" class="form-control" placeholder="Ex: Terminale (Tle)">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddTeacherModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Ajouter une matière / Coefficient -->
+  <div id="modal-add-subject" class="modal-overlay">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Ajouter une Discipline (Flexibilité)</h3>
+        <button class="btn-close" onclick="closeAddSubjectModal()">&times;</button>
+      </div>
+      <form id="form-add-subject" onsubmit="handleAddSubject(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Classe cible *</label>
+            <input type="text" id="new-sub-class" class="form-control" readonly style="background:#f1f5f9; font-weight:700;">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom de la matière *</label>
+            <input type="text" id="new-sub-name" class="form-control" placeholder="Ex: Informatique / TIC, Espagnol..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Coefficient *</label>
+            <input type="number" min="1" max="10" id="new-sub-coef" class="form-control" value="2" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enseignant Responsable</label>
+            <input type="text" id="new-sub-teacher" class="form-control" placeholder="Ex: M. Christian Bazié">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddSubjectModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Ajouter la matière</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Signaler un Incident ou Événement de Vie Scolaire (Surveillance) -->
+  <div id="modal-add-incident" class="modal-overlay">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header" style="background:#fef3c7; border-bottom:1px solid #fde68a;">
+        <h3 class="modal-title" style="color:#92400e;">🚨 Signaler un Incident (Vie Scolaire)</h3>
+        <button class="btn-close" onclick="closeAddIncidentModal()">&times;</button>
+      </div>
+      <form id="form-add-incident" onsubmit="handleAddIncident(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Élève Concerné *</label>
+            <select id="inc-student-select" class="form-control" required style="font-weight:700;"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nature du Signalement *</label>
+            <select id="inc-type" class="form-control" required>
+              <option value="⏳ Retard">⏳ Retard non justifié</option>
+              <option value="⚠️ Avertissement">⚠️ Avertissement / Incivilité</option>
+              <option value="🏥 Infirmerie">🏥 Passage Infirmerie (Maux de tête, blessure...)</option>
+              <option value="📞 Convocation">📞 Convocation parentale requise</option>
+              <option value="🏆 Félicitations">🏆 Félicitations / Assiduité exemplaire</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Observation détaillée *</label>
+            <textarea id="inc-note" class="form-control" rows="3" placeholder="Ex: Arrivé avec 15 minutes de retard au cours de Mathématiques..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddIncidentModal()">Annuler</button>
+          <button type="submit" class="btn btn-warning" style="font-weight:800;">🚨 Enregistrer au dossier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Créer un Profil Utilisateur (Admin) AVEC USERNAME & PASSWORD -->
+  <div id="modal-add-user" class="modal-overlay">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Créer un Profil Utilisateur (RBAC)</h3>
+        <button class="btn-close" onclick="closeAddUserModal()">&times;</button>
+      </div>
+      <form id="form-add-user" onsubmit="handleAddUser(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Nom et Prénom *</label>
+            <input type="text" id="usr-name" class="form-control" placeholder="Ex: Mme. Mariam OUEDRAOGO" required>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Identifiant (Username) *</label>
+              <input type="text" id="usr-username" class="form-control" placeholder="Ex: eKOGO" required>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Mot de passe *</label>
+              <input type="text" id="usr-pass" class="form-control" placeholder="Ex: kogo123" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rôle d'accès *</label>
+            <select id="usr-role" class="form-control" required>
+              <option value="secretaire">Secrétaire (Inscriptions)</option>
+              <option value="econome">Économe (Caisse & A5)</option>
+              <option value="surveillant">Surveillant (Présences)</option>
+              <option value="professeur">Enseignant (Notes)</option>
+              <option value="direction">Directeur (Lecture Seule)</option>
+              <option value="admin">Administrateur (Total)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email professionnel *</label>
+            <input type="email" id="usr-email" class="form-control" placeholder="KOGO@Saint-EMMANUEL.bf" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddUserModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Créer le compte</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Encaisser un versement -->
+  <div id="modal-add-payment" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Encaisser un versement (Caisse & Mobile Money)</h3>
+        <button class="btn-close" onclick="closeAddPaymentModal()">&times;</button>
+      </div>
+      <form id="form-add-payment" onsubmit="handleAddPayment(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Sélectionner l'Élève *</label>
+            <select id="pay-student" class="form-control" required></select>
+          </div>
+
+          <!-- CALCULATEUR DE MONNAIE À RENDRE ET CUMUL -->
+          <div id="change-calc-display" style="background:#f8fafc; border:2px solid #cbd5e1; padding:12px; border-radius:10px; margin-bottom:1.25rem;"></div>
+          
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Mode de Paiement *</label>
+              <select id="pay-method" class="form-control" required>
+                <option value="Orange Money">🟧 Orange Money</option>
+                <option value="Moov Money">🟦 Moov Money (Flooz)</option>
+                <option value="Espèces">💵 Espèces au guichet</option>
+                <option value="Virement Bancaire">🏛️ Virement Bancaire</option>
+                <option value="Chèque">📝 Chèque</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Case de Référence (N° Tx / Reçu) *</label>
+              <input type="text" id="pay-ref" class="form-control" placeholder="Ex: OM-891022 ou MOOV-7761" required>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem;">
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Motif / Tranche *</label>
+              <select id="pay-type" class="form-control">
+                <option value="Frais de scolarité - Tranche 1">Frais de scolarité - Tranche 1</option>
+                <option value="Frais de scolarité - Tranche 2">Frais de scolarité - Tranche 2</option>
+                <option value="Frais de scolarité - Solde annuel">Solde annuel de scolarité</option>
+                <option value="Acompte scolarité / Cantine">Acompte scolarité / Cantine</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label class="form-label">Montant Encaissé (FCFA) *</label>
+              <input type="number" id="pay-amount" class="form-control" placeholder="Ex: 75000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Statut du Paiement *</label>
+            <select id="pay-status" class="form-control">
+              <option value="Payé">Payé (Intégral / À jour)</option>
+              <option value="Partiel">Partiel / Acompte</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeAddPaymentModal()">Annuler</button>
+          <button type="submit" class="btn btn-success">Encaisser & Délivrer le Reçu A5</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal : Carte d'Élève avec Code QR -->
+  <div id="modal-student-card" class="modal-overlay">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🪪 Carte d'Élève Officielle & Code QR</h3>
+        <button class="btn-close" onclick="closeStudentCardModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="student-card-render"></div>
+      <div class="modal-footer" style="justify-content:space-between; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label class="btn btn-sm btn-secondary" style="margin:0; cursor:pointer; font-weight:800; background:#eff6ff; color:#1d4ed8; border:1px solid #3b82f6; box-shadow:0 2px 6px rgba(59,130,246,0.2);">
+            📸 Modifier la Photo
+            <input type="file" id="card-photo-upload" accept="image/*" style="display:none;" onchange="updateCardPhoto(event)">
+          </label>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="btn btn-secondary" onclick="closeStudentCardModal()">Fermer</button>
+          <button type="button" class="btn btn-primary" onclick="printStudentCard()">🖨️ Imprimer le Badge</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal : Impressions Format A5 (AVEC WHATSAPP ET SMS DIRECTS) -->
+  <div id="modal-a5-print" class="modal-overlay">
+    <div class="modal" style="max-width:650px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🖨️ Document Officiel (Format Feuille A5) & Envoi Direct</h3>
+        <button class="btn-close" onclick="closeA5Modal()">&times;</button>
+      </div>
+      <div class="modal-body" id="a5-render-area" style="padding:10px; background:#e2e8f0;"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeA5Modal()">Fermer</button>
+        <button type="button" class="btn btn-warning" onclick="printA5()">🖨️ Imprimer en A5 (`Ctrl+P`)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEUR DE TOASTS -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="app.js?v=14.0"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof populateA5StudentSelect === "function") {
+        populateA5StudentSelect();
+      }
+    });
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a166c3a80d17c534',t:'MTc4MzI1ODY0NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
