@@ -84,7 +84,9 @@ const INITIAL_DATA = {
   school: {
     name: "Lycée & Groupe Scolaire Saint-Exupéry",
     year: "2025 - 2026",
-    motto: "Unité - Progrès - Justice",
+    motto: "La Patrie Ou La Mort, Nous Vaincrons",
+    countryMotto: "La Patrie Ou La Mort, Nous Vaincrons",
+    logo: "🎓",
     country: "Burkina Faso",
     address: "Avenue de l'Indépendance, 01 BP 1000 Ouagadougou",
     phone: "+226 25 30 00 00",
@@ -116,7 +118,24 @@ const INITIAL_DATA = {
     { id: "MAT-2026-0006", lastName: "DIALLO", firstName: "Oumarou", gender: "M", cycle: "maternelle", class: "Grande Section (GS)", birthDate: "2020-04-10", originSchool: "Maternelle les Anges", pastAverage: 14.0, isRepeating: "Non", fatherName: "Abdou DIALLO (+226 75 66 77 88)", motherName: "Salimata DIALLO", status: "À jour", totalFee: 120000, balance: 0, attendance: 95, photo: "👶🏾", incidents: [] },
     { id: "MAT-2026-0007", lastName: "COULIBALY", firstName: "Aïcha", gender: "F", cycle: "college", class: "3ème", birthDate: "2011-08-12", originSchool: "Collège Moderne", pastAverage: 11.2, isRepeating: "Oui (3ème)", fatherName: "Seydou COULIBALY (+226 70 99 88 77)", motherName: "Chantal COULIBALY", status: "En retard", totalFee: 200000, balance: 100000, attendance: 88, photo: "👧🏾", incidents: ["Avertissement travail"] },
     { id: "MAT-2026-0008", lastName: "BARRY", firstName: "Cheick", gender: "M", cycle: "primaire", class: "CP1", birthDate: "2019-02-05", originSchool: "Maternelle Saint-Exupéry", pastAverage: 15.0, isRepeating: "Non", fatherName: "Hamidou BARRY (+226 78 12 34 56)", motherName: "Kadiatou BARRY", status: "À jour", totalFee: 150000, balance: 0, attendance: 94, photo: "👦🏾", incidents: [] },
-    { id: "MAT-2026-0009", lastName: "KOGO", firstName: "Manuel", gender: "M", cycle: "primaire", class: "CP1", birthDate: "2019-05-10", originSchool: "Maternelle Avenir", pastAverage: 16.0, isRepeating: "Non", fatherName: "M. KOGO (+226 78 90 00 11)", motherName: "Mme KOGO", status: "Partiel", totalFee: 50000, balance: 15000, attendance: 99, photo: "👦🏾", incidents: ["Inscrit en CP1 - Tarif 50 000 F"] }
+    { id: "MAT-2026-0009", lastName: "KOGO", firstName: "Manuel", gender: "M", cycle: "primaire", class: "CP1", birthDate: "2019-05-10", originSchool: "Maternelle Avenir", pastAverage: 16.0, isRepeating: "Non", fatherName: "M. KOGO (+226 78 90 00 11)", motherName: "Mme KOGO", status: "Partiel", totalFee: 50000, balance: 15000, attendance: 99, photo: "👦🏾", incidents: ["Inscrit en CP1 - Tarif 50 000 F"] },
+    { id: "MAT-2026-0010", lastName: "TAPSOBA", firstName: "Cédric", gender: "M", cycle: "maternelle", class: "Petite Section (PS)", birthDate: "2021-03-12", originSchool: "Crèche les Lutins", pastAverage: 13.0, isRepeating: "Non", fatherName: "Léonce TAPSOBA (+226 70 31 42 53)", motherName: "Bénédicte TAPSOBA", status: "À jour", totalFee: 120000, balance: 0, attendance: 97, photo: "👶🏾", incidents: [] },
+    { id: "MAT-2026-0011", lastName: "ZOUNGRANA", firstName: "Estelle", gender: "F", cycle: "maternelle", class: "Petite Section (PS)", birthDate: "2021-08-27", originSchool: "Crèche les Anges", pastAverage: 12.5, isRepeating: "Non", fatherName: "Aristide ZOUNGRANA (+226 76 42 31 20)", motherName: "Pélagie ZOUNGRANA", status: "À jour", totalFee: 120000, balance: 0, attendance: 96, photo: "👧🏾", incidents: [] },
+    { id: "MAT-2026-0012", lastName: "ILBOUDO", firstName: "Wenceslas", gender: "M", cycle: "maternelle", class: "Moyenne Section (MS)", birthDate: "2020-09-14", originSchool: "Maternelle les Lutins", pastAverage: 14.5, isRepeating: "Non", fatherName: "Émile ILBOUDO (+226 78 65 43 21)", motherName: "Joséphine ILBOUDO", status: "Partiel", totalFee: 120000, balance: 30000, attendance: 93, photo: "👶🏾", incidents: [] },
+    { id: "MAT-2026-0013", lastName: "NIKIÉMA", firstName: "Grâce", gender: "F", cycle: "maternelle", class: "Moyenne Section (MS)", birthDate: "2020-11-02", originSchool: "Maternelle Sainte-Marie", pastAverage: 15.1, isRepeating: "Non", fatherName: "Boureima NIKIÉMA (+226 71 22 33 44)", motherName: "Awa NIKIÉMA", status: "À jour", totalFee: 120000, balance: 0, attendance: 98, photo: "👧🏾", incidents: ["Bon comportement en classe"] },
+    { id: "MAT-2026-0014", lastName: "COMPAORÉ", firstName: "Merveille", gender: "F", cycle: "maternelle", class: "Grande Section (GS)", birthDate: "2020-01-30", originSchool: "Maternelle le Petit Prince", pastAverage: 15.8, isRepeating: "Non", fatherName: "Sylvain COMPAORÉ (+226 70 88 99 00)", motherName: "Mariette COMPAORÉ", status: "À jour", totalFee: 120000, balance: 0, attendance: 99, photo: "👧🏾", incidents: [] },
+    { id: "MAT-2026-0015", lastName: "SANOGO", firstName: "Hamadou", gender: "M", cycle: "primaire", class: "CP2", birthDate: "2018-06-18", originSchool: "École Primaire Centre B", pastAverage: 14.2, isRepeating: "Non", fatherName: "Moussa SANOGO (+226 75 11 22 33)", motherName: "Rokiatou SANOGO", status: "À jour", totalFee: 150000, balance: 0, attendance: 95, photo: "👩🏾‍🎓", incidents: [] },
+    { id: "MAT-2026-0016", lastName: "KAFANDO", firstName: "Rachida", gender: "F", cycle: "primaire", class: "CP2", birthDate: "2018-12-07", originSchool: "École Primaire Centre A", pastAverage: 13.7, isRepeating: "Non", fatherName: "Adama KAFANDO (+226 76 44 55 66)", motherName: "Salimata KAFANDO", status: "En retard", totalFee: 150000, balance: 75000, attendance: 90, photo: "👧🏾", incidents: ["Retards répétés matin"] },
+    { id: "MAT-2026-0017", lastName: "BAMBARA", firstName: "Issouf", gender: "M", cycle: "primaire", class: "CE1", birthDate: "2017-04-23", originSchool: "École Primaire Sainte-Marie", pastAverage: 12.9, isRepeating: "Non", fatherName: "Karim BAMBARA (+226 70 66 77 88)", motherName: "Aminata BAMBARA", status: "À jour", totalFee: 150000, balance: 0, attendance: 94, photo: "👦🏾", incidents: [] },
+    { id: "MAT-2026-0018", lastName: "YAMÉOGO", firstName: "Florence", gender: "F", cycle: "primaire", class: "CE2", birthDate: "2016-09-09", originSchool: "École Primaire le Doyen", pastAverage: 16.4, isRepeating: "Non", fatherName: "Cyrille YAMÉOGO (+226 78 12 23 34)", motherName: "Delphine YAMÉOGO", status: "À jour", totalFee: 150000, balance: 0, attendance: 97, photo: "👩🏾‍🎓", incidents: ["Félicitations trimestre 1"] },
+    { id: "MAT-2026-0019", lastName: "ZIDA", firstName: "Dieudonné", gender: "M", cycle: "primaire", class: "CM1", birthDate: "2016-02-11", originSchool: "Groupe Scolaire le Petit Prince", pastAverage: 15.5, isRepeating: "Non", fatherName: "Alassane ZIDA (+226 76 35 46 57)", motherName: "Martine ZIDA", status: "À jour", totalFee: 150000, balance: 0, attendance: 96, photo: "👦🏾", incidents: [] },
+    { id: "MAT-2026-0020", lastName: "OUATTARA", firstName: "Lalèyè", gender: "F", cycle: "primaire", class: "CM2", birthDate: "2015-07-19", originSchool: "École Primaire Centre C", pastAverage: 14.8, isRepeating: "Non", fatherName: "Daouda OUATTARA (+226 70 78 89 90)", motherName: "Fatim OUATTARA", status: "Partiel", totalFee: 150000, balance: 25000, attendance: 92, photo: "👧🏾", incidents: [] },
+    { id: "MAT-2026-0021", lastName: "SOMDA", firstName: "Maëva", gender: "F", cycle: "college", class: "6ème", birthDate: "2014-10-21", originSchool: "CM2 - Groupe Scolaire la Source", pastAverage: 16.7, isRepeating: "Non", fatherName: "Jean SOMDA (+226 72 66 55 44)", motherName: "Clarisse SOMDA", status: "À jour", totalFee: 200000, balance: 0, attendance: 96, photo: "👧🏾", incidents: [] },
+    { id: "MAT-2026-0022", lastName: "BASSOLE", firstName: "Roland", gender: "M", cycle: "college", class: "5ème", birthDate: "2013-05-16", originSchool: "6ème - Collège Moderne", pastAverage: 13.3, isRepeating: "Non", fatherName: "Théodore BASSOLE (+226 71 55 66 77)", motherName: "Bernadette BASSOLE", status: "À jour", totalFee: 200000, balance: 0, attendance: 93, photo: "👦🏾", incidents: [] },
+    { id: "MAT-2026-0023", lastName: "GNANOU", firstName: "Prisca", gender: "F", cycle: "college", class: "4ème", birthDate: "2013-01-08", originSchool: "5ème - Collège Sainte-Marie", pastAverage: 14.6, isRepeating: "Non", fatherName: "Bernard GNANOU (+226 76 22 33 44)", motherName: "Solange GNANOU", status: "À jour", totalFee: 200000, balance: 0, attendance: 95, photo: "👩🏾‍🎓", incidents: [] },
+    { id: "MAT-2026-0024", lastName: "DIENDÉRÉ", firstName: "Sana", gender: "F", cycle: "college", class: "3ème", birthDate: "2011-11-25", originSchool: "4ème - Collège Moderne", pastAverage: 15.9, isRepeating: "Non", fatherName: "Luc DIENDÉRÉ (+226 70 99 00 11)", motherName: "Héloïse DIENDÉRÉ", status: "À jour", totalFee: 200000, balance: 0, attendance: 97, photo: "👧🏾", incidents: [] },
+    { id: "MAT-2026-0025", lastName: "KABRÉ", firstName: "Jonathan", gender: "M", cycle: "lycee", class: "Seconde (2nde)", birthDate: "2010-08-03", originSchool: "3ème - Collège le Savoir", pastAverage: 15.2, isRepeating: "Non", fatherName: "Delwende KABRÉ (+226 78 44 55 66)", motherName: "Isabelle KABRÉ", status: "À jour", totalFee: 250000, balance: 0, attendance: 94, photo: "👨🏾‍🎓", incidents: [] },
+    { id: "MAT-2026-0026", lastName: "OUERMI", firstName: "Naomie", gender: "F", cycle: "lycee", class: "Première (1ère)", birthDate: "2009-03-17", originSchool: "2nde - Lycée Philippe Zinda", pastAverage: 16.3, isRepeating: "Non", fatherName: "Herman OUERMI (+226 71 88 99 00)", motherName: "Maimouna OUERMI", status: "À jour", totalFee: 250000, balance: 0, attendance: 98, photo: "👩🏾‍🎓", incidents: ["Prix d'excellence en 2nde"] }
   ],
   teachers: [
     { id: "PRF-01", name: "Dr. Alassane Diarra", subject: "Mathématiques", email: "a.diarra@saintexupery.bf", phone: "+226 70 20 30 40", classes: ["Terminale (Tle)", "3ème", "6ème"] },
@@ -132,7 +151,29 @@ const INITIAL_DATA = {
     { id: "REC-2026-078", student: "Jean-Paul SAWADOGO (MAT-2026-0002)", student_id: "MAT-2026-0002", type: "Frais de scolarité - T1", amount: 75000, date: "28/06/2026", status: "En retard", method: "Virement Bancaire", ref: "VIR-BF01-8890", operator: "M. Adama SANOU (Économe)" },
     { id: "REC-2026-084", student: "Manuel KOGO (MAT-2026-0009)", student_id: "MAT-2026-0009", type: "3ème versement scolarité", amount: 5000, date: "04/07/2026", status: "Partiel", method: "Espèces", ref: "RECU-KOGO-03", operator: "M. Adama SANOU (Économe)" },
     { id: "REC-2026-083", student: "Manuel KOGO (MAT-2026-0009)", student_id: "MAT-2026-0009", type: "2ème versement scolarité", amount: 20000, date: "03/07/2026", status: "Partiel", method: "Orange Money", ref: "OM-778811", operator: "M. Adama SANOU (Économe)" },
-    { id: "REC-2026-082", student: "Manuel KOGO (MAT-2026-0009)", student_id: "MAT-2026-0009", type: "1er versement scolarité", amount: 10000, date: "02/07/2026", status: "Partiel", method: "Espèces", ref: "RECU-KOGO-01", operator: "M. Adama SANOU (Économe)" }
+    { id: "REC-2026-082", student: "Manuel KOGO (MAT-2026-0009)", student_id: "MAT-2026-0009", type: "1er versement scolarité", amount: 10000, date: "02/07/2026", status: "Partiel", method: "Espèces", ref: "RECU-KOGO-01", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-085", student: "Fatilmata OUÉDRAOGO (MAT-2026-0003)", student_id: "MAT-2026-0003", type: "Frais de scolarité - Solde annuel", amount: 200000, date: "29/06/2026", status: "Payé", method: "Virement Bancaire", ref: "VIR-BF01-8901", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-086", student: "Oumarou DIALLO (MAT-2026-0006)", student_id: "MAT-2026-0006", type: "Frais de scolarité - Solde annuel", amount: 120000, date: "29/06/2026", status: "Payé", method: "Espèces", ref: "RECU-DIALLO-01", operator: "Secrétariat Caisse" },
+    { id: "REC-2026-087", student: "Cheick BARRY (MAT-2026-0008)", student_id: "MAT-2026-0008", type: "Frais de scolarité - Solde annuel", amount: 150000, date: "30/06/2026", status: "Payé", method: "Orange Money", ref: "OM-8820044", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-088", student: "Aïcha COULIBALY (MAT-2026-0007)", student_id: "MAT-2026-0007", type: "Acompte scolarité - T1", amount: 100000, date: "28/06/2026", status: "Partiel", method: "Espèces", ref: "RECU-COUL-01", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-089", student: "Cédric TAPSOBA (MAT-2026-0010)", student_id: "MAT-2026-0010", type: "Frais de scolarité - Solde annuel", amount: 120000, date: "29/06/2026", status: "Payé", method: "Moov Money", ref: "MOOV-22103", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-090", student: "Estelle ZOUNGRANA (MAT-2026-0011)", student_id: "MAT-2026-0011", type: "Frais de scolarité - Solde annuel", amount: 120000, date: "30/06/2026", status: "Payé", method: "Orange Money", ref: "OM-1188233", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-091", student: "Wenceslas ILBOUDO (MAT-2026-0012)", student_id: "MAT-2026-0012", type: "2ème versement scolarité", amount: 60000, date: "01/07/2026", status: "Partiel", method: "Espèces", ref: "RECU-ILB-02", operator: "Secrétariat Caisse" },
+    { id: "REC-2026-092", student: "Wenceslas ILBOUDO (MAT-2026-0012)", student_id: "MAT-2026-0012", type: "1er versement scolarité", amount: 30000, date: "28/06/2026", status: "Partiel", method: "Orange Money", ref: "OM-9091122", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-093", student: "Grâce NIKIÉMA (MAT-2026-0013)", student_id: "MAT-2026-0013", type: "Frais de scolarité - Solde annuel", amount: 120000, date: "30/06/2026", status: "Payé", method: "Espèces", ref: "RECU-NIK-01", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-094", student: "Merveille COMPAORÉ (MAT-2026-0014)", student_id: "MAT-2026-0014", type: "Frais de scolarité - Solde annuel", amount: 120000, date: "01/07/2026", status: "Payé", method: "Moov Money", ref: "MOOV-55617", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-095", student: "Hamadou SANOGO (MAT-2026-0015)", student_id: "MAT-2026-0015", type: "Frais de scolarité - Solde annuel", amount: 150000, date: "01/07/2026", status: "Payé", method: "Orange Money", ref: "OM-6655111", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-096", student: "Rachida KAFANDO (MAT-2026-0016)", student_id: "MAT-2026-0016", type: "Acompte scolarité - T1", amount: 75000, date: "29/06/2026", status: "Partiel", method: "Espèces", ref: "RECU-KAF-01", operator: "Secrétariat Caisse" },
+    { id: "REC-2026-097", student: "Issouf BAMBARA (MAT-2026-0017)", student_id: "MAT-2026-0017", type: "Frais de scolarité - Solde annuel", amount: 150000, date: "02/07/2026", status: "Payé", method: "Espèces", ref: "RECU-BAM-01", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-098", student: "Florence YAMÉOGO (MAT-2026-0018)", student_id: "MAT-2026-0018", type: "Frais de scolarité - Solde annuel", amount: 150000, date: "02/07/2026", status: "Payé", method: "Virement Bancaire", ref: "VIR-BF01-8989", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-099", student: "Dieudonné ZIDA (MAT-2026-0019)", student_id: "MAT-2026-0019", type: "Frais de scolarité - Solde annuel", amount: 150000, date: "03/07/2026", status: "Payé", method: "Orange Money", ref: "OM-3322445", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-100", student: "Lalèyè OUATTARA (MAT-2026-0020)", student_id: "MAT-2026-0020", type: "Acompte scolarité", amount: 125000, date: "30/06/2026", status: "Partiel", method: "Moov Money", ref: "MOOV-88999", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-101", student: "Maëva SOMDA (MAT-2026-0021)", student_id: "MAT-2026-0021", type: "Frais de scolarité - Solde annuel", amount: 200000, date: "29/06/2026", status: "Payé", method: "Virement Bancaire", ref: "VIR-BF01-8765", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-102", student: "Roland BASSOLE (MAT-2026-0022)", student_id: "MAT-2026-0022", type: "Frais de scolarité - Solde annuel", amount: 200000, date: "01/07/2026", status: "Payé", method: "Orange Money", ref: "OM-7744221", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-103", student: "Prisca GNANOU (MAT-2026-0023)", student_id: "MAT-2026-0023", type: "Frais de scolarité - Solde annuel", amount: 200000, date: "30/06/2026", status: "Payé", method: "Espèces", ref: "RECU-GNA-01", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-104", student: "Sana DIENDÉRÉ (MAT-2026-0024)", student_id: "MAT-2026-0024", type: "Frais de scolarité - Solde annuel", amount: 200000, date: "02/07/2026", status: "Payé", method: "Virement Bancaire", ref: "VIR-BF01-8899", operator: "Secrétariat Caisse" },
+    { id: "REC-2026-105", student: "Jonathan KABRÉ (MAT-2026-0025)", student_id: "MAT-2026-0025", type: "Frais de scolarité - Solde annuel", amount: 250000, date: "03/07/2026", status: "Payé", method: "Orange Money", ref: "OM-9911345", operator: "M. Adama SANOU (Économe)" },
+    { id: "REC-2026-106", student: "Naomie OUERMI (MAT-2026-0026)", student_id: "MAT-2026-0026", type: "Frais de scolarité - Solde annuel", amount: 250000, date: "01/07/2026", status: "Payé", method: "Moov Money", ref: "MOOV-1112233", operator: "M. Adama SANOU (Économe)" }
   ],
   grades: {
     "MAT-2026-0001": {
@@ -215,6 +256,165 @@ const INITIAL_DATA = {
         T2: { note1: 13.5, note2: 14, compo: 13.5 },
         T3: { note1: 14, note2: 14.5, compo: 14 }
       }
+    },
+    "MAT-2026-0003": {
+      "Mathématiques": {
+        T1: { note1: 16, note2: 16.5, compo: 17 },
+        T2: { note1: 15.5, note2: 16, compo: 16 },
+        T3: { note1: 17, note2: 16, compo: 16.5 }
+      },
+      "Français": {
+        T1: { note1: 16, note2: 15.5, compo: 16.5 },
+        T2: { note1: 17, note2: 16, compo: 16.5 },
+        T3: { note1: 16.5, note2: 17, compo: 17 }
+      },
+      "Histoire - Géographie": {
+        T1: { note1: 15, note2: 15.5, compo: 15 },
+        T2: { note1: 16, note2: 15, compo: 15.5 },
+        T3: { note1: 15.5, note2: 16, compo: 16 }
+      },
+      "Anglais": {
+        T1: { note1: 17, note2: 16.5, compo: 17.5 },
+        T2: { note1: 16, note2: 17, compo: 16.5 },
+        T3: { note1: 17.5, note2: 17, compo: 18 }
+      },
+      "Sciences / SVT": {
+        T1: { note1: 14.5, note2: 15, compo: 15 },
+        T2: { note1: 15, note2: 14.5, compo: 14.5 },
+        T3: { note1: 15.5, note2: 16, compo: 15 }
+      }
+    },
+    "MAT-2026-0021": {
+      "Mathématiques": {
+        T1: { note1: 18, note2: 17.5, compo: 18.5 },
+        T2: { note1: 17, note2: 18, compo: 17.5 },
+        T3: { note1: 18.5, note2: 18, compo: 19 }
+      },
+      "Français": {
+        T1: { note1: 17, note2: 17.5, compo: 17.5 },
+        T2: { note1: 18, note2: 17, compo: 17.5 },
+        T3: { note1: 17.5, note2: 18, compo: 18 }
+      },
+      "Histoire - Géographie": {
+        T1: { note1: 16.5, note2: 17, compo: 16.5 },
+        T2: { note1: 17, note2: 16.5, compo: 17 },
+        T3: { note1: 17.5, note2: 17, compo: 17.5 }
+      },
+      "Anglais": {
+        T1: { note1: 18.5, note2: 18, compo: 18 },
+        T2: { note1: 18, note2: 18.5, compo: 18.5 },
+        T3: { note1: 19, note2: 18.5, compo: 18.5 }
+      },
+      "Sciences / SVT": {
+        T1: { note1: 17, note2: 17.5, compo: 18 },
+        T2: { note1: 17.5, note2: 17, compo: 17.5 },
+        T3: { note1: 18, note2: 17.5, compo: 18 }
+      }
+    },
+    "MAT-2026-0024": {
+      "Mathématiques": {
+        T1: { note1: 16, note2: 15.5, compo: 16 },
+        T2: { note1: 15, note2: 16, compo: 15.5 },
+        T3: { note1: 16.5, note2: 16, compo: 16 }
+      },
+      "Français & Littérature": {
+        T1: { note1: 15.5, note2: 16, compo: 15.5 },
+        T2: { note1: 16, note2: 15.5, compo: 16 },
+        T3: { note1: 16.5, note2: 16, compo: 16.5 }
+      },
+      "Physique - Chimie": {
+        T1: { note1: 15, note2: 15.5, compo: 15.5 },
+        T2: { note1: 14.5, note2: 15, compo: 15 },
+        T3: { note1: 16, note2: 15.5, compo: 15.5 }
+      },
+      "Histoire - Géographie": {
+        T1: { note1: 16, note2: 16.5, compo: 16 },
+        T2: { note1: 15.5, note2: 16, compo: 16.5 },
+        T3: { note1: 17, note2: 16.5, compo: 16.5 }
+      },
+      "Anglais": {
+        T1: { note1: 17, note2: 16.5, compo: 17 },
+        T2: { note1: 16.5, note2: 17, compo: 16.5 },
+        T3: { note1: 17.5, note2: 17, compo: 17 }
+      }
+    },
+    "MAT-2026-0007": {
+      "Mathématiques": {
+        T1: { note1: 9, note2: 8.5, compo: 9 },
+        T2: { note1: 9.5, note2: 9, compo: 9.5 },
+        T3: { note1: 10, note2: 9.5, compo: 10 }
+      },
+      "Français & Littérature": {
+        T1: { note1: 10, note2: 10.5, compo: 10 },
+        T2: { note1: 11, note2: 10, compo: 10.5 },
+        T3: { note1: 10.5, note2: 11, compo: 11 }
+      },
+      "Physique - Chimie": {
+        T1: { note1: 9.5, note2: 10, compo: 9.5 },
+        T2: { note1: 10, note2: 9.5, compo: 10 },
+        T3: { note1: 10.5, note2: 10, compo: 10 }
+      },
+      "Histoire - Géographie": {
+        T1: { note1: 11, note2: 10.5, compo: 11 },
+        T2: { note1: 10.5, note2: 11, compo: 10.5 },
+        T3: { note1: 11.5, note2: 11, compo: 11 }
+      },
+      "Anglais": {
+        T1: { note1: 10.5, note2: 11, compo: 10.5 },
+        T2: { note1: 11, note2: 10, compo: 11 },
+        T3: { note1: 11, note2: 11.5, compo: 11.5 }
+      }
+    },
+    "MAT-2026-0018": {
+      "Français / Langage": {
+        T1: { note1: 17, note2: 17.5, compo: 17.5 },
+        T2: { note1: 18, note2: 17, compo: 17.5 },
+        T3: { note1: 17.5, note2: 18, compo: 18 }
+      },
+      "Calcul / Mathématiques": {
+        T1: { note1: 16, note2: 16.5, compo: 16.5 },
+        T2: { note1: 17, note2: 16, compo: 16.5 },
+        T3: { note1: 16.5, note2: 17, compo: 17 }
+      },
+      "Éveil / Sciences": {
+        T1: { note1: 16.5, note2: 17, compo: 16.5 },
+        T2: { note1: 17, note2: 16.5, compo: 17 },
+        T3: { note1: 17.5, note2: 17, compo: 17.5 }
+      }
+    },
+    "MAT-2026-0019": {
+      "Français / Langage": {
+        T1: { note1: 15, note2: 15.5, compo: 15.5 },
+        T2: { note1: 16, note2: 15, compo: 15.5 },
+        T3: { note1: 15.5, note2: 16, compo: 16 }
+      },
+      "Calcul / Mathématiques": {
+        T1: { note1: 15.5, note2: 16, compo: 16 },
+        T2: { note1: 16, note2: 15.5, compo: 15.5 },
+        T3: { note1: 16.5, note2: 16, compo: 16.5 }
+      },
+      "Éveil / Sciences": {
+        T1: { note1: 14, note2: 14.5, compo: 14.5 },
+        T2: { note1: 15, note2: 14, compo: 14.5 },
+        T3: { note1: 15.5, note2: 15, compo: 15 }
+      }
+    },
+    "MAT-2026-0020": {
+      "Français / Langage": {
+        T1: { note1: 14, note2: 14.5, compo: 14.5 },
+        T2: { note1: 15, note2: 14, compo: 14.5 },
+        T3: { note1: 14.5, note2: 15, compo: 15 }
+      },
+      "Calcul / Mathématiques": {
+        T1: { note1: 13.5, note2: 14, compo: 14 },
+        T2: { note1: 14, note2: 13.5, compo: 13.5 },
+        T3: { note1: 15, note2: 14.5, compo: 14 }
+      },
+      "Éveil / Sciences": {
+        T1: { note1: 14.5, note2: 15, compo: 15 },
+        T2: { note1: 15, note2: 14.5, compo: 14.5 },
+        T3: { note1: 15.5, note2: 15, compo: 15.5 }
+      }
     }
   }
 };
@@ -224,6 +424,41 @@ function getStuName(s) {
   const last = s.lastName || s.last_name || "Inconnu";
   const first = s.firstName || s.first_name || "";
   return `${last.toUpperCase()} ${first}`.trim();
+}
+
+function getSchoolLogoHTML(sz = 42) {
+  const logo = appData?.school?.logo || "🎓";
+  const isImg = /^(data:image|https?:\/\/)/i.test(String(logo).trim());
+  if (isImg) {
+    return `<img src="${logo}" alt="Logo ${(appData?.school?.name || "").replace(/"/g, "")}" style="width:${sz}px; height:${sz}px; object-fit:contain; border-radius:8px; border:1px solid #cbd5e1; background:#ffffff; padding:2px; flex-shrink:0;">`;
+  }
+  return `<span style="display:inline-flex; align-items:center; justify-content:center; width:${sz}px; height:${sz}px; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#ffffff; font-size:${Math.max(Math.round(sz * 0.5), 14)}px; border-radius:50%; box-shadow:0 2px 6px rgba(0,0,0,.18); flex-shrink:0; line-height:1;">${logo}</span>`;
+}
+
+function loadSchoolConfigIntoForm() {
+  const sc = appData?.school || {};
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = (v !== undefined && v !== null) ? v : ""; };
+  set("set-school-name", sc.name || sc.school_name);
+  set("set-school-motto", sc.motto);
+  set("set-country-motto", sc.countryMotto || sc.country_motto || sc.motto);
+  set("set-school-year", sc.year || sc.school_year);
+  set("set-school-logo", sc.logo || "🎓");
+  const prev = document.getElementById("set-school-logo-preview");
+  if (prev && appData) prev.innerHTML = getSchoolLogoHTML(44);
+}
+
+function handleSchoolLogoSelect(e) {
+  const file = e.target?.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const dataUrl = ev.target.result;
+    const input = document.getElementById("set-school-logo");
+    if (input) input.value = dataUrl;
+    const prev = document.getElementById("set-school-logo-preview");
+    if (prev) prev.innerHTML = `<img src="${dataUrl}" alt="Logo" style="width:44px; height:44px; object-fit:contain; border:1px solid #cbd5e1; border-radius:8px; background:#fff;">`;
+  };
+  reader.readAsDataURL(file);
 }
 
 function getStuClass(s) {
@@ -265,8 +500,13 @@ function sanitizeAppData(data) {
   if (!data.school) data.school = INITIAL_DATA.school;
   if (!data.school.name && data.school.school_name) data.school.name = data.school.school_name;
   if (!data.school.name) data.school.name = "Lycée & Groupe Scolaire Saint-Exupéry";
-  if (!data.school.motto) data.school.motto = "Unité - Progrès - Justice";
+  if (!data.school.motto) data.school.motto = "La Patrie Ou La Mort, Nous Vaincrons";
+  if (!data.school.countryMotto && data.school.country_motto) data.school.countryMotto = data.school.country_motto;
+  if (!data.school.countryMotto) data.school.countryMotto = data.school.motto;
+  if (!data.school.logo && data.school.school_logo) data.school.logo = data.school.school_logo;
+  if (!data.school.logo) data.school.logo = "🎓";
   if (!data.school.phone) data.school.phone = "+226 25 30 00 00";
+  if (!data.school.country) data.school.country = "Burkina Faso";
   if (!data.school.director) data.school.director = "M. Ousmane COMPAORÉ";
   if (!data.school.directorMaternelle) data.school.directorMaternelle = data.school.director_maternelle || "Mme Aminata KINDA";
   if (!data.school.directorPrimaire) data.school.directorPrimaire = data.school.director_primaire || data.school.director || "M. Ousmane COMPAORÉ";
@@ -328,21 +568,55 @@ function sanitizeAppData(data) {
   
   if (!data.grades || typeof data.grades !== "object") data.grades = INITIAL_DATA.grades;
   else data.grades = migrateGradesToTrimester(data.grades);
+
+  // --- REGISTRE DES RESPONSABLES & SIGNATAIRES (noms, contacts, cachets) ---
+  if (data.school) data.school.responsables = applyResponsablesBackfill(data.school);
+
+  // --- GESTION PAR ANNÉE SCOLAIRE ---
+  if (!data.academicYears || !Array.isArray(data.academicYears) || data.academicYears.length === 0) {
+    const curY = (data.school && data.school.year) || "2025 - 2026";
+    data.academicYears = [{ year_label: curY, is_current: 1, is_archived: 0 }];
+  }
+  if (!data.currentYear) data.currentYear = (data.school && data.school.year) || "2025 - 2026";
   return data;
 }
 
 let appData = sanitizeAppData(JSON.parse(localStorage.getItem("edugest_pro_v14_data") || localStorage.getItem("edugest_pro_v13_data")) || INITIAL_DATA);
 let currentView = "dashboard";
 let currentRole = "admin";
+let userRealRole = "admin";
 let activeGradeTrimester = "T1";
+let activeFinancePeriod = null;
 let loggedUser = JSON.parse(sessionStorage.getItem("edugest_logged_user")) || null;
 let isConnectedToServer = false;
+
+function getAuthHeaders() {
+  const token = localStorage.getItem("edugest_token");
+  return token ? { "Authorization": "Bearer " + token } : {};
+}
+
+async function refreshServerState() {
+  if (!isConnectedToServer) return;
+  try {
+    const storedYear = localStorage.getItem("edugest_selected_year");
+    const yearParam = storedYear ? `?year=${encodeURIComponent(storedYear)}` : "";
+    const res = await fetch("/api/state" + yearParam, { headers: getAuthHeaders() });
+    if (res.ok) {
+      const serverData = await res.json();
+      appData = sanitizeAppData(serverData);
+      recalculateAllStudentFinancials();
+      renderAll();
+    }
+  } catch(e) { console.log("Rechargement serveur indisponible en mode local."); }
+}
 
 async function initApp() {
   console.log("🚀 Initialisation blindée d'EduGest Pro V13.0 (Edition Binôme)...");
   
   try {
-    const res = await fetch("/api/state");
+    const storedYear = localStorage.getItem("edugest_selected_year");
+    const yearParam = storedYear ? `?year=${encodeURIComponent(storedYear)}` : "";
+    const res = await fetch("/api/state" + yearParam, { headers: getAuthHeaders() });
     if (res.ok) {
       const serverData = await res.json();
       console.log("🌐 Connecté avec succès au serveur Python/SQLite !");
@@ -370,6 +644,7 @@ async function initApp() {
   }
 
   renderAll();
+  loadSchoolConfigIntoForm();
 }
 
 if (document.readyState === "loading") {
@@ -393,41 +668,57 @@ async function fetchLicenseInfo() {
       const data = await res.json();
       const el = document.getElementById("machine-id-display");
       if (el) el.textContent = data.machine_id;
-      
+
       const statusEl = document.getElementById("license-status-display");
       if (statusEl && data.license_status) {
         statusEl.textContent = data.license_status;
-        if (data.license_period === "perpetual") statusEl.style.color = "#7c3aed";
-        else if (data.license_period === "demo") statusEl.style.color = "#d97706";
-        else statusEl.style.color = "#059669";
+        const col = data.license_color;
+        if (col === "ok") statusEl.style.color = "#059669";
+        else if (col === "perpetual") statusEl.style.color = "#7c3aed";
+        else if (col === "demo") statusEl.style.color = "#d97706";
+        else statusEl.style.color = "#dc2626";
       }
-      const sel = document.getElementById("set-license-period");
-      if (sel && data.license_period) sel.value = data.license_period;
     }
   } catch(e) {
     const el = document.getElementById("machine-id-display");
-    if (el) el.textContent = "BF-9A81-33C2";
-    
+    if (el) el.textContent = appData?.machineId || "8A2F-9B10-4C3D";
     const statusEl = document.getElementById("license-status-display");
-    const savedText = appData?.school?.licenseStatusText || "🟢 LICENCE VALIDE (EXP: 31/07/2027)";
-    if (statusEl) {
-      statusEl.textContent = savedText;
-      const period = appData?.school?.licensePeriod || "annual";
-      if (period === "perpetual") statusEl.style.color = "#7c3aed";
-      else if (period === "demo") statusEl.style.color = "#d97706";
-      else statusEl.style.color = "#059669";
+    if (statusEl) statusEl.textContent = "🟠 Impossible de vérifier la licence (serveur injoignable).";
+  }
+}
+
+async function installLicenseToken() {
+  if (userRealRole !== "admin") {
+    alert("⛔ Accès Refusé : Seul l'Administrateur Général peut installer la licence.");
+    return;
+  }
+  const token = document.getElementById("license-token-input")?.value?.trim();
+  const msgEl = document.getElementById("license-install-msg");
+  if (!token) {
+    if (msgEl) msgEl.innerHTML = '<span style="color:#dc2626;">⚠️ Veuillez coller le jeton de licence reçu de l\'éditeur.</span>';
+    return;
+  }
+  if (!isConnectedToServer) {
+    if (msgEl) msgEl.innerHTML = '<span style="color:#dc2626;">❌ Serveur injoignable. La licence est installée côté serveur : vérifiez la connexion réseau.</span>';
+    return;
+  }
+  try {
+    const res = await fetch("/api/license-install", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+      body: JSON.stringify({ token })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      if (msgEl) msgEl.innerHTML = `<span style="color:#dc2626;">❌ ${data.detail || "Licence invalide."}</span>`;
+      return;
     }
-    const sel = document.getElementById("set-license-period");
-    if (sel && appData?.school?.licensePeriod) sel.value = appData.school.licensePeriod;
-    const selSec = document.getElementById("set-login-security-mode");
-    if (selSec && appData?.school?.loginSecurityMode) selSec.value = appData.school.loginSecurityMode;
-    const selInc = document.getElementById("set-inactivity-timeout");
-    if (selInc && appData?.school?.inactivityTimeout !== undefined) selInc.value = appData.school.inactivityTimeout;
-    const setVal = (elemId, val) => { const el = document.getElementById(elemId); if (el && val !== undefined) el.value = val; };
-    setVal("set-dir-maternelle", appData?.school?.directorMaternelle);
-    setVal("set-dir-primaire", appData?.school?.directorPrimaire);
-    setVal("set-dir-college", appData?.school?.directorCollege);
-    setVal("set-dir-lycee", appData?.school?.directorLycee);
+    if (msgEl) msgEl.innerHTML = `<span style="color:#059669;">✅ ${data.message}</span>`;
+    showToast("✅ " + data.message, "success");
+    fetchLicenseInfo();
+  } catch(e) {
+    if (msgEl) msgEl.innerHTML = '<span style="color:#dc2626;">❌ Erreur lors de l\'installation de la licence.</span>';
+    console.error("Erreur install licence", e);
   }
 }
 
@@ -470,6 +761,9 @@ async function handleLogin(e) {
       if (res.ok) {
         const data = await res.json();
         foundUser = data.user;
+        if (data.token) {
+          localStorage.setItem("edugest_token", data.token);
+        }
       } else {
         if (errBox) { errBox.textContent = "❌ Identifiant ou mot de passe incorrect."; errBox.style.display = "block"; }
         return;
@@ -494,6 +788,7 @@ async function handleLogin(e) {
     applyUserSession(loggedUser);
     resetInactivityTimer();
     showToast(`🎉 Bienvenue ${loggedUser.name} ! Session active.`, "success");
+    refreshServerState();
   } else {
     if (errBox) { errBox.textContent = "❌ Identifiant ou mot de passe incorrect."; errBox.style.display = "block"; }
     showToast("❌ Échec de connexion : vérifiez vos identifiants.", "danger");
@@ -502,6 +797,7 @@ async function handleLogin(e) {
 
 function applyUserSession(user) {
   currentRole = user.role;
+  userRealRole = user.role;
   document.body.className = `role-${currentRole}`;
   
   const roleNames = {
@@ -521,6 +817,13 @@ function applyUserSession(user) {
   const nameEl = document.getElementById("logged-user-name");
   if (nameEl) nameEl.textContent = user.name;
 
+  const roleContainer = document.querySelector(".role-selector-container");
+  const roleSelect = document.getElementById("role-selector");
+  if (roleContainer) {
+    roleContainer.style.display = userRealRole === "admin" ? "flex" : "none";
+  }
+  if (roleSelect) roleSelect.value = currentRole;
+
   applyRolePermissions();
   renderAll();
 }
@@ -529,6 +832,7 @@ function logout() {
   if (confirm("Voulez-vous fermer votre session de travail ?")) {
     if (inactivityTimer) clearTimeout(inactivityTimer);
     sessionStorage.removeItem("edugest_logged_user");
+    localStorage.removeItem("edugest_token");
     loggedUser = null;
     const form = document.getElementById("form-login");
     if (form) form.reset();
@@ -546,6 +850,9 @@ function applyRolePermissions() {
   document.querySelectorAll(".btn-admin-only").forEach(btn => {
     btn.style.display = currentRole === "admin" ? "inline-flex" : "none";
   });
+  document.querySelectorAll(".btn-direction-edit").forEach(btn => {
+    btn.style.display = (currentRole === "admin" || currentRole === "direction") ? "inline-flex" : "none";
+  });
   document.querySelectorAll(".btn-secretaire-only").forEach(btn => {
     btn.style.display = (currentRole === "admin" || currentRole === "secretaire") ? "inline-flex" : "none";
   });
@@ -562,14 +869,25 @@ function applyRolePermissions() {
 
 function setupRoleSimulator() {
   const select = document.getElementById("role-selector");
+  const container = document.querySelector(".role-selector-container");
   if (!select) return;
   select.value = currentRole;
+  if (userRealRole !== "admin") {
+    if (container) container.style.display = "none";
+    return;
+  }
+  if (container) container.style.display = "flex";
   select.addEventListener("change", (e) => {
     switchRole(e.target.value);
   });
 }
 
 function switchRole(role) {
+  if (userRealRole !== "admin") {
+    showToast("⛔ Seul l'Administrateur peut changer de rôle.", "danger");
+    currentRole = userRealRole;
+    return;
+  }
   currentRole = role;
   document.body.className = `role-${role}`;
   const roleNames = {
@@ -598,8 +916,7 @@ function switchRole(role) {
 
 // --- GESTION DE LA NAVIGATION AVEC VERROUILLAGE ADMINISTRATEUR ---
 function switchView(viewId) {
-  // BARRICADE ANTI-INTRUSION : SEUL L'ADMIN PEUT ACCÉDER AUX PARAMÈTRES / LICENCE
-  if (viewId === "settings" && currentRole !== "admin") {
+  if (viewId === "settings" && userRealRole !== "admin") {
     showToast("⛔ ACCÈS INTERDIT : Seul l'Administrateur Général a le droit d'accéder aux configurations, comptes et licence !", "danger");
     switchView("dashboard");
     return;
@@ -727,6 +1044,13 @@ function setupEventListeners() {
     });
   }
 
+  const bulletinClassSel = document.getElementById("bulletin-class-select");
+  if (bulletinClassSel) {
+    bulletinClassSel.addEventListener("change", () => {
+      filterBulletinStudents();
+    });
+  }
+
   const attClassSel = document.getElementById("att-class-select");
   if (attClassSel) {
     attClassSel.addEventListener("change", (e) => {
@@ -739,6 +1063,27 @@ function setupEventListeners() {
   if (payAmtInput && payStuSelect) {
     payAmtInput.addEventListener("input", updatePaymentChangeCalculator);
     payStuSelect.addEventListener("change", updatePaymentChangeCalculator);
+  }
+  const payStudentSearch = document.getElementById("pay-student-search");
+  if (payStudentSearch && payStuSelect) {
+    payStudentSearch.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && payStuSelect.options.length > 0) {
+        e.preventDefault();
+        payStuSelect.selectedIndex = 0;
+        updatePaymentChangeCalculator();
+      }
+    });
+  }
+  const a5Search = document.getElementById("a5-student-search");
+  const a5Sel = document.getElementById("a5-student-select");
+  if (a5Search && a5Sel) {
+    a5Search.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && a5Sel.options.length > 0) {
+        e.preventDefault();
+        a5Sel.selectedIndex = 0;
+        a5Sel.dispatchEvent(new Event("change"));
+      }
+    });
   }
 }
 
@@ -761,11 +1106,15 @@ function populateSubjectSelectForProf(selectId, className) {
   } catch(e) { console.error("Erreur select subject:", e); }
 }
 
-function populateA5StudentSelect() {
+function renderA5StudentOptions(query) {
   try {
     const sel = document.getElementById("a5-student-select");
     if (!sel) return;
-    sel.innerHTML = appData.students.map(s => {
+    const needle = String(query || "").toLowerCase().trim();
+    const list = needle
+      ? appData.students.filter(s => (getStuName(s) + " " + s.id + " " + getStuClass(s)).toLowerCase().includes(needle))
+      : appData.students;
+    sel.innerHTML = list.map(s => {
       const name = getStuName(s);
       const cls = getStuClass(s);
       const tot = s.totalFee || s.total_fee || 150000;
@@ -774,6 +1123,10 @@ function populateA5StudentSelect() {
     }).join("");
   } catch(e) { console.error("Erreur a5 select:", e); }
 }
+
+function populateA5StudentSelect() { renderA5StudentOptions(""); }
+
+function filterA5StudentList(q) { renderA5StudentOptions(q); }
 
 function updateStudentFeePreview(cycleKey) {
   try {
@@ -785,16 +1138,72 @@ function updateStudentFeePreview(cycleKey) {
   } catch(e) {}
 }
 
+function getCurrentYearLabel() {
+  return appData?.currentYear || appData?.school?.year || "2025 - 2026";
+}
+
+function getNextYearLabel(cur) {
+  const m = String(cur || "").match(/(\d{4})\s*-\s*(\d{4})/);
+  if (m) {
+    return `${Number(m[1]) + 1} - ${Number(m[2]) + 1}`;
+  }
+  return `${cur || "2025 - 2026"} - (année suivante)`;
+}
+
+function renderYearSelector() {
+  const cur = getCurrentYearLabel();
+  const sel = document.getElementById("year-select");
+  if (sel && appData.academicYears) {
+    sel.innerHTML = appData.academicYears.map(y => {
+      const label = y.year_label || y;
+      const sub = y.is_current ? " (Actuelle)" : y.is_archived ? " (Archivée)" : "";
+      return `<option value="${label}"${label === cur ? " selected" : ""}>${label}${sub}</option>`;
+    }).join("");
+  }
+  const badge = document.getElementById("current-year-badge");
+  if (badge) badge.textContent = cur;
+  const finSub = document.getElementById("finance-year-sub");
+  if (finSub) finSub.textContent = `Évolutions mensuelles des encaissements sur l'année ${cur}`;
+  const exportLabel = document.getElementById("export-year-label");
+  if (exportLabel) exportLabel.textContent = `(${cur})`;
+}
+
+async function switchAcademicYear(year) {
+  if (!year) return;
+  localStorage.setItem("edugest_selected_year", year);
+  if (isConnectedToServer) {
+    try {
+      const res = await fetch(`/api/state?year=${encodeURIComponent(year)}`);
+      if (res.ok) {
+        const data = await res.json();
+        appData = sanitizeAppData(data);
+        recalculateAllStudentFinancials();
+        renderAll();
+        showToast(`🗓️ Année scolaire "${year}" chargée (classes & effectifs conservés).`, "success");
+        return;
+      }
+    } catch(err) { console.error("Erreur bascule d'année:", err); }
+  }
+  appData.currentYear = year;
+  if (appData.school) appData.school.year = year;
+  renderAll();
+  showToast(`🗓️ Année sélectionnée : "${year}" (mode hors-ligne : mêmes données démo).`, "info");
+}
+
 function renderAll() {
   try { applyRolePermissions(); } catch(e) {}
   try { renderDashboard(); } catch(e) {}
+  try { renderYearSelector(); } catch(e) {}
   try { renderStudentsTable(); } catch(e) {}
   try { renderTeachersTable(); } catch(e) {}
   try { renderClassesGrid(); } catch(e) {}
   try { renderFinanceTable(); } catch(e) {}
+  try { renderFinanceSummary(); } catch(e) {}
+  try { populateA5StudentSelect(); } catch(e) {}
   try { renderAttendanceModule(); } catch(e) {}
   try { renderUsersTable(); } catch(e) {}
   try { renderDynamicFeesTable(); } catch(e) {}
+  try { renderResponsablesTable(); } catch(e) {}
   try { updateStudentSelects(); } catch(e) {}
   try { populateA5StudentSelect(); } catch(e) {}
   
@@ -820,6 +1229,11 @@ function renderAll() {
     if (attClassSel && !attClassSel.innerHTML) {
       attClassSel.innerHTML = allClassNames.map(c => `<option value="${c}">${c}</option>`).join("");
       renderClassRollCall(attClassSel.value);
+    }
+
+    const bulletinClassSel = document.getElementById("bulletin-class-select");
+    if (bulletinClassSel && (!bulletinClassSel.innerHTML || bulletinClassSel.options.length <= 1)) {
+      populateBulletinClassSelect();
     }
   } catch(e) {}
 }
@@ -912,6 +1326,8 @@ function renderStudentsTable(filteredStudents = null) {
   const tbody = document.getElementById("students-table-body");
   if (!tbody) return;
   const list = filteredStudents || appData.students;
+  const countLabel = document.getElementById("students-count-label");
+  if (countLabel) countLabel.textContent = `(${list.length}/${appData.students.length})`;
   
   if (list.length === 0) {
     tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 2.5rem; color: var(--text-muted);">Aucun élève trouvé pour ce critère.</td></tr>`;
@@ -1009,6 +1425,17 @@ function openEditStudentModal(id) {
   modal.classList.add("active");
 }
 
+function prepareAddStudentForm() {
+  document.getElementById("form-add-student")?.reset();
+  clearStudentPhotoSelect();
+  const nextNum = String(appData.students.length + 1).padStart(4, "0");
+  const stuId = document.getElementById("stu-id");
+  if (stuId) stuId.value = `MAT-2026-${nextNum}`;
+  const cyc = document.getElementById("stu-cycle")?.value || "maternelle";
+  populateClassSelect("stu-class", cyc, false);
+  updateStudentFeePreview(cyc);
+}
+
 function openAddStudentModal() {
   if (currentRole !== "admin" && currentRole !== "secretaire") {
     alert("⛔ Accès Refusé : Seuls l'Administrateur et le Secrétariat peuvent inscrire ou modifier un élève.");
@@ -1022,17 +1449,7 @@ function openAddStudentModal() {
     const subBtn = modal.querySelector("button[type='submit']");
     if (subBtn) subBtn.textContent = "Valider l'inscription & Matricule";
   }
-  document.getElementById("form-add-student")?.reset();
-  clearStudentPhotoSelect();
-
-  const nextNum = String(appData.students.length + 1).padStart(4, "0");
-  const stuId = document.getElementById("stu-id");
-  if (stuId) stuId.value = `MAT-2026-${nextNum}`;
-  
-  const cyc = document.getElementById("stu-cycle")?.value || "maternelle";
-  populateClassSelect("stu-class", cyc, false);
-  updateStudentFeePreview(cyc);
-  
+  prepareAddStudentForm();
   modal.classList.add("active");
 }
 
@@ -1100,7 +1517,7 @@ async function handleAddStudent(e) {
         try {
           await fetch("/api/students", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", ...getAuthHeaders() },
             body: JSON.stringify(stu)
           });
         } catch(err) { console.error("Erreur synchro modif student"); }
@@ -1118,7 +1535,7 @@ async function handleAddStudent(e) {
     firstName: firstNameVal,
     gender: document.getElementById("stu-gender")?.value || "F",
     cycle: cycleVal,
-    class: classVal,
+    class_name: classVal,
     birthDate: bDateVal || "2014-05-14",
     originSchool: document.getElementById("stu-origin")?.value || "École Normale",
     pastAverage: parseFloat(document.getElementById("stu-average")?.value) || 12.0,
@@ -1137,7 +1554,7 @@ async function handleAddStudent(e) {
     try {
       await fetch("/api/students", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         body: JSON.stringify(newStudent)
       });
     } catch(err) {
@@ -1147,8 +1564,16 @@ async function handleAddStudent(e) {
 
   appData.students.unshift(newStudent);
   saveData();
-  closeAddStudentModal();
   showToast(`🎉 Nouvel élève inscrit : ${newStudent.firstName} ${newStudent.lastName} (${newStudent.class} - Tarif: ${assignedFee.toLocaleString('fr-FR')} FCFA) !`, "success");
+
+  const keepOpen = document.getElementById("stu-continue")?.checked;
+  if (keepOpen) {
+    prepareAddStudentForm();
+    const continueBox = document.getElementById("stu-continue");
+    if (continueBox) continueBox.checked = true;
+  } else {
+    closeAddStudentModal();
+  }
 }
 
 async function deleteStudent(id) {
@@ -1159,7 +1584,7 @@ async function deleteStudent(id) {
   if (confirm("⚠️ ATTENTION : Supprimer définitivement ce dossier élève ?\n\nSes encaissements et ses notes seront également purgés en cascade !")) {
     if (isConnectedToServer) {
       try {
-        await fetch(`/api/students/${id}`, { method: "DELETE" });
+        await fetch(`/api/students/${id}`, { method: "DELETE", headers: getAuthHeaders() });
       } catch(err) {}
     }
     appData.students = appData.students.filter(s => s.id !== id);
@@ -1184,10 +1609,14 @@ function openStudentCard(studentId) {
   const cardHtml = `
     <div class="id-card-container">
       <div class="id-card">
-        <div class="id-card-header">
+      <div class="id-card-header">
+        ${getSchoolLogoHTML(42)}
+        <div style="flex:1; text-align:center;">
           <h4>${schoolName}</h4>
           <span>CARTE D'ÉLÈVE 2025-2026</span>
         </div>
+        <span style="width:42px;"></span>
+      </div>
         <div class="id-card-body">
           <div class="id-card-photo" style="overflow:hidden; display:flex; align-items:center; justify-content:center; background:#e2e8f0; width:90px; height:110px; border-radius:8px; border:2px solid var(--primary); flex-shrink:0;">${renderStudentPhoto(s.photo, s.gender)}</div>
           <div class="id-card-info">
@@ -1319,11 +1748,14 @@ function compressImageToIDPhoto(dataUrl, callback) {
 
 // --- PASSAGE DE CLASSE EN FIN D'ANNÉE (RÔLE ADMIN SEUL) ---
 async function promoteAllStudents() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     showToast("⛔ Seul l'Administrateur peut exécuter le passage automatique en fin d'année.", "danger");
     return;
   }
-  if (!confirm("⚠️ CONFIRMATION DE FIN D'ANNÉE : Voulez-vous faire passer automatiquement tous les élèves non-redoublants en classe supérieure ?")) {
+  const curYear = getCurrentYearLabel();
+  const suggestedNext = getNextYearLabel(curYear);
+  const nextLabel = prompt(`Préparation de la rentrée ${suggestedNext}.\nLes élèves non-redoublants passeront en classe supérieure.\nLibellé de la NOUVELLE année scolaire (modifiable) :`, suggestedNext) || suggestedNext;
+  if (!confirm(`⚠️ CONFIRMATION DE FIN D'ANNÉE (${curYear} → ${nextLabel}) : Voulez-vous faire passer automatiquement tous les élèves non-redoublants en classe supérieure ?`)) {
     return;
   }
 
@@ -1331,12 +1763,17 @@ async function promoteAllStudents() {
     try {
       const res = await fetch("/api/promote-year", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ new_year_label: "2026 - 2027" })
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        body: JSON.stringify({ new_year_label: nextLabel })
       });
       if (res.ok) {
-        showToast("🎉 Passage d'année synchronisé en base de données !", "success");
+        localStorage.setItem("edugest_selected_year", nextLabel);
+        showToast(`🎉 Rentrée ${nextLabel} créée : passage d'année synchronisé en base de données !`, "success");
         setTimeout(() => window.location.reload(), 1500);
+        return;
+      } else {
+        const errBody = await res.json().catch(() => ({}));
+        showToast(`⚠️ Serveur : ${errBody.detail || "échec du passage d'année"}`, "danger");
         return;
       }
     } catch(err) {}
@@ -1370,14 +1807,27 @@ async function promoteAllStudents() {
     }
   });
 
+  appData.school.year = nextLabel;
+  appData.currentYear = nextLabel;
+  if (!appData.academicYears) appData.academicYears = [];
+  const exists = appData.academicYears.find(y => (y.year_label || y) === nextLabel);
+  if (!exists) {
+    appData.academicYears.forEach(y => { if (y.is_current) y.is_current = 0; });
+    appData.academicYears.push({ year_label: nextLabel, is_current: 1, is_archived: 0 });
+  }
+  appData.transactions = [];
+  localStorage.setItem("edugest_selected_year", nextLabel);
   saveData();
-  showToast(`🎉 Rentrée préparée ! ${promotedCount} élèves promus en classe supérieure.`, "success");
+  showToast(`🎉 Rentrée ${nextLabel} préparée ! ${promotedCount} élèves promus en classe supérieure.`, "success");
+  switchAcademicYear(nextLabel);
 }
 
 // --- MODULE 3: PROFESSEURS ---
 function renderTeachersTable() {
   const tbody = document.getElementById("teachers-table-body");
   if (!tbody) return;
+  const countLabel = document.getElementById("teachers-count-label");
+  if (countLabel) countLabel.textContent = `(${appData.teachers.length})`;
   tbody.innerHTML = appData.teachers.map(t => `
     <tr>
       <td><strong style="color: var(--text-main); font-size:1rem;">${t.name}</strong></td>
@@ -1490,7 +1940,7 @@ async function deleteTeacher(id) {
   }
   if (confirm("Supprimer définitivement cet enseignant du répertoire ?")) {
     if (isConnectedToServer) {
-      try { await fetch(`/api/teachers/${id}`, { method: "DELETE" }); } catch(err) {}
+      try { await fetch(`/api/teachers/${id}`, { method: "DELETE", headers: getAuthHeaders() }); } catch(err) {}
     }
     appData.teachers = appData.teachers.filter(t => t.id !== id);
     saveData();
@@ -1678,23 +2128,72 @@ function saveProfGrades() {
 function updateStudentSelects() {
   const select = document.getElementById("bulletin-student-select");
   if (!select) return;
-  select.innerHTML = `<option value="">-- Sélectionner un élève pour le bulletin --</option>` + 
-    appData.students.filter(s => getStuClass(s) !== "Diplômé / Ancien Élève").map(s => {
-      const stName = getStuName(s);
-      const stCls = getStuClass(s);
-      return `<option value="${s.id}">${stName} (${stCls} - ${s.id})</option>`;
-    }).join("");
+  filterBulletinStudents();
 }
 
-// --- HELPER DIRECTION ET SIGNATAIRES PAR CYCLE ---
+// --- REGISTRE FLEXIBLE DES RESPONSABLES & SIGNATAIRES (noms, contacts, cachets) ---
+function getDefaultResponsables(school) {
+  const phone = (school && school.phone) || "+226 25 30 00 00";
+  return [
+    { tag: "directeur-general", title: "Le Chef d'Établissement", name: (school && school.director) || "M. Ousmane COMPAORÉ", contact: phone, cachet: "CACHET OFFICIEL DE L'ÉTABLISSEMENT", active: true },
+    { tag: "directeur-maternelle", title: "La Directrice de l'École Maternelle", name: (school && school.directorMaternelle) || "Mme Aminata KINDA", contact: phone, cachet: "CACHET DIRECTION MATERNELLE", active: true },
+    { tag: "directeur-primaire", title: "Le Directeur de l'École Primaire", name: (school && (school.directorPrimaire || school.director)) || "M. Ousmane COMPAORÉ", contact: phone, cachet: "CACHET DIRECTION PRIMAIRE", active: true },
+    { tag: "directeur-college", title: "Le Principal du Collège", name: (school && (school.directorCollege || school.director)) || "Dr. Alassane DIARRA", contact: phone, cachet: "CACHET DIRECTION COLLÈGE", active: true },
+    { tag: "directeur-lycee", title: "Le Proviseur du Lycée", name: (school && (school.directorLycee || school.director)) || "M. Christian SANOU", contact: phone, cachet: "CACHET DIRECTION LYCÉE", active: true },
+    { tag: "econome", title: "Le Directeur de l'Économat", name: "M. Adama SANOU", contact: phone, cachet: "CACHET ÉCONOMAT", active: true },
+    { tag: "secretaire", title: "Le Secrétariat / Caisse", name: "Secrétariat Caisse", contact: phone, cachet: "CACHET SECRÉTARIAT", active: true },
+    { tag: "censeur", title: "Le Censeur / Surveillant Général", name: "Surveillance Générale", contact: phone, cachet: "CACHET SURVEILLANCE", active: false },
+    { tag: "prof-principal", title: "Le Professeur Principal", name: "", contact: "", cachet: "CACHET CLASSE", active: true }
+  ];
+}
+
+function applyResponsablesBackfill(school) {
+  if (!school) return [];
+  let list = null;
+  const raw = school.school_responsables || school.responsablesJson || school.responsables_json || (Array.isArray(school.responsables) ? school.responsables : null);
+  if (typeof raw === "string") { try { list = JSON.parse(raw); } catch(e) { list = null; } }
+  else if (Array.isArray(raw)) list = raw;
+
+  const defaults = getDefaultResponsables(school);
+  const byTag = {};
+  (list || []).forEach(r => { if (r && r.tag) byTag[r.tag] = r; });
+  const merged = defaults.map(d => {
+    const existing = byTag[d.tag];
+    return existing ? Object.assign({}, d, existing) : Object.assign({}, d);
+  });
+  const mergedTags = {};
+  merged.forEach(m => { mergedTags[m.tag] = true; });
+  (list || []).forEach(r => {
+    if (!r) return;
+    const tag = r.tag || ("responsable-" + (Object.keys(mergedTags).length + 1));
+    if (!mergedTags[tag]) {
+      merged.push(Object.assign({}, r, { tag: tag }));
+      mergedTags[tag] = true;
+    }
+  });
+  school.responsables = merged;
+  return merged;
+}
+
+function getResponsable(tag) {
+  const list = (appData && appData.school && appData.school.responsables) || [];
+  const r = list.find(x => x.tag === tag);
+  return (r && r.active !== false && (r.name || r.title)) ? r : null;
+}
+
 function getDirectorForCycle(cycleKey) {
   const cyc = (cycleKey || "college").toLowerCase();
   const school = appData?.school || {};
-  if (cyc === "maternelle") return { title: "La Directrice de l'École Maternelle", name: school.directorMaternelle || "Mme Aminata KINDA", stamp: "CACHET DIRECTION<br>MATERNELLE" };
-  if (cyc === "primaire") return { title: "Le Directeur de l'École Primaire", name: school.directorPrimaire || school.director || "M. Ousmane COMPAORÉ", stamp: "CACHET DIRECTION<br>PRIMAIRE" };
-  if (cyc === "college") return { title: "Le Principal du Collège", name: school.directorCollege || school.director || "Dr. Alassane DIARRA", stamp: "CACHET DIRECTION<br>COLLÈGE" };
-  if (cyc === "lycee") return { title: "Le Proviseur du Lycée", name: school.directorLycee || school.director || "M. Christian SANOU", stamp: "CACHET DIRECTION<br>LYCÉE" };
-  return { title: "Le Chef d'Établissement", name: school.director || "M. Ousmane COMPAORÉ", stamp: "CACHET OFFICIEL<br>ST-EXUPÉRY" };
+  const responseTags = { maternelle: "directeur-maternelle", primaire: "directeur-primaire", college: "directeur-college", lycee: "directeur-lycee" };
+  const tag = responseTags[cyc] || "directeur-general";
+  const r = getResponsable(tag);
+  const dflt = getDefaultResponsables(school).find(x => x.tag === tag) || {};
+  const titles = { maternelle: "La Directrice de l'École Maternelle", primaire: "Le Directeur de l'École Primaire", college: "Le Principal du Collège", lycee: "Le Proviseur du Lycée" };
+  const title = (r && r.title) || titles[cyc] || dflt.title || "Le Chef d'Établissement";
+  const name = (r && r.name) || school.director || dflt.name || "M. Ousmane COMPAORÉ";
+  const contact = (r && r.contact) || "";
+  const cachet = (r && r.cachet) || dflt.cachet || ("CACHET DIRECTION " + (titles[cyc] ? cyc.toUpperCase() : "OFFICIEL"));
+  return { title, name, contact, stamp: String(cachet).replace(/ /g, "<br>") };
 }
 
 // --- HELPER APPRÉCIATION RIGOUREUSE DES NOTES (ÉCHELLE FRANÇAISE/BURKINABÈ) ---
@@ -1717,8 +2216,13 @@ function generateBulletin() {
     showToast("Veuillez sélectionner un élève d'abord.", "warning");
     return;
   }
-  
+
   const selectedPeriod = document.getElementById("bulletin-trimester-select")?.value || "T1";
+  const container = document.getElementById("bulletin-render-area");
+  container.innerHTML = buildBulletinHTML(studentId, selectedPeriod);
+}
+
+function buildBulletinHTML(studentId, selectedPeriod) {
   const isGeneral = selectedPeriod === "general";
   const student = appData.students.find(s => s.id === studentId);
   const stName = getStuName(student);
@@ -1733,6 +2237,16 @@ function generateBulletin() {
   function computeMoyForPeriod(subGrades, periodKey) {
     const g = subGrades[periodKey] || { note1: 14, note2: 14, compo: 14 };
     return (g.note1 + g.note2 + g.compo * 2) / 4;
+  }
+
+  function computePeriodAverage(periodKey) {
+    let pts = 0, cfs = 0;
+    subjects.forEach(sub => {
+      const sg = studentGrades[sub.name] || {};
+      pts += computeMoyForPeriod(sg, periodKey) * sub.coef;
+      cfs += sub.coef;
+    });
+    return cfs ? pts / cfs : 0;
   }
 
   let totalPoints = 0;
@@ -1847,38 +2361,73 @@ function generateBulletin() {
   const bannerColor = isGeneral ? "linear-gradient(135deg, #0f172a, #1e293b)" : "var(--primary-gradient)";
   const bannerBadge = isGeneral ? `<span style="display:inline-block; padding:4px 12px; background:#7c3aed; color:white; font-size:0.75rem; font-weight:800; border-radius:4px;">${periodLabel}</span>` : `<span style="display:inline-block; padding:2px 8px; background:#0f172a; color:white; font-size:0.75rem; font-weight:800; border-radius:4px;">${periodLabel}</span>`;
 
-  const container = document.getElementById("bulletin-render-area");
-  container.innerHTML = `
-    <div class="bulletin-preview">
-      <div class="bulletin-header-top" style="margin-bottom:0.6rem; padding-bottom:0.4rem; border-bottom:2px solid #000;">
-        <div class="bulletin-school-col">
-          <h2 style="font-size:1.2rem; font-weight:900; color:#0f172a; margin:0;">${appData.school.name}</h2>
-          <span style="font-size:0.8rem;">${appData.school.address} | Tél : ${appData.school.phone}</span><br>
-          <b style="color:var(--primary); font-size:0.85rem;">Année Scolaire : ${appData.school.year}</b>
-        </div>
-        <div class="bulletin-motto-col" style="text-align:right;">
-          <span style="font-weight:900; font-size:1rem; display:block;">RÉPUBLIQUE DU ${appData.school.country.toUpperCase()}</span>
-          <strong style="color:#4f46e5; font-style:italic; font-size:0.85rem;">"${appData.school.motto}"</strong><br>
-          ${bannerBadge}
-        </div>
+  const parentPhone = student.fatherName || student.father_name || "+226 70 00 00 00";
+  const cleanPhone = String(parentPhone).replace(/[^\d+]/g, "").replace(/^00/, "+") || "+22670000000";
+  const msgText = encodeURIComponent([
+    `📚 ${appData.school.name} - Année scolaire : ${appData.school.year}`,
+    `📄 ${periodLabel} - ${stName} (${stCls})`,
+    `📊 Moyenne : ${generalAverage}/20 | Rang : ${rankStr}`,
+    `✅ Appréciation : "${generalApp}"`,
+    `☎ ${appData.school.phone}`
+  ].join("\n"));
+
+  const recapItem = (pk, label) => {
+    const avg = computePeriodAverage(pk);
+    return `<div style="text-align:center; padding:8px 16px; background:#eef2ff; border:1px solid #c7d2fe; border-radius:8px; min-width:150px;">
+      <span style="font-size:0.65rem; color:#4f46e5; font-weight:800; text-transform:uppercase; letter-spacing:0.05em;">${label}</span>
+      <div style="font-size:1.2rem; font-weight:900; color:#312e81; margin-top:2px;">${avg.toFixed(2)} <small style="font-size:0.75rem; font-weight:600; color:#64748b;">/ 20</small></div>
+    </div>`;
+  };
+  let recapHtml = "";
+  if (isGeneral) {
+    recapHtml = `<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:0.9rem 0 1rem;">
+      ${recapItem("T1", "Rappel T1 - " + (TRIMESTER_LABELS.T1 || "1er Trimestre"))}
+      ${recapItem("T2", "Rappel T2 - " + (TRIMESTER_LABELS.T2 || "2ème Trimestre"))}
+      ${recapItem("T3", "Rappel T3 - " + (TRIMESTER_LABELS.T3 || "3ème Trimestre"))}
+    </div>`;
+  } else if (selectedPeriod === "T3" || selectedPeriod === "T2") {
+    const pasts = selectedPeriod === "T3" ? [["T1", TRIMESTER_LABELS.T1], ["T2", TRIMESTER_LABELS.T2]] : [["T1", TRIMESTER_LABELS.T1]];
+    recapHtml = `<div style="margin:0.9rem 0 1rem;">
+      <p style="font-size:0.72rem; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; margin:0 0 6px;">📌 Rappels des moyennes des trimestres précédents :</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+        ${pasts.map(([pk, label]) => recapItem(pk, "Moyenne " + (label || pk))).join("")}
       </div>
-      
-      <div class="bulletin-student-box" style="margin-bottom:0.6rem; padding:0.4rem 0.75rem; background:#f8fafc; border:1px solid #94a3b8; border-radius:6px; display:flex; justify-content:space-between; align-items:center;">
-        <div>
-          <span style="font-size:0.75rem; color:#64748b; font-weight:700;">NOM ET PRÉNOM DE L'ÉLÈVE :</span>
-          <h3 style="font-size:1.25rem; font-weight:900; color:#0f172a; margin:2px 0;">${stName}</h3>
-          <span style="font-size:0.8rem;"><b>Matricule :</b> ${student.id} | <b>Né(e) le :</b> ${student.birthDate || student.birth_date || 'N/A'}</span>
+    </div>`;
+  }
+
+  return `
+    <div class="bulletin-preview">
+      <div class="bulletin-header-top">
+        <div class="bulletin-school-col">
+          <h2 style="font-size:1.15rem; font-weight:900; color:#0f172a; margin:0; letter-spacing:0.03em;">${appData.school.name}</h2>
+          <span style="font-size:0.8rem; display:block; margin-top:4px;">${appData.school.address}</span>
+          <span style="font-size:0.8rem; display:block; margin-top:2px;">Tél : ${appData.school.phone}</span>
+          <b style="color:#4f46e5; font-size:0.82rem; display:block; margin-top:5px;">Année Scolaire : ${appData.school.year}</b>
         </div>
-        <div style="text-align:right;">
-          <span style="font-size:0.75rem; color:#64748b; font-weight:700;">CLASSE & RANG :</span>
-          <div style="font-size:1.2rem; font-weight:800; color:var(--primary);">${stCls}</div>
-          <span class="badge badge-success" style="font-size:0.85rem; margin-top:2px;">Rang : ${rankStr}</span>
+        <div class="bulletin-logo-col">${getSchoolLogoHTML(56)}</div>
+        <div class="bulletin-motto-col">
+          <span style="font-weight:900; font-size:1rem; display:block;">${appData.school.country.toUpperCase()}</span>
+          <strong style="color:#4f46e5; font-style:italic; font-size:0.84rem; margin-top:4px; display:block;">"${appData.school.countryMotto || appData.school.motto}"</strong>
+          <div style="margin-top:8px;">${bannerBadge}</div>
         </div>
       </div>
 
-      <div class="table-container" style="margin-bottom:0.6rem; border:1px solid #000; box-shadow:none; overflow:hidden;">
-        <table style="border-collapse:collapse; width:100%; margin:0;">
-          <thead style="background:#f1f5f9; border-bottom:2px solid #000;">
+      <div class="bulletin-student-box">
+        <div>
+          <span style="font-size:0.72rem; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:0.06em;">Nom et prénom de l'élève</span>
+          <h3 style="font-size:1.35rem; font-weight:900; color:#0f172a;">${stName}</h3>
+          <span style="font-size:0.8rem;"><b>Matricule :</b> ${student.id} | <b>Né(e) le :</b> ${student.birthDate || student.birth_date || 'N/A'}</span>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.72rem; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:0.06em;">Classe & rang</span>
+          <div style="font-size:1.35rem; font-weight:900; color:#4f46e5; margin-top:4px;">${stCls}</div>
+          <span class="badge badge-success" style="font-size:0.8rem; margin-top:4px; display:inline-block;">Rang : ${rankStr}</span>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
             ${theadHtml}
           </thead>
           <tbody>
@@ -1887,41 +2436,110 @@ function generateBulletin() {
         </table>
       </div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center; background:#f8fafc; padding:0.6rem 1rem; border-radius:6px; border:2px solid #0f172a; margin-bottom:0.8rem;">
+      <div class="summary-card">
         <div>
-          <h4 style="font-size:0.85rem; color:#0f172a; text-transform:uppercase; margin:0; font-weight:900;">Décision & Appréciation du Conseil de Classe ${isGeneral ? '(Année Complète)' : periodSubLabel} :</h4>
-          <p style="font-weight:700; color:#1e293b; font-size:0.95rem; margin:0.25rem 0 0 0;">
+          <h4 style="font-size:0.8rem; color:#0f172a; text-transform:uppercase; margin:0 0 6px; font-weight:900;">Décision & appréciation du conseil de classe ${isGeneral ? '(Année complète)' : periodSubLabel} :</h4>
+          <p style="font-weight:700; color:#1e293b; font-size:0.95rem; margin:0;">
             "${generalApp}"
           </p>
         </div>
-        <div style="text-align:right; border-left:2px solid #cbd5e1; padding-left:1rem;">
-          <span style="font-size:0.75rem; color:#64748b; display:block; font-weight:700;">MOYENNE GÉNÉRALE ${isGeneral ? "ANNUELLE" : "DU TRIMESTRE"}</span>
-          <span style="font-size:1.8rem; font-weight:900; color:#0f172a; line-height:1;">${generalAverage} <small style="font-size:0.9rem; font-weight:600;">/ 20</small></span>
+        <div style="text-align:right; border-left:2px solid #cbd5e1; padding-left:1rem; min-width:190px;">
+          <span style="font-size:0.72rem; color:#64748b; display:block; font-weight:800; text-transform:uppercase; letter-spacing:0.05em;">Moyenne générale ${isGeneral ? "annuelle" : "du trimestre"}</span>
+          <span style="font-size:1.9rem; font-weight:900; color:#0f172a; line-height:1; display:block; margin-top:4px;">${generalAverage} <small style="font-size:0.9rem; font-weight:700;">/ 20</small></span>
         </div>
       </div>
 
-      <div style="display:flex; justify-content:space-between; margin-top:0.8rem; padding: 0 1rem; page-break-inside:avoid;">
-        <div style="text-align:center; width:220px;">
-          <p style="font-size:0.85rem; font-weight:800; text-decoration:underline; margin:0;">Signature du Professeur Principal</p>
-          <div style="height:50px; margin-top:6px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-style:italic; border:1px dashed #cbd5e1; border-radius:6px; font-size:0.8rem;">
-            [Cachet & Signé]
-          </div>
+      ${recapHtml}
+
+      <div class="signature-row">
+        <div class="signature-block">
+          <p style="font-size:0.8rem; font-weight:800; text-decoration:underline; margin:0;">Signature du professeur principal</p>
+          <div class="signature-line">[Cachet &amp; signé]</div>
         </div>
-        <div style="text-align:center; width:260px;">
-          <p style="font-size:0.85rem; font-weight:800; text-decoration:underline; margin:0;">${dirInfo.title}</p>
-          <p style="font-size:0.85rem; color:#1e293b; font-weight:900; margin-top:2px;">${dirInfo.name}</p>
-          <div style="height:55px; margin-top:4px; display:flex; align-items:center; justify-content:center; color:#4f46e5; font-weight:800; font-size:0.75rem; border:2px solid #4f46e5; border-radius:50%; width:115px; margin-left:auto; margin-right:auto; transform:rotate(-5deg); opacity:0.85; line-height:1.2;">
-            ${dirInfo.stamp}
-          </div>
-          <p style="font-size:0.7rem; color:#64748b; margin-top:0.3rem;">Ouagadougou, le ${new Date().toLocaleDateString('fr-FR')}</p>
+        <div class="signature-block" style="width:48%;">
+          <p style="font-size:0.8rem; font-weight:800; text-decoration:underline; margin:0;">${dirInfo.title}</p>
+          <p style="font-size:0.8rem; color:#1e293b; font-weight:900; margin:6px 0 0;">${dirInfo.name}</p>
+          ${dirInfo.contact ? `<p style="font-size:0.7rem; color:#64748b; margin:6px 0 0;">☎ ${dirInfo.contact}</p>` : ""}
+          <div class="director-stamp">${dirInfo.stamp}</div>
+          <p style="font-size:0.7rem; color:#64748b; margin-top:8px; margin-bottom:0;">Ouagadougou, le ${new Date().toLocaleDateString('fr-FR')}</p>
         </div>
       </div>
+    </div>
+    <div class="no-print" style="display:flex; justify-content:center; gap:10px; margin-top:14px; flex-wrap:wrap;">
+      <a href="https://wa.me/${cleanPhone}?text=${msgText}" target="_blank" class="btn btn-sm" style="background:#25D366; color:white; font-weight:800; text-decoration:none; padding:10px 22px;">📲 Envoyer le bulletin par WhatsApp (${stName})</a>
     </div>
   `;
 }
 
 function printBulletin() {
   window.print();
+}
+
+function populateBulletinClassSelect() {
+  const sel = document.getElementById("bulletin-class-select");
+  if (!sel) return;
+  const allClassNames = Object.values(CYCLES_CLASSES).flat();
+  const keep = sel.value;
+  sel.innerHTML = `<option value="">Toutes les classes</option>` +
+    allClassNames.map(c => `<option value="${c}">${c}</option>`).join("");
+  if (keep) sel.value = keep;
+}
+
+function filterBulletinStudents() {
+  const select = document.getElementById("bulletin-student-select");
+  if (!select) return;
+  const className = document.getElementById("bulletin-class-select")?.value || "";
+  const sorted = appData.students
+    .filter(s => getStuClass(s) !== "Diplômé / Ancien Élève")
+    .sort((a, b) => (getStuName(a) || "").localeCompare(getStuName(b) || "", "fr"));
+  const filtered = className ? sorted.filter(s => getStuClass(s) === className) : sorted;
+  select.innerHTML = `<option value="">-- Sélectionner un élève --</option>` +
+    filtered.map(s => `<option value="${s.id}">${getStuName(s)} (${getStuClass(s)} - ${s.id})</option>`).join("");
+}
+
+function printClassBulletins() {
+  const className = document.getElementById("bulletin-class-select")?.value;
+  if (!className) {
+    showToast("Veuillez d'abord sélectionner une classe dans le filtre ci-dessus.", "warning");
+    return;
+  }
+  const selectedPeriod = document.getElementById("bulletin-trimester-select")?.value || "T1";
+  const periodLabel = selectedPeriod === "general" ? "Bulletin Général Annuel" : (TRIMESTER_LABELS[selectedPeriod] || selectedPeriod);
+
+  const list = appData.students
+    .filter(s => getStuClass(s) === className)
+    .sort((a, b) => (getStuName(a) || "").localeCompare(getStuName(b) || "", "fr"));
+  if (list.length === 0) {
+    showToast(`Aucun élève inscrit en ${className}.`, "warning");
+    return;
+  }
+
+  const cache = document.getElementById("print-cache");
+  const start = performance.now();
+  cache.innerHTML = list.map(st =>
+    `<div class="bulletin-print-page">${buildBulletinHTML(st.id, selectedPeriod)}</div>`
+  ).join("");
+
+  document.body.classList.add("print-batch");
+
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    document.body.classList.remove("print-batch");
+    cache.innerHTML = "";
+    window.removeEventListener("afterprint", cleanup);
+  };
+
+  window.addEventListener("afterprint", cleanup);
+  showToast(`🖨️ Lancement de l'impression : ${list.length} bulletins (${periodLabel}) en ${className}, un élève par feuille A4...`, "info");
+
+  let printDone = false;
+  try { window.print(); printDone = true; } catch (err) { printDone = false; }
+  setTimeout(() => {
+    cleanup();
+    console.log("Impression groupée terminée en ms:", Math.round(performance.now() - start));
+  }, printDone ? 600 : 1200);
 }
 
 // --- MODULE 6: PRÉSENCES, SURVEILLANCE & INCIDENTS ---
@@ -2070,7 +2688,13 @@ function handleAddIncident(e) {
 function renderFinanceTable() {
   const tbody = document.getElementById("finance-table-body");
   if (!tbody) return;
-  tbody.innerHTML = appData.transactions.map(t => {
+  const periodTx = activeFinancePeriod
+    ? appData.transactions.filter(t => {
+        const d = frDateToISO(t.date);
+        return d >= activeFinancePeriod.from && d <= activeFinancePeriod.to;
+      })
+    : appData.transactions;
+  tbody.innerHTML = periodTx.map(t => {
     const stName = getTxStudent(t);
     let badgeMethod = "badge-esp";
     if (t.method === "Orange Money") badgeMethod = "badge-om";
@@ -2097,6 +2721,29 @@ function renderFinanceTable() {
   }).join("");
 }
 
+function renderFinanceSummary() {
+  const elReceived = document.getElementById("stat-fin-received");
+  const elBreak = document.getElementById("stat-fin-received-breakdown");
+  const elArrears = document.getElementById("stat-fin-arrears");
+  const elCount = document.getElementById("stat-fin-arrears-count");
+  if (!elReceived && !elArrears) return;
+
+  const txs = appData.transactions || [];
+  const totalReceived = txs.reduce((acc, t) => acc + (parseInt(t.amount) || 0), 0);
+
+  const redevables = (appData.students || []).filter(s => (s.balance || 0) > 0);
+  const totalArrears = redevables.reduce((acc, s) => acc + (s.balance || 0), 0);
+
+  const byMethod = {};
+  txs.forEach(t => { const m = t.method || "Espèces"; byMethod[m] = (byMethod[m] || 0) + (parseInt(t.amount) || 0); });
+  const breakText = Object.entries(byMethod).map(([m, v]) => `${m}: ${v.toLocaleString('fr-FR')} F`).join(" | ");
+
+  if (elReceived) elReceived.textContent = totalReceived.toLocaleString('fr-FR') + " FCFA";
+  if (elBreak) elBreak.textContent = breakText ? "↗ " + breakText : "↗ aucun versement enregistré";
+  if (elArrears) elArrears.textContent = totalArrears.toLocaleString('fr-FR') + " FCFA";
+  if (elCount) elCount.textContent = `Concerne ${redevables.length} élève${redevables.length > 1 ? 's' : ''} redevable${redevables.length > 1 ? 's' : ''}`;
+}
+
 async function deleteTransaction(txId) {
   if (currentRole !== "admin" && currentRole !== "econome") {
     alert("⛔ Accès Refusé : Seuls l'Administrateur et l'Économe peuvent annuler/supprimer un versement.");
@@ -2104,7 +2751,7 @@ async function deleteTransaction(txId) {
   }
   if (confirm("⚠️ Annuler et supprimer cet encaissement ? Le solde de l'élève sera automatiquement réajusté.")) {
     if (isConnectedToServer) {
-      try { await fetch(`/api/transactions/${txId}`, { method: "DELETE" }); } catch(err) {}
+      try { await fetch(`/api/transactions/${txId}`, { method: "DELETE", headers: getAuthHeaders() }); } catch(err) {}
     }
     appData.transactions = appData.transactions.filter(t => t.id !== txId);
     saveData();
@@ -2113,13 +2760,13 @@ async function deleteTransaction(txId) {
 }
 
 async function purgeAllTransactions() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     showToast("⛔ Seul l'Administrateur peut purger la caisse.", "danger");
     return;
   }
   if (confirm("⚠️ ATTENTION CRITIQUE : Voulez-vous effacer l'intégralité du journal des encaissements de la caisse ?\n\nTous les reçus seront purgés et les soldes des élèves remis à découvert.")) {
     if (isConnectedToServer) {
-      try { await fetch("/api/transactions-purge", { method: "DELETE" }); } catch(err) {}
+      try { await fetch("/api/transactions-purge", { method: "DELETE", headers: getAuthHeaders() }); } catch(err) {}
     }
     appData.transactions = [];
     saveData();
@@ -2127,23 +2774,34 @@ async function purgeAllTransactions() {
   }
 }
 
+function renderPayStudentOptions(query) {
+  const sel = document.getElementById("pay-student");
+  if (!sel) return;
+  const needle = String(query || "").toLowerCase().trim();
+  const list = needle
+    ? appData.students.filter(s => (getStuName(s) + " " + s.id + " " + getStuClass(s)).toLowerCase().includes(needle))
+    : appData.students;
+  sel.innerHTML = list.map(s => {
+    const name = getStuName(s);
+    const cls = getStuClass(s);
+    const tot = s.totalFee || s.total_fee || 150000;
+    const rest = (s.balance !== undefined && s.balance !== null) ? s.balance : tot;
+    return `<option value="${name} (${s.id})" data-rest="${rest}" data-tot="${tot}">${name} - ${cls} (Reste: ${rest.toLocaleString('fr-FR')} FCFA)</option>`;
+  }).join("");
+  updatePaymentChangeCalculator();
+}
+
+function filterPayStudentList(q) { renderPayStudentOptions(q); }
+
 function openAddPaymentModal() {
   if (currentRole !== "admin" && currentRole !== "econome") {
     alert("⛔ Accès Refusé : Seuls l'Administrateur et l'Économe peuvent enregistrer un encaissement.");
     return;
   }
   try {
-    const sel = document.getElementById("pay-student");
-    if (sel) {
-      sel.innerHTML = appData.students.map(s => {
-        const name = getStuName(s);
-        const cls = getStuClass(s);
-        const tot = s.totalFee || s.total_fee || 150000;
-        const rest = (s.balance !== undefined && s.balance !== null) ? s.balance : tot;
-        return `<option value="${name} (${s.id})" data-rest="${rest}" data-tot="${tot}">${name} - ${cls} (Reste: ${rest.toLocaleString('fr-FR')} FCFA)</option>`;
-      }).join("");
-    }
-    updatePaymentChangeCalculator();
+    const search = document.getElementById("pay-student-search");
+    if (search) search.value = "";
+    renderPayStudentOptions("");
   } catch(e) { console.error("Erreur select versement:", e); }
   document.getElementById("modal-add-payment").classList.add("active");
 }
@@ -2229,7 +2887,7 @@ async function handleAddPayment(e) {
     try {
       await fetch("/api/transactions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         body: JSON.stringify(newTx)
       });
     } catch(err) {}
@@ -2241,6 +2899,19 @@ async function handleAddPayment(e) {
   showToast(`✅ Versement de ${amountVal.toLocaleString('fr-FR')} FCFA via ${methodVal} encaissé avec succès !`, "success");
   
   showReceiptModal(newTx.id);
+}
+
+function getStudentTxList(stuId) {
+  if (!appData.transactions || !stuId) return [];
+  return appData.transactions
+    .filter(t => {
+      const idMatch = t.student_id || (t.student && t.student.match(/\((MAT-2026-\d+)\)/) ? t.student.match(/\((MAT-2026-\d+)\)/)[1] : "");
+      return idMatch === stuId || (t.student && t.student.includes(stuId));
+    })
+    .sort((a, b) => {
+      const d = frDateToISO(b.date).localeCompare(frDateToISO(a.date));
+      return d !== 0 ? d : String(b.id || "").localeCompare(String(a.id || ""));
+    });
 }
 
 function showReceiptModal(txId) {
@@ -2268,11 +2939,25 @@ function showReceiptModal(txId) {
     `Bonjour parent de ${stName},\nLe ${appData.school.name} confirme le versement de ${tx.amount.toLocaleString('fr-FR')} FCFA (${tx.method}, Réf: ${tx.ref}).\nSituation : Scolarité totale ${totFee.toLocaleString('fr-FR')} FCFA | Reste à régler : ${restDue.toLocaleString('fr-FR')} FCFA.\nMerci de votre confiance.`
   );
 
+  const txList = stuObj ? getStudentTxList(stuObj.id) : [];
+  const totalPaidTx = txList.reduce((a, t) => a + (parseInt(t.amount) || 0), 0);
+  const methodSumTx = {};
+  txList.forEach(t => { const m = t.method || "Espèces"; methodSumTx[m] = (methodSumTx[m] || 0) + (parseInt(t.amount) || 0); });
+  const methodBreakdown = Object.entries(methodSumTx).map(([m, v]) =>
+    `<span style="background:#f1f5f9; border:1px solid #cbd5e1; padding:3px 8px; border-radius:20px; font-weight:800; font-size:7.5pt; color:#334155;">${m} : ${v.toLocaleString('fr-FR')} F</span>`
+  ).join(" ");
+  const stClsRec = stuObj ? getStuClass(stuObj) : "—";
+
   const recHtml = `
     <div class="print-a5-sheet">
       <div class="a5-header">
-        <h3 style="font-size:12pt; font-weight:900; margin:0;">${appData.school.name}</h3>
-        <span style="font-size:8.5pt; color:#64748b;">ÉCONOMAT & CAISSE GÉNÉRALE | Tél : ${appData.school.phone}</span>
+        <div style="display:flex; align-items:center; gap:10px; justify-content:center; flex-wrap:wrap;">
+          ${getSchoolLogoHTML(44)}
+          <div style="text-align:center;">
+            <h3 style="font-size:12pt; font-weight:900; margin:0;">${appData.school.name}</h3>
+            <span style="font-size:8.5pt; color:#64748b;">ÉCONOMAT & CAISSE GÉNÉRALE | Tél : ${appData.school.phone}</span>
+          </div>
+        </div>
       </div>
       <div class="a5-title" style="background:#ecfdf5; border-color:#059669; color:#065f46;">REÇU OFFICIEL DE CAISSE</div>
       <div style="display:flex; justify-content:space-between; font-size:9.5pt; margin-bottom:10px;">
@@ -2280,7 +2965,7 @@ function showReceiptModal(txId) {
         <span><b>Date d'opération :</b> ${tx.date}</span>
       </div>
       <div class="a5-box" style="margin:10px 0;">
-        <p><b>Élève / Client :</b> <span style="font-size:11pt; color:#4f46e5; font-weight:800;">${stName}</span></p>
+        <p><b>Élève / Client :</b> <span style="font-size:11pt; color:#4f46e5; font-weight:800;">${stName}</span> — <b>Classe :</b> ${stClsRec}</p>
         <p><b>Motif / Tranche :</b> ${tx.type}</p>
         <p><b>Mode de Règlement :</b> <span style="font-weight:800; color:#ea580c;">${tx.method || 'Espèces'}</span> | <b>Référence :</b> <code style="background:#e2e8f0; padding:2px 6px; border-radius:4px;">${tx.ref || 'N/A'}</code></p>
       </div>
@@ -2293,8 +2978,47 @@ function showReceiptModal(txId) {
       </div>
       <div style="display:flex; justify-content:space-between; margin-top:20px; font-size:9.5pt;">
         <div><b>Le Déposant / Parent</b><br><br><br><br>...........................</div>
-        <div style="text-align:center;"><b>L'Économe & ${dirInfo.title}</b><br><span style="font-size:8pt; color:#1e293b; font-weight:800;">${dirInfo.name}</span><br><span style="font-size:7.5pt; color:#64748b;">${tx.operator || 'Caisse Économat'}</span><br><b style="color:#059669;">[${dirInfo.stamp}]</b></div>
+        <div style="text-align:center;"><b>L'Économe & ${dirInfo.title}</b><br><span style="font-size:8pt; color:#1e293b; font-weight:800;">${dirInfo.name}</span><br><span style="font-size:7.5pt; color:#64748b;">${tx.operator || 'Caisse Économat'}</span>${dirInfo.contact ? `<br><span style="font-size:7.5pt; color:#64748b;">☎ ${dirInfo.contact}</span>` : ""}<br><b style="color:#059669;">[${dirInfo.stamp}]</b></div>
       </div>
+    </div>
+
+    <!-- SITUATION DE SCOLARITÉ : CUMUL & HISTORIQUE DES VERSEMENTS -->
+    <div style="background:white; border:2px solid #0f172a; border-radius:8px; padding:10px; margin-top:14px;">
+      <div style="background:#0f172a; color:white; padding:8px 10px; border-radius:6px; font-size:9.5pt; font-weight:900; text-align:center;">🧾 SITUATION DE LA SCOLARITÉ — DÉTAIL DES ${txList.length} VERSEMENT${txList.length > 1 ? 'S' : ''} (${stClsRec})</div>
+      <table style="width:100%; border-collapse:collapse; font-size:8pt; margin-top:8px;">
+        <thead>
+          <tr style="background:#f8fafc; color:#475569;">
+            <th style="padding:4px; border-bottom:2px solid #cbd5e1; text-align:left;">Réf</th>
+            <th style="padding:4px; border-bottom:2px solid #cbd5e1; text-align:left;">Date</th>
+            <th style="padding:4px; border-bottom:2px solid #cbd5e1; text-align:left;">Mode de Paiement</th>
+            <th style="padding:4px; border-bottom:2px solid #cbd5e1; text-align:right;">Montant</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${txList.length ? txList.map(t => `
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:4px; font-family:monospace;">${t.id}</td>
+              <td style="padding:4px;">${t.date}</td>
+              <td style="padding:4px;">${t.method || 'Espèces'} ${t.ref ? `[${t.ref}]` : ''}</td>
+              <td style="padding:4px; text-align:right; font-weight:800;">${t.amount.toLocaleString('fr-FR')} F</td>
+            </tr>`).join("") : '<tr><td colspan="4" style="padding:6px; text-align:center; color:#64748b;">Aucun versement enregistré</td></tr>'}
+        </tbody>
+        <tfoot>
+          <tr style="background:#ecfdf5;">
+            <td colspan="3" style="padding:6px; font-weight:900; font-size:9pt;">TOTAL CUMULÉ DES VERSEMENTS :</td>
+            <td style="padding:6px; text-align:right; font-weight:900; font-size:10pt; color:#059669;">${totalPaidTx.toLocaleString('fr-FR')} FCFA</td>
+          </tr>
+          <tr style="background:${restDue > 0 ? '#fef2f2' : '#ecfdf5'};">
+            <td colspan="3" style="padding:6px; font-weight:900; font-size:9pt;">SCOLARITÉ ANNUELLE (${stClsRec}) :</td>
+            <td style="padding:6px; text-align:right; font-weight:900; font-size:10pt; color:#0f172a;">${totFee.toLocaleString('fr-FR')} FCFA</td>
+          </tr>
+          <tr style="background:${restDue > 0 ? '#fef2f2' : '#ecfdf5'}; border-top:2px solid #0f172a;">
+            <td colspan="3" style="padding:6px; font-weight:900; font-size:10pt;">${restDue > 0 ? '⚠️ RESTE À PAYER :' : '🎉 NON REDEVABLE (Soldé) :'}</td>
+            <td style="padding:6px; text-align:right; font-weight:900; font-size:11pt; color:${restDue > 0 ? '#dc2626' : '#059669'};">${restDue.toLocaleString('fr-FR')} FCFA</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div style="margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center;">${methodBreakdown}</div>
     </div>
 
     <!-- BOUTONS D'ENVOI WHATSAPP ET SMS DIRECTS -->
@@ -2312,12 +3036,9 @@ function showReceiptModal(txId) {
   document.getElementById("modal-a5-print").classList.add("active");
 }
 
-function generateA5Reminder(type) {
-  const select = document.getElementById("a5-student-select");
-  const studentId = select ? select.value : (appData.students[0] ? appData.students[0].id : "");
-  const stu = appData.students.find(s => s.id === studentId) || appData.students[0];
-  if (!stu) return;
-  
+function buildA5Document(type, stu) {
+  if (!stu) return "";
+
   const stName = getStuName(stu);
   const stCls = getStuClass(stu);
   const totFee = stu.totalFee || stu.total_fee || 150000;
@@ -2358,8 +3079,13 @@ function generateA5Reminder(type) {
   const a5Html = `
     <div class="print-a5-sheet">
       <div class="a5-header">
-        <h3 style="font-size:12pt; font-weight:900; margin:0;">${appData.school.name}</h3>
-        <span style="font-size:9pt; color:#64748b;">ÉCONOMAT GÉNÉRAL | Tél : ${appData.school.phone}</span>
+        <div style="display:flex; align-items:center; gap:10px; justify-content:center; flex-wrap:wrap;">
+          ${getSchoolLogoHTML(44)}
+          <div style="text-align:center;">
+            <h3 style="font-size:12pt; font-weight:900; margin:0;">${appData.school.name}</h3>
+            <span style="font-size:9pt; color:#64748b;">ÉCONOMAT GÉNÉRAL | Tél : ${appData.school.phone}</span>
+          </div>
+        </div>
       </div>
       <div class="a5-title">${title}</div>
       <div style="margin:15px 0; font-size:10.5pt;">
@@ -2367,7 +3093,7 @@ function generateA5Reminder(type) {
       </div>
       <div style="display:flex; justify-content:space-between; margin-top:25px; font-size:9.5pt;">
         <div><b>Le Client / Parent</b><br><br><br><br>...........................</div>
-        <div style="text-align:center;"><b>${dirInfo.title}</b><br><span style="font-size:8.5pt; color:#1e293b; font-weight:800;">${dirInfo.name}</span><br><span style="font-size:7.5pt; color:#64748b;">Ouagadougou, le ${new Date().toLocaleDateString('fr-FR')}</span><br><br><b style="color:#4f46e5;">[${dirInfo.stamp}]</b></div>
+        <div style="text-align:center;"><b>${dirInfo.title}</b><br><span style="font-size:8.5pt; color:#1e293b; font-weight:800;">${dirInfo.name}</span>${dirInfo.contact ? `<br><span style="font-size:7.5pt; color:#64748b;">☎ ${dirInfo.contact}</span>` : ""}<br><span style="font-size:7.5pt; color:#64748b;">Ouagadougou, le ${new Date().toLocaleDateString('fr-FR')}</span><br><br><b style="color:#4f46e5;">[${dirInfo.stamp}]</b></div>
       </div>
     </div>
 
@@ -2383,8 +3109,52 @@ function generateA5Reminder(type) {
     </div>
   `;
 
-  document.getElementById("a5-render-area").innerHTML = a5Html;
+  return a5Html;
+}
+
+function generateA5Reminder(type) {
+  const select = document.getElementById("a5-student-select");
+  const studentId = select ? select.value : (appData.students[0] ? appData.students[0].id : "");
+  const stu = appData.students.find(s => s.id === studentId) || appData.students[0];
+  if (!stu) return;
+  document.getElementById("a5-render-area").innerHTML = buildA5Document(type, stu);
   document.getElementById("modal-a5-print").classList.add("active");
+}
+
+function printAllReminders() {
+  const redevables = (appData.students || []).filter(s => (s.balance || 0) > 0);
+  if (redevables.length === 0) {
+    showToast("🎉 Aucun élève redevable : tous les comptes sont à jour !", "success");
+    return;
+  }
+  const sorted = redevables.slice().sort((a, b) => {
+    const byCls = getStuClass(a).localeCompare(getStuClass(b), "fr");
+    return byCls !== 0 ? byCls : getStuName(a).localeCompare(getStuName(b), "fr");
+  });
+  const cache = document.getElementById("print-cache");
+  if (!cache) {
+    showToast("Zone d'impression introuvable.", "danger");
+    return;
+  }
+  cache.innerHTML = sorted.map(st => `<div class="a5-print-page">${buildA5Document('rappel', st)}</div>`).join("");
+
+  document.body.classList.add("print-batch");
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    document.body.classList.remove("print-batch");
+    cache.innerHTML = "";
+    window.removeEventListener("afterprint", cleanup);
+  };
+  window.addEventListener("afterprint", cleanup);
+  showToast(`🖨️ Impression de ${sorted.length} avis de rappel A5 (élèves redevables), un parent par feuille...`, "info");
+  let printDone = false;
+  try { window.print(); printDone = true; } catch (err) { printDone = false; }
+  setTimeout(() => {
+    cleanup();
+    console.log("Rappels groupés terminés.");
+  }, printDone ? 600 : 1200);
 }
 
 function closeA5Modal() {
@@ -2395,8 +3165,32 @@ function printA5() {
   window.print();
 }
 
+function frDateToISO(dateStr) {
+  const m = String(dateStr).match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : String(dateStr || "");
+}
+
 function filterFinancialPeriod() {
-  showToast(`📊 Calcul de l'état financier sur la période : 375 000 FCFA encaissés et conformes.`, "info");
+  const from = document.getElementById("fin-start-date")?.value || "";
+  const to = document.getElementById("fin-end-date")?.value || "";
+  if (!from || !to) {
+    showToast("Veuillez choisir les deux dates de la période du bilan.", "warning");
+    return;
+  }
+  activeFinancePeriod = { from, to };
+  const periodTx = appData.transactions.filter(t => {
+    const d = frDateToISO(t.date);
+    return d >= from && d <= to;
+  });
+  const total = periodTx.reduce((acc, t) => acc + (parseInt(t.amount) || 0), 0);
+  renderFinanceTable();
+  showToast(`📊 Bilan ${from} → ${to} : ${periodTx.length} versement(s) de la période, total encaissé ${total.toLocaleString('fr-FR')} FCFA.`, "info");
+}
+
+function clearFinancePeriod() {
+  activeFinancePeriod = null;
+  renderFinanceTable();
+  showToast("📊 Bilan : affichage de TOUS les versements (historique complet).", "info");
 }
 
 // --- MODULE 8: GESTION DES UTILISATEURS / PROFILS (ADMIN) ---
@@ -2409,16 +3203,14 @@ function renderUsersTable() {
       surveillant: "Surveillant", professeur: "Enseignant", direction: "Directeur"
     };
     const isProtected = (u.username === "admin" || u.username === "KOGOinformatiques" || u.role === "admin");
-    const passDisplay = currentRole === 'admin' ? `<code style="background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:800; color:#ef4444;">${u.password || '12345'}</code>` : '••••••••';
     return `
       <tr>
         <td><strong>${u.name}</strong><br><span style="font-size:0.75rem; color:var(--text-muted);">Email: ${u.email}</span></td>
         <td><span class="badge badge-info">${rNames[u.role] || u.role}</span></td>
         <td><strong style="color:var(--primary); font-family:monospace; font-size:1.05rem;">${u.username || u.role}</strong></td>
-        <td>${passDisplay}</td>
+        <td><span class="badge badge-secondary">••••••••</span></td>
         <td><span class="badge badge-success">${u.status}</span></td>
         <td>
-          <button class="btn btn-sm btn-secondary" onclick="alert('👉 Pour vous connecter sous le profil de ${u.name}, cliquez sur le bouton 🚪 Quitter en haut à droite, puis entrez L\\'identifiant : ${u.username || u.role} et le mot de passe !');">🔑 Comment se connecter ?</button>
           ${currentRole === 'admin' && !isProtected ? `<button class="btn btn-sm btn-danger" onclick="deleteUser('${u.id}')">🗑️</button>` : ''}
         </td>
       </tr>
@@ -2427,7 +3219,7 @@ function renderUsersTable() {
 }
 
 function openAddUserModal() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     showToast("⛔ Seul l'Administrateur peut créer des profils utilisateurs.", "danger");
     return;
   }
@@ -2439,7 +3231,7 @@ function closeAddUserModal() {
 }
 async function handleAddUser(e) {
   e.preventDefault();
-  if (currentRole !== "admin") return;
+  if (userRealRole !== "admin") return;
   const newUser = {
     id: `USR-0${appData.users.length + 1}`,
     name: document.getElementById("usr-name").value,
@@ -2454,7 +3246,7 @@ async function handleAddUser(e) {
     try {
       await fetch("/api/users", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         body: JSON.stringify(newUser)
       });
     } catch(err) { console.error("Erreur synchro serveur user"); }
@@ -2467,11 +3259,11 @@ async function handleAddUser(e) {
 }
 
 async function deleteUser(id) {
-  if (currentRole !== "admin") return;
+  if (userRealRole !== "admin") return;
   if (confirm("Supprimer ce profil utilisateur ?")) {
     if (isConnectedToServer) {
       try {
-        await fetch(`/api/users/${id}`, { method: "DELETE" });
+        await fetch(`/api/users/${id}`, { method: "DELETE", headers: getAuthHeaders() });
       } catch(err) {}
     }
     appData.users = appData.users.filter(u => u.id !== id);
@@ -2505,6 +3297,24 @@ function renderDynamicFeesTable() {
   `).join("");
 }
 
+function toggleSection(id) {
+  const box = document.getElementById(id);
+  if (!box) return;
+  const isOpen = box.style.display !== "none";
+  box.style.display = isOpen ? "none" : "block";
+  const chv = document.getElementById(id + "-chev");
+  if (chv) chv.textContent = isOpen ? "▸" : "▾";
+}
+
+function toggleDynamicFees() {
+  const box = document.getElementById("dynamic-fees-collapse");
+  const chv = document.getElementById("fees-chevron");
+  if (!box) return;
+  const isOpen = box.style.display !== "none";
+  box.style.display = isOpen ? "none" : "block";
+  if (chv) chv.textContent = isOpen ? "▸" : "▾";
+}
+
 function saveDynamicFees() {
   if (currentRole !== "admin" && currentRole !== "econome") {
     alert("⛔ Accès Refusé : Seuls l'Administrateur et l'Économe peuvent modifier les tarifs de scolarité.");
@@ -2512,16 +3322,158 @@ function saveDynamicFees() {
   }
   const inputs = document.querySelectorAll(".fee-input");
   if (!appData.school.tuitionFees) appData.school.tuitionFees = {};
+  const oldFees = { ...appData.school.tuitionFees };
   inputs.forEach(inp => {
     appData.school.tuitionFees[inp.dataset.cycle] = parseInt(inp.value) || 150000;
   });
+
+  // Reconduire le nouveau tarif aux élèves déjà inscrits (sans toucher aux tarifs spéciaux/anciens)
+  let updatedCount = 0;
+  (appData.students || []).forEach(s => {
+    const cyc = s.cycle || getCycleForClass(getStuClass(s));
+    if (!cyc) return;
+    const oldFee = parseInt(oldFees[cyc]) || 0;
+    const newFee = parseInt(appData.school.tuitionFees[cyc]) || 0;
+    if (newFee > 0 && oldFee !== newFee && (parseInt(s.totalFee) || 0) === oldFee) {
+      s.totalFee = newFee;
+      updatedCount++;
+    }
+  });
+
   saveData();
-  showToast("✅ Scolarités dynamiques mises à jour pour tous les futurs inscrits !", "success");
+  showToast(updatedCount > 0
+    ? `✅ Tarifs appliqués : ${updatedCount} élève(s) déjà inscrit(s) mis(e)(s) à jour (reste à payer recalculé).`
+    : "✅ Scolarités dynamiques mises à jour pour les futurs inscrits !", "success");
+}
+
+function getCycleForClass(className) {
+  const classes = CYCLES_CLASSES || {};
+  for (const key of Object.keys(classes)) {
+    if ((classes[key] || []).includes(className)) return key;
+  }
+  return null;
+}
+
+// --- GESTION DU REGISTRE DES RESPONSABLES & SIGNATAIRES (ADMIN / DIRECTION) ---
+const RESPONSABLE_STANDARD_TAGS = [
+  "directeur-general", "directeur-maternelle", "directeur-primaire", "directeur-college", "directeur-lycee",
+  "econome", "secretaire", "censeur", "prof-principal"
+];
+
+function renderResponsablesTable() {
+  const tbody = document.getElementById("responsables-body");
+  if (!tbody) return;
+  const list = (appData.school.responsables || []);
+  const canEdit = (currentRole === "admin" || currentRole === "direction");
+  const ro = canEdit ? "" : "readonly";
+  const dis = canEdit ? "" : "disabled";
+  tbody.innerHTML = list.map((r, i) => `
+    <tr>
+      <td>
+        <input type="text" class="form-control resp-tag" data-i="${i}" value="${r.tag || ''}" list="resp-tag-options" placeholder="Poste (clé)" ${ro} style="width:120px; font-weight:700; font-size:0.8rem;">
+      </td>
+      <td>
+        <input type="text" class="form-control resp-title" data-i="${i}" value="${r.title || ''}" placeholder="Titre / Fonction" ${ro} style="width:170px; font-weight:800; font-size:0.85rem;">
+      </td>
+      <td>
+        <input type="text" class="form-control resp-name" data-i="${i}" value="${r.name || ''}" placeholder="Nom & Prénom" ${ro} style="width:160px; font-weight:800; font-size:0.85rem;">
+      </td>
+      <td>
+        <input type="tel" class="form-control resp-contact" data-i="${i}" value="${r.contact || ''}" placeholder="Tél / E-mail" ${ro} style="width:130px; font-weight:700; font-size:0.82rem;">
+      </td>
+      <td>
+        <input type="text" class="form-control resp-cachet" data-i="${i}" value="${r.cachet || ''}" placeholder="Texte du cachet" ${ro} style="width:140px; font-weight:800; font-size:0.8rem; color:#4f46e5;">
+      </td>
+      <td style="text-align:center;">
+        <input type="checkbox" class="resp-active" data-i="${i}" ${r.active !== false ? "checked" : ""} ${dis}>
+      </td>
+      <td style="text-align:center;">
+        ${canEdit ? `<button class="btn btn-danger btn-sm" onclick="removeResponsableRow(${i})" title="Retirer ce signataire">🗑️</button>` : '<i style="color:#94a3b8;">Protégé</i>'}
+      </td>
+    </tr>
+  `).join("");
+
+  const dl = document.getElementById("resp-tag-options");
+  if (dl) {
+    dl.innerHTML = RESPONSABLE_STANDARD_TAGS.map(t => `<option value="${t}">`).join("");
+  }
+}
+
+function addResponsableRow() {
+  if (currentRole !== "admin" && currentRole !== "direction") {
+    alert("⛔ Accès Refusé : Seuls l'Administrateur et la Direction peuvent gérer les signataires.");
+    return;
+  }
+  if (!appData.school.responsables) appData.school.responsables = [];
+  appData.school.responsables.push({ tag: "responsable-" + (appData.school.responsables.length + 1), title: "", name: "", contact: "", cachet: "", active: true });
+  renderResponsablesTable();
+}
+
+function removeResponsableRow(i) {
+  if (currentRole !== "admin" && currentRole !== "direction") {
+    alert("⛔ Accès Refusé : Seuls l'Administrateur et la Direction peuvent gérer les signataires.");
+    return;
+  }
+  const list = appData.school.responsables || [];
+  if (list[i] && list[i].tag && list[i].tag.indexOf("directeur-") === 0) {
+    if (!confirm("⚠️ Ce signataire correspond à un directeur de cycle utilisé en bas des actes. Le retirer ?")) return;
+  }
+  list.splice(i, 1);
+  renderResponsablesTable();
+}
+
+function saveResponsablesConfiguration() {
+  if (currentRole !== "admin" && currentRole !== "direction") {
+    alert("⛔ Accès Refusé : Seuls l'Administrateur et la Direction peuvent modifier les responsables.");
+    return;
+  }
+  const rows = [...document.querySelectorAll("#responsables-body tr")];
+  const updated = rows.map((row, i) => {
+    const tag = (row.querySelector(".resp-tag")?.value || "").trim() || ("responsable-" + (i + 1));
+    const title = (row.querySelector(".resp-title")?.value || "").trim();
+    const name = (row.querySelector(".resp-name")?.value || "").trim();
+    const contact = (row.querySelector(".resp-contact")?.value || "").trim();
+    const cachet = (row.querySelector(".resp-cachet")?.value || "").trim();
+    const active = !!row.querySelector(".resp-active")?.checked;
+    return { tag, title, name, contact, cachet, active };
+  });
+  if (!appData.school) appData.school = {};
+  appData.school.responsables = updated;
+
+  // Reporter vers les anciens champs directeurs (compatibilité bulletins existants)
+  const byTag = {};
+  updated.forEach(r => { if (r.tag) byTag[r.tag] = r; });
+  if (byTag["directeur-maternelle"]) appData.school.directorMaternelle = byTag["directeur-maternelle"].name;
+  if (byTag["directeur-primaire"]) appData.school.directorPrimaire = byTag["directeur-primaire"].name;
+  if (byTag["directeur-college"]) appData.school.directorCollege = byTag["directeur-college"].name;
+  if (byTag["directeur-lycee"]) appData.school.directorLycee = byTag["directeur-lycee"].name;
+  if (byTag["directeur-general"]) appData.school.director = byTag["directeur-general"].name;
+
+  saveData();
+
+  if (isConnectedToServer) {
+    try {
+      fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        body: JSON.stringify({
+          settings: {
+            director_maternelle: appData.school.directorMaternelle,
+            director_primaire: appData.school.directorPrimaire,
+            director_college: appData.school.directorCollege,
+            director_lycee: appData.school.directorLycee,
+            school_responsables: JSON.stringify(updated)
+          }
+        })
+      });
+    } catch(err) {}
+  }
+  showToast("✅ Registre des responsables enregistré : les actes (bulletins, reçus, A5, attestations) utilisent désormais ces noms, contacts et cachets !", "success");
 }
 
 // --- PARAMÈTRES & RESET ---
 function resetDemoData() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     alert("⛔ Accès Refusé : Seul l'Administrateur peut réinitialiser le système.");
     return;
   }
@@ -2538,24 +3490,28 @@ function resetDemoData() {
 
 function saveSettings(e) {
   e.preventDefault();
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     alert("⛔ Accès Refusé : Seul l'Administrateur peut modifier la configuration de l'établissement.");
     return;
   }
   appData.school.name = document.getElementById("set-school-name").value;
   appData.school.year = document.getElementById("set-school-year").value;
   appData.school.motto = document.getElementById("set-school-motto").value;
+  appData.school.countryMotto = document.getElementById("set-country-motto")?.value || appData.school.countryMotto || appData.school.motto;
+  appData.school.logo = document.getElementById("set-school-logo")?.value || appData.school.logo || "🎓";
   saveData();
 
   if (isConnectedToServer) {
     try {
       fetch("/api/settings", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         body: JSON.stringify({
           settings: {
             school_name: appData.school.name,
-            motto: appData.school.motto
+            motto: appData.school.motto,
+            country_motto: appData.school.countryMotto,
+            school_logo: appData.school.logo
           }
         })
       });
@@ -2566,7 +3522,7 @@ function saveSettings(e) {
 }
 
 function saveDirectorsConfiguration() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     alert("⛔ Accès Refusé : Seul l'Administrateur peut modifier les directeurs et signataires.");
     return;
   }
@@ -2581,7 +3537,7 @@ function saveDirectorsConfiguration() {
     try {
       fetch("/api/settings", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         body: JSON.stringify({
           settings: {
             director_maternelle: appData.school.directorMaternelle,
@@ -2597,93 +3553,8 @@ function saveDirectorsConfiguration() {
 }
 
 // --- CONFIGURATION DE LA PÉRIODE DE LICENCE (OPTION CLIENT ADMIN) ---
-function updateLicensePeriodPreview() {
-  const sel = document.getElementById("set-license-period");
-  const customInp = document.getElementById("set-license-custom-date");
-  if (!sel || !customInp) return;
-
-  if (sel.value === "custom") {
-    customInp.style.display = "inline-block";
-  } else {
-    customInp.style.display = "none";
-  }
-}
-
-async function saveLicenseConfiguration() {
-  if (currentRole !== "admin") {
-    alert("⛔ Accès Refusé : Seul l'Administrateur Général peut modifier la licence.");
-    return;
-  }
-  const sel = document.getElementById("set-license-period");
-  const customInp = document.getElementById("set-license-custom-date");
-  if (!sel) return;
-
-  const period = sel.value;
-  let expireDate = "31/07/2027";
-  let statusText = "🟢 LICENCE VALIDE (EXP: 31/07/2027)";
-
-  if (period === "perpetual") {
-    expireDate = "À VIE (PERPÉTUELLE - SANS EXPIRATION)";
-    statusText = "♾️ LICENCE PERPÉTUELLE (À VIE - ILLIMITÉE)";
-  } else if (period === "annual") {
-    expireDate = "31/07/2027 (Renouvelable 1 An)";
-    statusText = "🟢 LICENCE ANNUELLE (EXP: 31/07/2027)";
-  } else if (period === "biennial") {
-    expireDate = "31/07/2028 (Renouvelable 2 Ans)";
-    statusText = "🟢 LICENCE BIENNALE (EXP: 31/07/2028)";
-  } else if (period === "demo") {
-    const d = new Date();
-    d.setMonth(d.getMonth() + 6);
-    const dtStr = d.toLocaleDateString("fr-FR");
-    expireDate = dtStr + " (Essai 6 mois)";
-    statusText = `🟡 LICENCE D'ESSAI (EXP: ${dtStr})`;
-  } else if (period === "custom") {
-    const dtVal = customInp.value;
-    if (!dtVal) {
-      alert("⚠️ Veuillez choisir une date d'expiration personnalisée !");
-      return;
-    }
-    const parts = dtVal.split("-");
-    const formatted = `${parts[2]}/${parts[1]}/${parts[0]}`;
-    expireDate = formatted + " (Contrat Spécial)";
-    statusText = `🟢 LICENCE VALIDE (EXP: ${formatted})`;
-  }
-
-  if (!appData.school) appData.school = {};
-  appData.school.licensePeriod = period;
-  appData.school.licenseExpireDate = expireDate;
-  appData.school.licenseStatusText = statusText;
-  saveData();
-
-  const statusEl = document.getElementById("license-status-display");
-  if (statusEl) {
-    statusEl.textContent = statusText;
-    if (period === "perpetual") statusEl.style.color = "#7c3aed";
-    else if (period === "demo") statusEl.style.color = "#d97706";
-    else statusEl.style.color = "#059669";
-  }
-
-  if (isConnectedToServer) {
-    try {
-      await fetch("/api/settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          settings: {
-            license_period: period,
-            license_expire_date: expireDate,
-            license_status_text: statusText
-          }
-        })
-      });
-    } catch(e) { console.error("Erreur synchro serveur licence", e); }
-  }
-
-  showToast(`✅ Période de Licence verrouillée : ${statusText}`, "success");
-}
-
 function toggleLoginSecurityMode() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     alert("⛔ Accès Refusé : Seul l'Administrateur peut changer ce paramètre de sécurité.");
     return;
   }
@@ -2775,7 +3646,7 @@ function setupInactivityWatchdog() {
 }
 
 function toggleInactivityTimeout() {
-  if (currentRole !== "admin") {
+  if (userRealRole !== "admin") {
     alert("⛔ Accès Refusé : Seul l'Administrateur peut modifier ce paramètre de sécurité.");
     return;
   }
@@ -2817,4 +3688,129 @@ function showToast(message, type = "info") {
     toast.style.transition = "all 0.35s ease";
     setTimeout(() => toast.remove(), 350);
   }, 4000);
+}
+
+// ==================== MODULE EXPORTS EXCEL / CSV ====================
+function sanitizeFileName(name) {
+  return String(name || "").replace(/[^A-Za-z0-9-_]+/g, "_");
+}
+
+function csvCell(v) {
+  const s = String(v == null ? "" : v);
+  return '"' + s.replace(/"/g, '""') + '"';
+}
+
+function toCsv(headers, rows) {
+  return "\uFEFF" + [headers, ...rows].map(r => r.map(csvCell).join(";")).join("\r\n");
+}
+
+function downloadFile(filename, content, mime = "text/csv;charset=utf-8") {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 500);
+}
+
+function loadXLSXLib() {
+  if (window.XLSX) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    const s = document.createElement("script");
+    s.src = "https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js";
+    s.onload = () => resolve(!!window.XLSX);
+    s.onerror = () => resolve(false);
+    document.head.appendChild(s);
+  });
+}
+
+function exportWorkbook(fileBase, sheets, csvFileName, csvHeaders, csvRows) {
+  loadXLSXLib().then(ok => {
+    if (ok) {
+      try {
+        const wb = XLSX.utils.book_new();
+        sheets.forEach(sht => {
+          const ws = XLSX.utils.aoa_to_sheet([sht.headers, ...sht.rows]);
+          XLSX.utils.book_append_sheet(wb, ws, sht.name);
+        });
+        XLSX.writeFile(wb, fileBase + ".xlsx");
+        showToast(`📗 Export Excel (.xlsx) téléchargé : ${fileBase}.xlsx`, "success");
+        return;
+      } catch(e) { console.error("Erreur export XLSX:", e); }
+    }
+    downloadFile(csvFileName, toCsv(csvHeaders, csvRows));
+    showToast("📕 Connexion absente : export au format CSV (s'ouvre dans Excel, accents préservés).", "info");
+  });
+}
+
+function getYearExportTag() {
+  return sanitizeFileName(getCurrentYearLabel());
+}
+
+function exportStudentsExcel() {
+  const year = getCurrentYearLabel();
+  const headers = ["Matricule", "Nom", "Prénom", "Classe", "Cycle", "Sexe", "Date de naissance", "Scolarité annuelle", "Total versé", "Reste à payer", "Situation", "Père", "Mère", "Année scolaire"];
+  const rows = appData.students.slice().sort((a, b) => (getStuClass(a) || "").localeCompare(getStuClass(b) || "", "fr")).map(s => {
+    const paid = getStudentTxList(s.id).reduce((acc, t) => acc + (parseInt(t.amount) || 0), 0);
+    return [s.id, s.lastName || "", s.firstName || "", getStuClass(s), s.cycle || "", s.gender || "", formatDateFr(s.birthDate), s.totalFee || 0, paid, s.balance || 0, s.status || "", s.fatherName || "", s.motherName || "", year];
+  });
+  const base = `Eleves_Inscrits_${getYearExportTag()}`;
+  exportWorkbook(base, [{ name: "Élèves", headers, rows }], base + ".csv", headers, rows);
+}
+
+function exportTransactionsExcel() {
+  const year = getCurrentYearLabel();
+  const headers = ["Référence", "Élève", "Matricule", "Motif", "Mode de paiement", "Réf paiement", "Montant (FCFA)", "Date", "Statut", "Caissier", "Année scolaire"];
+  const rows = appData.transactions.map(t => {
+    const st = appData.students.find(x => x.id === t.studentId);
+    return [t.ref || "", getTxStudent(t), (st && st.id) || "", t.type || "", t.method || "", t.refPayment || t.payment_ref || "", t.amount || 0, formatDateFr(t.date), t.status || "", t.operator || t.cashier || "", year];
+  });
+  const total = appData.transactions.reduce((acc, t) => acc + (parseInt(t.amount) || 0), 0);
+  rows.push(["", "", "", "", "", "TOTAL", total, "", "", "", ""]);
+  const base = `Journal_Encaissements_${getYearExportTag()}`;
+  exportWorkbook(base, [{ name: "Encaissements", headers, rows }], base + ".csv", headers, rows);
+}
+
+function exportFinancialExcel() {
+  const year = getCurrentYearLabel();
+  const headers = ["Matricule", "Nom", "Prénom", "Classe", "Cycle", "Scolarité annuelle", "Total versé", "Reste à payer", "Situation"];
+  const rows = appData.students.slice().sort((a, b) => (b.balance || 0) - (a.balance || 0)).map(s => [s.id, s.lastName || "", s.firstName || "", getStuClass(s), s.cycle || "", s.totalFee || 0, (s.totalFee || 0) - (s.balance || 0), s.balance || 0, s.status || ""]);
+  const base = `Situation_Financiere_${getYearExportTag()}`;
+  exportWorkbook(base, [{ name: "Situation", headers, rows }], base + ".csv", headers, rows);
+}
+
+function exportParentsExcel() {
+  const year = getCurrentYearLabel();
+  const headers = ["Matricule", "Élève", "Classe", "Père / Tuteur", "Mère / Tutrice", "Année scolaire"];
+  const rows = appData.students.map(s => [s.id, `${s.lastName || ""} ${s.firstName || ""}`.trim(), getStuClass(s), s.fatherName || "", s.motherName || "", year]);
+  const base = `Repertoire_Parents_${getYearExportTag()}`;
+  exportWorkbook(base, [{ name: "Parents", headers, rows }], base + ".csv", headers, rows);
+}
+
+function exportYearSummaryExcel() {
+  const year = getCurrentYearLabel();
+  const headers = ["Indicateur", "Valeur"];
+  const total = appData.transactions.reduce((acc, t) => acc + (parseInt(t.amount) || 0), 0);
+  const arrears = appData.students.reduce((acc, s) => acc + (s.balance || 0), 0);
+  const redev = appData.students.filter(s => (s.balance || 0) > 0).length;
+  const rows = [
+    ["Année scolaire", year],
+    ["Total élève(s) inscrit(s)", appData.students.length],
+    ["Total encaissé (FCFA)", total],
+    ["Total arriérés / restes à payer (FCFA)", arrears],
+    ["Élève(s) redevable(s)", redev],
+    ["Nombre de versements", appData.transactions.length],
+    ["Export généré le", new Date().toLocaleString("fr-FR")]
+  ];
+  const base = `Synthese_Annee_${getYearExportTag()}`;
+  exportWorkbook(base, [{ name: "Synthèse", headers, rows }], base + ".csv", headers, rows);
+}
+
+function formatDateFr(dateStr) {
+  if (!dateStr) return "";
+  const d = new Date(dateStr.length > 10 ? dateStr : dateStr + (dateStr.includes("T") ? "" : "T00:00:00"));
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString("fr-FR");
 }

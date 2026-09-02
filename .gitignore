@@ -1,0 +1,25 @@
+# --- Secrets & cles ---
+licence_editor/cle_privee.sec
+cle_jwt.sec
+cle_licence.key
+.env
+*.key
+*.sec
+
+# --- Donnees & sauvegardes ---
+sauvegardes/
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Python ---
+__pycache__/
+*.pyc
+
+# --- Editeurs / IDE ---
+.vscode/
+.idea/
+
+# --- Environnements locaux ---
+.venv/
+venv/

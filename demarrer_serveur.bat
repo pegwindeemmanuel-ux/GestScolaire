@@ -16,7 +16,7 @@ if exist "backend\requirements.txt" (
 )
 
 echo.
-echo 2. Initialisation de la base de donnees SQLite...
+echo 2. Initialisation de la base de donnees MariaDB (WAMP)...
 if exist "backend\database.py" (
     python backend/database.py
 ) else if exist "database.py" (
@@ -26,7 +26,15 @@ if exist "backend\database.py" (
 )
 
 echo.
-echo 3. Demarrage du serveur sur http://localhost:8000 ...
+echo 3. Sauvegarde automatique de la base...
+if exist "sauvegarde.py" (
+    python sauvegarde.py
+) else (
+    echo [ATTENTION] Script sauvegarde.py introuvable.
+)
+
+echo.
+echo 4. Demarrage du serveur sur http://localhost:8000 ...
 echo Votre navigateur va s'ouvrir automatiquement.
 echo ATTENTION : Ne fermez pas cette fenetre !
 echo =========================================================

@@ -54,7 +54,7 @@
         </a>
         
         <!-- ONGLET STRICTEMENT RÉSÉRVÉ À L'ADMINISTRATEUR GÉNÉRAL -->
-        <a href="#" class="nav-item btn-admin-only" data-view="settings" style="border:1px dashed #ef4444; background:rgba(239, 68, 68, 0.08); color:#fca5a5;">
+        <a href="#" class="nav-item btn-direction-edit" data-view="settings" style="border:1px dashed #ef4444; background:rgba(239, 68, 68, 0.08); color:#fca5a5;">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
           🔐 Paramètres & Licence (Admin)
         </a>
@@ -74,8 +74,14 @@
         </div>
         
         <div class="header-right">
-          <!-- Bascule rapide facultative (Mode démo) -->
-          <div class="role-selector-container" title="Bascule de test rapide (Mode démo)">
+          <!-- SÉLECTEUR D'ANNÉE SCOLAIRE (données par année : classes & élèves conservés) -->
+          <div class="year-selector-container" title="Les enregistrements (élèves, notes, encaissements) sont gérés par année scolaire. Chaque année conserve ses classes et ses élèves. Basculez pour consulter/éditer une année.">
+            <span style="font-size:0.85rem; font-weight:800;">🎓</span>
+            <select id="year-select" onchange="switchAcademicYear(this.value)" style="width:150px; color:var(--text-main);"></select>
+          </div>
+
+          <!-- Bascule rapide facultative (Mode démo) - Admin uniquement -->
+          <div class="role-selector-container" title="Bascule de test rapide (Mode démo) - Admin uniquement" style="display:none;">
             <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">RÔLE ACTIF :</span>
             <select id="role-selector">
               <option value="admin">🧑‍💻 Administrateur</option>
@@ -115,7 +121,7 @@
             </div>
             <div style="text-align:right;">
               <span style="font-size:0.75rem; opacity:0.8;">ANNÉE SCOLAIRE</span>
-              <div style="font-size:1.4rem; font-weight:900; color:#38bdf8;">2025 - 2026</div>
+              <div id="current-year-badge" style="font-size:1.4rem; font-weight:900; color:#38bdf8;">2025 - 2026</div>
             </div>
           </div>
 
@@ -169,7 +175,7 @@
           <div class="grid-2">
             <div class="card">
               <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:0.35rem;">Recouvrement des Frais de Scolarité (Économat)</h3>
-              <p style="font-size:0.8rem; color:var(--text-muted);">Évolutions mensuelles des encaissements sur l'année 2025-2026</p>
+              <p id="finance-year-sub" style="font-size:0.8rem; color:var(--text-muted);">Évolutions mensuelles des encaissements sur l'année 2025-2026</p>
               <div id="chart-revenue-container"></div>
             </div>
             <div class="card">
@@ -222,26 +228,33 @@
             
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
               <button class="btn btn-primary btn-secretaire-only" onclick="openAddStudentModal()" style="font-size:0.95rem; font-weight:800;">✨ + Inscrire un nouvel élève</button>
+              <button class="btn btn-success" onclick="exportStudentsExcel()" title="Exporter la liste des élèves de l'année en cours vers un fichier Excel">📗 Exporter les élèves (Excel)</button>
               <button class="btn btn-warning btn-admin-only" onclick="promoteAllStudents()" title="Passage automatique en fin d'année">🚀 Passage de classe (Fin d'année)</button>
             </div>
           </div>
 
-          <div class="table-container shadow-sm">
-            <table>
-              <thead>
-                <tr>
-                  <th>Matricule & Photo</th>
-                  <th>Nom & Prénom / Naissance</th>
-                  <th>Classe</th>
-                  <th>Cycle</th>
-                  <th>Moy. Passée</th>
-                  <th>Scolarité / Solde</th>
-                  <th>Filiation (Papa & Maman)</th>
-                  <th>Actions & QR</th>
-                </tr>
-              </thead>
-              <tbody id="students-table-body"></tbody>
-            </table>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:0.5rem;">
+            <strong style="font-size:0.95rem;">📋 Liste des élèves <span id="students-count-label" style="color:var(--primary);"></span></strong>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="toggleSection('students-list-box')" title="Afficher / masquer la liste" style="font-weight:800;">🔽 Afficher / Masquer <span id="students-list-box-chev" style="color:var(--primary);">▸</span></button>
+          </div>
+          <div id="students-list-box" style="display:none; margin-top:0.5rem;">
+            <div class="table-container shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Matricule & Photo</th>
+                    <th>Nom & Prénom / Naissance</th>
+                    <th>Classe</th>
+                    <th>Cycle</th>
+                    <th>Moy. Passée</th>
+                    <th>Scolarité / Solde</th>
+                    <th>Filiation (Papa & Maman)</th>
+                    <th>Actions & QR</th>
+                  </tr>
+                </thead>
+                <tbody id="students-table-body"></tbody>
+              </table>
+            </div>
           </div>
         </section>
 
@@ -254,20 +267,26 @@
             </div>
             <button class="btn btn-primary btn-admin-only" onclick="openAddTeacherModal()">✨ + Ajouter un enseignant</button>
           </div>
-          <div class="table-container shadow-sm">
-            <table>
-              <thead>
-                <tr>
-                  <th>Nom de l'Enseignant</th>
-                  <th>Matière Enseignée</th>
-                  <th>Email Professionnel</th>
-                  <th>Téléphone</th>
-                  <th>Classes Assignées</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="teachers-table-body"></tbody>
-            </table>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+            <strong style="font-size:0.95rem;">📋 Liste des enseignants <span id="teachers-count-label" style="color:var(--primary);"></span></strong>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="toggleSection('teachers-list-box')" title="Afficher / masquer la liste" style="font-weight:800;">🔽 Afficher / Masquer <span id="teachers-list-box-chev" style="color:var(--primary);">▸</span></button>
+          </div>
+          <div id="teachers-list-box" style="display:none; margin-top:0.5rem;">
+            <div class="table-container shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nom de l'Enseignant</th>
+                    <th>Matière Enseignée</th>
+                    <th>Email Professionnel</th>
+                    <th>Téléphone</th>
+                    <th>Classes Assignées</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="teachers-table-body"></tbody>
+              </table>
+            </div>
           </div>
         </section>
 
@@ -300,12 +319,13 @@
                 </div>
                 <div style="display:flex; gap:10px; align-items:center;">
                   <div>
-                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">TRIMESTRE :</label><br>
-                    <select id="grade-trimester-select" class="form-control" style="width:180px; font-weight:800; border:2px solid #4f46e5;" onchange="changeGradeTrimester(this.value)">
-                      <option value="T1">1er Trimestre</option>
-                      <option value="T2">2ème Trimestre</option>
-                      <option value="T3">3ème Trimestre</option>
+                    <label style="font-size:0.75rem; font-weight:700; color:#64748b;">TRIMESTRE DE SAISIE :</label><br>
+                    <select id="grade-trimester-select" class="form-control" style="width:190px; font-weight:900; border:2px solid #4f46e5; color:#0f172a;" onchange="changeGradeTrimester(this.value)" title="Choisissez le trimestre auquel appartiennent les notes que vous saisissez. Chaque trimestre a ses propres notes (T1, T2, T3).">
+                      <option value="T1" style="font-weight:800;">1er Trimestre (T1)</option>
+                      <option value="T2" style="font-weight:800;">2ème Trimestre (T2)</option>
+                      <option value="T3" style="font-weight:800;">3ème Trimestre (T3)</option>
                     </select>
+                    <small style="display:block; margin-top:4px; font-size:0.7rem; color:#4f46e5; font-weight:600;">💡 Les notes saisies sont enregistrées dans le trimestre sélectionné.</small>
                   </div>
                   <div>
                     <label style="font-size:0.75rem; font-weight:700; color:#64748b;">CLASSE :</label><br>
@@ -377,10 +397,12 @@
           </div>
 
           <div id="panel-bulletins-print" class="sub-panel">
-            <div class="filter-toolbar">
+          <div class="filter-toolbar">
               <div class="filter-group">
+                <label style="font-weight:800; font-size:0.9rem;">Classe :</label>
+                <select id="bulletin-class-select" class="form-control" style="width:210px; font-weight:800;"></select>
                 <label style="font-weight:800; font-size:0.9rem;">Sélection Élève :</label>
-                <select id="bulletin-student-select" class="form-control" style="width:340px;"></select>
+                <select id="bulletin-student-select" class="form-control" style="width:300px;"></select>
                 <label style="font-weight:800; font-size:0.9rem; margin-left:0.5rem;">Période :</label>
                 <select id="bulletin-trimester-select" class="form-control" style="width:200px; font-weight:800; border:2px solid #4f46e5;" onchange="bulletinTrimester=this.value;">
                   <option value="T1">1er Trimestre</option>
@@ -390,7 +412,10 @@
                 </select>
                 <button class="btn btn-primary" onclick="generateBulletin()">📄 Générer Bulletin</button>
               </div>
-              <button class="btn btn-secondary" onclick="printBulletin()" title="Imprimer ou Enregistrer en PDF">🖨️ Imprimer / A4 PDF</button>
+              <div style="display:flex; gap:10px;">
+                <button class="btn btn-secondary" onclick="printBulletin()" title="Imprimer le bulletin actuellement affiché" style="font-weight:800;">🖨️ Imprimer / A4 PDF</button>
+                <button class="btn btn-primary" onclick="printClassBulletins()" title="Imprimer d'un coup tous les bulletins de la classe sélectionnée pour la période choisie" style="font-weight:900; box-shadow:0 2px 8px rgba(79,70,229,.35);">📦 Imprimer Tous les Bulletins de la Classe</button>
+              </div>
             </div>
             
             <div id="bulletin-render-area">
@@ -477,40 +502,47 @@
         <section id="view-finance" class="view-section">
           
           <div class="card" style="margin-bottom:2rem; border-left:6px solid #10b981; background:#f8fafc;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:10px;">
-              <div>
-                <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a;">⚙️ Tarifs Dynamiques de Scolarité par Cycle</h3>
-                <p style="font-size:0.85rem; color:#475569;">Modifiez ici les frais de scolarité annuels. Chaque élève inscrit se verra attribuer automatiquement le tarif de son cycle !</p>
+            <button type="button" onclick="toggleDynamicFees()" title="Ouvrir / fermer les tarifs" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a;">⚙️ Tarifs Dynamiques de Scolarité par Cycle <span id="fees-chevron" style="color:#059669; font-size:1rem;">▸</span></h3>
+                  <p style="font-size:0.85rem; color:#475569;">Modifiez ici les frais de scolarité annuels. Chaque élève inscrit se verra attribuer automatiquement le tarif de son cycle !</p>
+                </div>
+                <span class="badge badge-success" style="font-weight:800;">🔽 Cliquer pour ouvrir / fermer</span>
               </div>
-              <button class="btn btn-success btn-econome-only" onclick="saveDynamicFees()" style="font-weight:800;">💾 Enregistrer les nouveaux tarifs</button>
-            </div>
-            <div class="table-container shadow-sm">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Cycle Scolaire</th>
-                    <th>Montant Scolarité Annuelle (FCFA)</th>
-                    <th>Application</th>
-                  </tr>
-                </thead>
-                <tbody id="dynamic-fees-body"></tbody>
-              </table>
+            </button>
+            <div id="dynamic-fees-collapse" style="display:none; margin-top:0.75rem;">
+              <div style="display:flex; justify-content:flex-end; margin-bottom:0.5rem;">
+                <button class="btn btn-success btn-econome-only" onclick="saveDynamicFees()" style="font-weight:800;">💾 Enregistrer les nouveaux tarifs</button>
+              </div>
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Cycle Scolaire</th>
+                      <th>Montant Scolarité Annuelle (FCFA)</th>
+                      <th>Application</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dynamic-fees-body"></tbody>
+                </table>
+              </div>
             </div>
           </div>
 
           <div class="grid-3">
             <div class="card stat-card" style="border-left-color:#10b981;">
               <div class="stat-info">
-                <h3>Recettes Encaisées (T1 & T2)</h3>
-                <div class="stat-value" style="color:#059669;">375 000 FCFA</div>
-                <div class="stat-trend trend-up">↗ Mobile Money & Espèces</div>
+                <h3>Recettes Totales Encaissées</h3>
+                <div class="stat-value" id="stat-fin-received" style="color:#059669;">0 FCFA</div>
+                <div class="stat-trend trend-up" id="stat-fin-received-breakdown">↗ cumul des versements (Orange, Moov, Virement, Espèces)</div>
               </div>
             </div>
             <div class="card stat-card" style="border-left-color:#f59e0b;">
               <div class="stat-info">
                 <h3>Arriérés & Rappels à Émettre</h3>
-                <div class="stat-value" style="color:#d97706;">225 000 FCFA</div>
-                <div class="stat-trend">Concerne 3 élèves</div>
+                <div class="stat-value" id="stat-fin-arrears" style="color:#d97706;">0 FCFA</div>
+                <div class="stat-trend" id="stat-fin-arrears-count">Concerne 0 élève redevable</div>
               </div>
             </div>
             <div class="card stat-card" style="border-left-color:#4f46e5;">
@@ -520,7 +552,10 @@
                   <input type="date" id="fin-start-date" class="form-control" style="padding:2px 6px; font-size:0.75rem;" value="2026-07-01">
                   <input type="date" id="fin-end-date" class="form-control" style="padding:2px 6px; font-size:0.75rem;" value="2026-07-03">
                 </div>
-                <button class="btn btn-sm btn-secondary" style="margin-top:6px; width:100%;" onclick="filterFinancialPeriod()">Filtrer le Bilan</button>
+                <div style="display:flex; gap:6px; margin-top:6px;">
+                  <button class="btn btn-sm btn-secondary" style="flex:1;" onclick="filterFinancialPeriod()">Filtrer le Bilan</button>
+                  <button class="btn btn-sm btn-primary" style="flex:1;" onclick="clearFinancePeriod()">Tout afficher</button>
+                </div>
               </div>
             </div>
           </div>
@@ -533,9 +568,29 @@
                 <p style="font-size:0.8rem; color:#1d4ed8; margin:2px 0 0;">Sélectionnez un élève ci-dessous pour imprimer son état des lieux financier en un clic ou par WhatsApp.</p>
               </div>
               <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <div>
+                <input type="text" id="a5-student-search" class="form-control" placeholder="🔍 Filtrer nom / prénom / matricule" oninput="filterA5StudentList(this.value)" style="width:280px; font-weight:700; border:2px solid #3b82f6; margin-bottom:4px; font-size:0.8rem;">
                 <select id="a5-student-select" class="form-control" style="width:280px; font-weight:800; border:2px solid #3b82f6;"></select>
+              </div>
                 <button class="btn btn-warning btn-econome-only" onclick="generateA5Reminder('rappel')" style="font-weight:900;">📄 Avis de Rappel (A5)</button>
                 <button class="btn btn-primary btn-econome-only" onclick="generateA5Reminder('redevance')" style="font-weight:900;">📜 Bulletin Redevance / Non-Redevance (A5)</button>
+                <button class="btn btn-danger btn-econome-only" onclick="printAllReminders()" style="font-weight:900;" title="Imprimer une feuille A5 d'avis de rappel pour chaque élève ayant un reste à payer">📤 Imprimer TOUS les rappels (redevables)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:1.5rem; background:#f0fdf4; border:2px solid #22c55e;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <h3 style="font-size:1.1rem; font-weight:900; color:#14532d; margin:0;">📗 Exports Excel — Année scolaire en cours</h3>
+                <p style="font-size:0.8rem; color:#166534; margin:2px 0 0;">Exportez les données de l'année <span id="export-year-label" style="font-weight:900;">(année en cours)</span> en fichier Excel (.xlsx). Sans connexion, un fichier CSV compatible Excel (accents préservés) est généré.</p>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <button class="btn btn-success" onclick="exportStudentsExcel()" style="font-weight:800;">🎓 Élèves & Classes</button>
+                <button class="btn btn-success" onclick="exportTransactionsExcel()" style="font-weight:800;">💰 Journal des Encaissements</button>
+                <button class="btn btn-success" onclick="exportFinancialExcel()" style="font-weight:800;">📊 Situation Financière</button>
+                <button class="btn btn-success" onclick="exportParentsExcel()" style="font-weight:800;">☎️ Répertoire Parents</button>
+                <button class="btn btn-primary" onclick="exportYearSummaryExcel()" style="font-weight:800;">🧾 Synthèse Annuelle</button>
               </div>
             </div>
           </div>
@@ -587,32 +642,32 @@
               </div>
             </div>
 
-            <!-- BOÎTIER DE CONFIGURATION DE LA PÉRIODE DE LICENCE (ADMIN SEUL) -->
-            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px dashed #fca5a5; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                <label style="font-size:0.85rem; font-weight:800; color:#991b1b;">⏱️ Période de Validité (Contrat Client) :</label>
-                <select id="set-license-period" class="form-control" style="width:240px; font-weight:800; border:2px solid #fca5a5; color:#7f1d1d; background:white;" onchange="updateLicensePeriodPreview()">
-                  <option value="perpetual">♾️ Perpétuelle (À vie - Illimitée)</option>
-                  <option value="annual" selected>🗓️ Annuelle (1 An / Année Scolaire)</option>
-                  <option value="biennial">📆 Biennale (2 Ans - Renouvelable)</option>
-                  <option value="demo">⏱️ Démo / Essai (6 Mois)</option>
-                  <option value="custom">✏️ Date Personnalisée...</option>
-                </select>
-                <input type="date" id="set-license-custom-date" class="form-control" style="width:160px; display:none; font-weight:700; border:2px solid #fca5a5; background:white;">
+            <!-- BOÎTIER D'INSTALLATION DE LA LICENCE SIGNÉE (ADMIN SEUL) -->
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px dashed #fca5a5;">
+              <div style="font-size:0.85rem; font-weight:800; color:#991b1b; margin-bottom:6px;">🔑 Installation du Jeton de Licence :</div>
+              <p style="font-size:0.8rem; color:#7f1d1d; margin:0 0 8px;">Demandez votre jeton de licence à <b>KOGO Informatiques</b> (en indiquant l'ID matériel ci-dessus) puis collez-le ici et cliquez sur « Installer ». Le jeton est signé et verrouillé à ce serveur : il ne peut être copié vers une autre machine, ni falsifié, ni prolongé sans passer par l'éditeur.</p>
+              <div style="display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+                <textarea id="license-token-input" rows="2" style="flex:1; min-width:280px; font-family:monospace; font-size:0.8rem; border:2px solid #fca5a5; background:white; color:#7f1d1d;" placeholder="Collez ici le jeton de licence reçu de KOGO Informatiques..."></textarea>
+                <button type="button" class="btn btn-sm btn-danger" onclick="installLicenseToken()" style="font-weight:900; padding:10px 18px; box-shadow:0 4px 12px rgba(239, 68, 68, 0.35);">🔑 Installer la Licence</button>
               </div>
-              <button type="button" class="btn btn-sm btn-danger" onclick="saveLicenseConfiguration()" style="font-weight:900; padding:10px 18px; box-shadow:0 4px 12px rgba(239, 68, 68, 0.35);">💾 Appliquer & Verrouiller</button>
+              <div id="license-install-msg" style="font-size:0.8rem; font-weight:800; margin-top:8px;"></div>
             </div>
           </div>
 
           <!-- CONTRÔLE SÉCURITÉ AFFICHAGE MOTS DE PASSE & INACTIVITÉ -->
           <div class="card" style="margin-bottom:2rem; border-left:6px solid #f59e0b; background:#fffbeb;">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
-              <div>
-                <span class="badge badge-warning" style="margin-bottom:6px;">🛡️ Sécurité & Confidentialité du Système</span>
-                <h3 style="font-size:1.15rem; font-weight:900; color:#92400e; margin:0;">Configuration de l'Écran de Connexion & Verrouillage d'Inactivité</h3>
-                <p style="font-size:0.85rem; color:#b45309; margin-top:4px;">En <b>Mode Production (en école)</b>, protégez les données en masquant les identifiants et en activant la fermeture automatique de session après inactivité.</p>
+            <button type="button" onclick="toggleSection('security-box')" title="Ouvrir / fermer" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+                <div>
+                  <span class="badge badge-warning" style="margin-bottom:6px;">🛡️ Sécurité & Confidentialité du Système</span>
+                  <h3 style="font-size:1.15rem; font-weight:900; color:#92400e; margin:0;">Configuration de l'Écran de Connexion &amp; Verrouillage d'Inactivité <span id="security-box-chev" style="color:#d97706; font-size:1rem;">▸</span></h3>
+                  <p style="font-size:0.85rem; color:#b45309; margin-top:4px;">En <b>Mode Production (en école)</b>, protégez les données en masquant les identifiants et en activant la fermeture automatique de session après inactivité.</p>
+                </div>
+                <span style="background:#fef3c7; color:#92400e; font-size:0.75rem; font-weight:800; padding:4px 12px; border-radius:20px;">🔽 Ouvrir / Fermer</span>
               </div>
-              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            </button>
+            <div id="security-box" style="display:none; margin-top:0.25rem;">
+              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:0.75rem; border-top:1px dashed #fbd38d; padding-top:0.75rem;">
                 <div>
                   <label style="font-size:0.75rem; font-weight:800; color:#92400e; display:block; margin-bottom:2px;">👁️ Aide de Connexion :</label>
                   <select id="set-login-security-mode" class="form-control" style="width:230px; font-weight:800; border:2px solid #fbd38d; background:white; color:#92400e;" onchange="toggleLoginSecurityMode()">
@@ -636,41 +691,54 @@
           </div>
 
           <div class="card" style="margin-bottom:2rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-              <div>
-                <h3 style="font-size:1.15rem; font-weight:800;">👥 Comptes et Profils Utilisateurs (RBAC)</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted);">Gérez les identifiants de connexion et droits d'accès de chaque membre de l'école.</p>
+            <button type="button" onclick="toggleSection('rbac-box')" title="Ouvrir / fermer" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-size:1.15rem; font-weight:800;">👥 Comptes et Profils Utilisateurs (RBAC) <span id="rbac-box-chev" style="color:var(--primary); font-size:1rem;">▸</span></h3>
+                  <p style="font-size:0.85rem; color:var(--text-muted);">Gérez les identifiants de connexion et droits d'accès de chaque membre de l'école.</p>
+                </div>
+                <span style="background:#eef2ff; color:#4f46e5; font-size:0.75rem; font-weight:800; padding:4px 12px; border-radius:20px;">🔽 Ouvrir / Fermer</span>
               </div>
-              <button class="btn btn-primary btn-admin-only" onclick="openAddUserModal()">✨ + Créer un profil utilisateur</button>
-            </div>
-            <div class="table-container shadow-sm">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Nom du Membre & Email</th>
-                    <th>Rôle Assigné</th>
-                    <th>Identifiant (Username)</th>
-                    <th>Mot de passe</th>
-                    <th>Statut</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="users-table-body"></tbody>
-              </table>
+            </button>
+            <div id="rbac-box" style="display:none; margin-top:0.75rem;">
+              <div style="display:flex; justify-content:flex-end; margin-bottom:0.5rem;">
+                <button class="btn btn-primary btn-admin-only" onclick="openAddUserModal()">✨ + Créer un profil utilisateur</button>
+              </div>
+              <div class="table-container shadow-sm">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Nom du Membre & Email</th>
+                      <th>Rôle Assigné</th>
+                      <th>Identifiant (Username)</th>
+                      <th>Mot de passe</th>
+                      <th>Statut</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="users-table-body"></tbody>
+                </table>
+              </div>
             </div>
           </div>
 
           <!-- CONFIGURATION DIRECTION ET SIGNATAIRES PAR CYCLE -->
           <div class="card" style="margin-bottom:2rem; border-left:6px solid #4f46e5;">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:1rem; border-bottom:1px solid #e2e8f0; padding-bottom:0.75rem;">
-              <div>
-                <h3 style="font-size:1.15rem; font-weight:900; margin:0; color:#1e1b4b;">👔 Direction et Signataires Officiels par Cycle</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Chaque cycle scolaire (Maternelle, Primaire, Collège, Lycée) possède son propre Directeur. Le logiciel signera automatiquement les actes selon la classe de l'élève !</p>
+            <button type="button" onclick="toggleSection('directors-box')" title="Ouvrir / fermer" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-size:1.15rem; font-weight:900; margin:0; color:#1e1b4b;">👔 Direction et Signataires Officiels par Cycle <span id="directors-box-chev" style="color:#4f46e5; font-size:1rem;">▸</span></h3>
+                  <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Chaque cycle scolaire (Maternelle, Primaire, Collège, Lycée) possède son propre Directeur. Le logiciel signera automatiquement les actes selon la classe de l'élève !</p>
+                </div>
+                <span style="background:#eef2ff; color:#4f46e5; font-size:0.75rem; font-weight:800; padding:4px 12px; border-radius:20px;">🔽 Ouvrir / Fermer</span>
               </div>
-              <button type="button" class="btn btn-primary btn-sm btn-admin-only" onclick="saveDirectorsConfiguration()" style="font-weight:800;">💾 Enregistrer les Directeurs</button>
-            </div>
+            </button>
             
-            <div class="grid-4" style="gap:1rem;">
+            <div id="directors-box" style="display:none; margin-top:0.75rem; border-top:1px solid #e2e8f0; padding-top:0.75rem;">
+              <div style="display:flex; justify-content:flex-end; margin-bottom:0.75rem;">
+                <button type="button" class="btn btn-primary btn-sm btn-admin-only" onclick="saveDirectorsConfiguration()" style="font-weight:800;">💾 Enregistrer les Directeurs</button>
+              </div>
+              <div class="grid-4" style="gap:1rem;">
               <div class="form-group" style="margin-bottom:0; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
                 <label class="form-label" style="font-weight:900; color:#4f46e5; margin-bottom:4px;">👶 Maternelle (PS à GS)</label>
                 <input type="text" id="set-dir-maternelle" class="form-control" style="font-weight:800; color:#1e293b;" value="Mme Aminata KINDA">
@@ -692,19 +760,75 @@
                 <span style="font-size:0.7rem; color:#64748b; display:block; margin-top:4px;">Titre : Proviseur Lycée</span>
               </div>
             </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:2rem; border-left:6px solid #4f46e5; background:#f8fafc;">
+            <button type="button" onclick="toggleSection('responsables-box')" title="Ouvrir / fermer" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <h3 style="font-weight:900; font-size:1.15rem; color:#0f172a;">👥 Registre des Responsables &amp; Signataires <span id="responsables-box-chev" style="color:#4f46e5; font-size:1rem;">▸</span></h3>
+                  <p style="font-size:0.85rem; color:#475569;">Directeur, Secrétaires, Économe, Censeur, Professeurs Principaux... : leurs <b>noms, contacts et cachets</b> sont imprimés en bas des actes (bulletins, reçus de caisse, avis A5, attestations). Modifiez-les librement, une seule fois, ils s'appliquent partout.</p>
+                </div>
+                <span style="background:#eef2ff; color:#4f46e5; font-size:0.75rem; font-weight:800; padding:4px 12px; border-radius:20px;">🔽 Ouvrir / Fermer</span>
+              </div>
+            </button>
+            <div id="responsables-box" style="display:none; margin-top:0.75rem;">
+              <div style="display:flex; justify-content:flex-end; gap:10px; margin-bottom:0.5rem;">
+                <button class="btn btn-secondary btn-direction-edit" onclick="addResponsableRow()" style="font-weight:800;">➕ Ajouter un responsable</button>
+                <button class="btn btn-primary btn-direction-edit" onclick="saveResponsablesConfiguration()" style="font-weight:800;">💾 Enregistrer les signataires</button>
+              </div>
+              <div class="table-container shadow-sm">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Poste (clé)<br><span style="font-weight:400; font-size:0.7rem;">identifie l'acte</span></th>
+                    <th>Titre / Fonction imprimé</th>
+                    <th>Nom &amp; Prénom</th>
+                    <th>Contact<br><span style="font-weight:400; font-size:0.7rem;">Tél / E-mail</span></th>
+                    <th>Cachet (texte imprimé)</th>
+                    <th style="text-align:center;">Actif</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="responsables-body"></tbody>
+              </table>
+              <datalist id="resp-tag-options"></datalist>
+            </div>
+            </div>
           </div>
 
           <div class="grid-2">
             <div class="card">
-              <h3 style="font-size:1.15rem; font-weight:800; margin-bottom:1rem; border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">Configuration de l'Établissement</h3>
+              <button type="button" onclick="toggleSection('school-config-box')" title="Ouvrir / fermer" style="width:100%; border:none; background:transparent; cursor:pointer; text-align:left; padding:0;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                  <h3 style="font-size:1.15rem; font-weight:800; margin:0;">Configuration de l'Établissement <span id="school-config-box-chev" style="color:var(--primary); font-size:1rem;">▸</span></h3>
+                  <span style="background:#eef2ff; color:#4f46e5; font-size:0.75rem; font-weight:800; padding:4px 12px; border-radius:20px;">🔽 Ouvrir / Fermer</span>
+                </div>
+              </button>
+              <div id="school-config-box" style="display:none; margin-top:0.75rem; border-top:1px solid var(--border-light); padding-top:0.75rem;">
               <form id="form-settings" onsubmit="saveSettings(event)">
                 <div class="form-group">
                   <label class="form-label">Nom du Lycée / Groupe Scolaire</label>
                   <input type="text" id="set-school-name" class="form-control" value="Lycée & Groupe Scolaire Saint-EMMANUEL">
                 </div>
+                                <div class="form-group">
+                  <label class="form-label">Logo du Lycée / École</label>
+                  <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <div id="set-school-logo-preview" style="width:48px; height:48px; border:1px dashed #cbd5e1; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#f8fafc;">🎓</div>
+                    <input type="text" id="set-school-logo" class="form-control" placeholder="🎓 Emoji (ex: 🎓, 🏫) ou collez une URL/une image (Parcourir ci-dessous)">
+                    <input type="file" id="set-school-logo-file" accept="image/*" class="form-control" style="font-size:0.75rem; max-width:200px;" onchange="handleSchoolLogoSelect(event)" title="Choisir un fichier image (PNG/JPG, converti en base64)">
+                  </div>
+                </div>
                 <div class="form-group">
-                  <label class="form-label">Devise officielle du Pays / École</label>
-                  <input type="text" id="set-school-motto" class="form-control" value="Unité - Progrès - Justice">
+                  <label class="form-label">Devise de l'Établissement / École</label>
+                  <input type="text" id="set-school-motto" class="form-control" value="La Patrie Ou La Mort, Nous Vaincrons">
+                  <small style="font-size:0.7rem; color:#64748b;">S'imprime sur tous les documents (bulletin, reçus, A5, carte élève).</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Devise Nationale (du Pays)</label>
+                  <input type="text" id="set-country-motto" class="form-control" value="La Patrie Ou La Mort, Nous Vaincrons">
+                  <small style="font-size:0.7rem; color:#64748b;">S'affiche sous le nom du pays sur le bulletin officiel.</small>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Année Scolaire en cours</label>
@@ -712,6 +836,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-admin-only">Enregistrer les modifications</button>
               </form>
+              </div>
             </div>
 
             <div class="card">
@@ -779,7 +904,7 @@
           <div style="display:flex; gap:1rem;">
             <div class="form-group" style="flex:1;">
               <label class="form-label">Cycle Scolaire *</label>
-              <select id="stu-cycle" class="form-control" required>
+              <select id="stu-cycle" class="form-control" required onchange="populateClassSelect('stu-class', this.value, false); updateStudentFeePreview(this.value);">
                 <option value="maternelle">Maternelle (PS, MS, GS)</option>
                 <option value="primaire">Primaire (CP1 au CM2)</option>
                 <option value="college">Collège (6ème à 3ème)</option>
@@ -868,9 +993,12 @@
           </div>
 
         </div>
-        <div class="modal-footer">
+<div class="modal-footer">
+          <label style="display:flex; align-items:center; gap:6px; font-size:0.85rem; font-weight:700; color:#059669; margin-right:auto; cursor:pointer; background:#ecfdf5; padding:6px 12px; border-radius:8px; border:1px solid #86efac;">
+            <input type="checkbox" id="stu-continue" checked> 🔁 Continuer &amp; inscrire un autre élève
+          </label>
           <button type="button" class="btn btn-secondary" onclick="closeAddStudentModal()">Annuler</button>
-          <button type="submit" class="btn btn-primary">Valider l'inscription & Matricule</button>
+          <button type="submit" class="btn btn-primary">Valider l'inscription &amp; Matricule</button>
         </div>
       </form>
     </div>
@@ -1042,7 +1170,8 @@
         <div class="modal-body">
           <div class="form-group">
             <label class="form-label">Sélectionner l'Élève *</label>
-            <select id="pay-student" class="form-control" required></select>
+            <input type="text" id="pay-student-search" class="form-control" placeholder="🔍 Taper le nom, prénom ou matricule pour filtrer la liste..." oninput="filterPayStudentList(this.value)" style="margin-bottom:6px; font-weight:700;">
+            <select id="pay-student" class="form-control" required style="max-height:180px;"></select>
           </div>
 
           <!-- CALCULATEUR DE MONNAIE À RENDRE ET CUMUL -->
@@ -1137,6 +1266,9 @@
 
   <!-- CONTENEUR DE TOASTS -->
   <div id="toast-container" class="toast-container"></div>
+
+  <!-- ZONE CACHÉE D'IMPRESSION GROUPÉE (bulletins de toute une classe) -->
+  <div id="print-cache" aria-hidden="true"></div>
 
   <script src="app.js?v=14.0"></script>
   <script>

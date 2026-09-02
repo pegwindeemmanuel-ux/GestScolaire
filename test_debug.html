@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Debug Bulletins</title>
+</head>
+<body>
+  <h1>Test de Debug - Bulletins</h1>
+  
+  <script>
+    // Simulation des données
+    const INITIAL_DATA = {
+      school: {
+        name: "Lycée & Groupe Scolaire Saint-Exupéry",
+        year: "2025 - 2026"
+      },
+      students: [
+        { id: "MAT-2026-0001", lastName: "KABORÉ", firstName: "Aminata", gender: "F", cycle: "lycee", class: "Terminale (Tle)" },
+        { id: "MAT-2026-0002", lastName: "SAWADOGO", firstName: "Jean-Paul", gender: "M", cycle: "college", class: "3ème" }
+      ],
+      grades: {
+        "MAT-2026-0001": {
+          "Mathématiques Spéciales": {
+            T1: { note1: 17, note2: 18, compo: 17.5 }
+          }
+        }
+      }
+    };
+    
+    let appData = INITIAL_DATA;
+    
+    const CYCLES_CLASSES = {
+      maternelle: ["Petite Section (PS)", "Moyenne Section (MS)", "Grande Section (GS)"],
+      primaire: ["CP1", "CP2", "CE1", "CE2", "CM1", "CM2"],
+      college: ["6ème", "5ème", "4ème", "3ème"],
+      lycee: ["Seconde (2nde)", "Première (1ère)", "Terminale (Tle)"]
+    };
+    
+    function getStuName(student) {
+      return student ? `${student.firstName} ${student.lastName}` : "N/A";
+    }
+    
+    function getStuClass(student) {
+      return student?.class || "N/A";
+    }
+    
+    function populateBulletinClassSelect() {
+      console.log("✅ populateBulletinClassSelect() appelée");
+      const allClassNames = Object.values(CYCLES_CLASSES).flat();
+      console.log("Classes trouvées:", allClassNames);
+    }
+    
+    function filterBulletinStudents() {
+      console.log("✅ filterBulletinStudents() appelée");
+      console.log("Students:", appData.students);
+      appData.students.forEach(s => {
+        console.log(`  - ${getStuName(s)} (${getStuClass(s)})`);
+      });
+    }
+    
+    console.log("🚀 Test démarré");
+    console.log("appData.school:", appData.school);
+    console.log("appData.students.length:", appData.students.length);
+    console.log("appData.grades:", appData.grades);
+    
+    populateBulletinClassSelect();
+    filterBulletinStudents();
+    
+    console.log("✅ Test terminé");
+  </script>
+</body>
+</html>

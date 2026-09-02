@@ -2,23 +2,23 @@
 
 **EduGest Pro** est une suite logicielle complète pour l'administration et le suivi pédagogique des établissements scolaires, allant de la **Maternelle au Lycée**. 
 
-Le projet vous offre deux modes d'utilisation : un **Mode Démonstration Web** (immédiatement testable dans le navigateur) et un **Mode Production Serveur (Python / SQLite)** pour une capacité illimitée d'élèves sur plusieurs dizaines d'années !
+Le projet vous offre deux modes d'utilisation : un **Mode Démonstration Web** (immédiatement testable dans le navigateur) et un **Mode Production Serveur (Python / MariaDB)** pour une capacité illimitée d'élèves sur plusieurs dizaines d'années !
 
 ---
 
 ## 🚀 1. Mode Production Serveur (Capacité Illimitée & Multi-Années)
 
-Pour enregistrer des milliers d'élèves par an, gérer la caisse en simultané sur plusieurs ordinateurs et archiver les exercices scolaires sans perte de données, utilisez le serveur Python inclus dans le dossier `backend/`.
+Pour enregistrer des milliers d'élèves par an, gérer la caisse en simultané sur plusieurs ordinateurs et archiver les exercices scolaires sans perte de données, utilisez le serveur Python inclus dans ce dossier. La base de données est **MariaDB / MySQL** (celle de votre WAMP), adaptée aux gros effectifs (2000‑5000 élèves), au multi-postes et à l'accès distant futur.
 
 ### 🪟 Sous WINDOWS (Le plus simple) :
 Double-cliquez simplement sur le fichier **`demarrer_serveur.bat`** !
-Il se chargera automatiquement de vérifier Python, d'installer les bibliothèques nécessaires, de préparer la base de données et d'ouvrir le serveur.
+Il se chargera automatiquement de vérifier Python, d'installer les bibliothèques nécessaires, d'initialiser la base MariaDB, de faire une sauvegarde automatique et d'ouvrir le serveur.
 
 *Si vous préférez l'Invite de Commandes (cmd / PowerShell) :*
 ```cmd
-pip install -r backend/requirements.txt
-python backend/database.py
-python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+pip install fastapi uvicorn pydantic pymysql python-jose python-multipart cryptography bcrypt
+python database.py
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ### 🍎 Sous APPLE macOS / LINUX :
@@ -29,10 +29,11 @@ chmod +x start_server.sh
 ```
 Ou manuellement avec Python :
 ```bash
-pip install -r backend/requirements.txt
-python3 backend/database.py  # Initialise la base SQLite edugest_pro.db
-python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+pip install fastapi uvicorn pydantic pymysql python-jose python-multipart cryptography bcrypt
+python database.py   # Initialise la base MariaDB 'edugest_pro'
+python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
+> Sur macOS/Linux, adaptez `db.py` aux identifiants MariaDB de votre poste.
 
 ### 🌐 Accès dans votre établissement (Wi-Fi Local / Intranet) :
 - **Sur l'ordinateur serveur principal :** Ouvrez votre navigateur sur `http://localhost:8000` (s'ouvre automatiquement par le script).
@@ -90,7 +91,7 @@ Le système applique un contrôle d'accès rigoureux et imperméable selon les p
 - **Directeur (`direction`) :** **Mode Lecture Seule strict :** accès à tous les tableaux de bord, bilans financiers et dossiers élèves, mais tous les boutons d'inscription, de modification, de suppression et d'encaissement sont automatiquement masqués ou désactivés.
 
 #### 🔑 Comptes de Connexion Préconfigurés (Identifiant / Mot de passe)
-> **⚠️ SÉCURITÉ EN ÉTABLISSEMENT (Mode Production vs Démo) :** Par défaut pour les déploiements chez les clients, l'affichage public de ces identifiants sur la page d'accueil est **désactivé et masqué (`display: none;`)** par sécurité ! Un sélecteur **« 🛡️ Afficher/Masquer l'aide de connexion »** dans l'espace Paramètres (Admin) vous permet de basculer entre le Mode Démo et le Mode Production sécurisé.
+> **⚠️ SÉCURITÉ EN ÉTABLISSEMENT :** Par défaut pour les déploiements chez les clients, l'affichage public de ces identifiants sur la page d'accueil est **désactivé et masqué (`display: none;`)** par sécurité ! Un sélecteur **« 🛡️ Afficher/Masquer l'aide de connexion »** dans l'espace Paramètres (Admin) vous permet de basculer l'affichage. **Important : changez ces mots de passe par défaut avant la mise en production réelle.**
 
 - **KOGOinformatiques** / `EMMANUEL 7682` *(Admin Principal KOGO)*
 - **admin** / `EMMANUEL 76827248` *(Admin Total)*
@@ -99,6 +100,18 @@ Le système applique un contrôle d'accès rigoureux et imperméable selon les p
 - **surveillant** / `surv123` *(Vie Scolaire & Présences)*
 - **professeur** / `prof123` *(Enseignants & Notes)*
 - **directeur** / `dir123` *(Directeur - Lecture Seule)*
+
+---
+
+## 🪪 3 bis. Licence Logiciel (Anti-Piratage)
+
+EduGest Pro utilise une **licence signée électroniquement** et **verrouillée au matériel** du serveur :
+
+- **ID matériel** : l'admin le voit dans `Paramètres → Licence`. Il faut le communiquer à l'éditeur pour obtenir la licence.
+- **Jeton de licence** : généré par l'éditeur (KOGO Informatiques) avec une clé privée secrète. Le serveur ne peut **ni le falsifier, ni le prolonger, ni le copier sur une autre machine**.
+- **Vérification** : au démarrage et avant chaque écriture. Sans licence valide → blocage des écritures (HTTP 402), lecture et administration conservées.
+- **Renouvellement** : à l'expiration, un admin colle le nouveau jeton reçu de l'éditeur dans `Paramètres → Licence → Installer la Licence`. L'administrateur reste toujours connectable, même licence expirée.
+- L'outil **`licence_editor/`** est réservé à l'éditeur (clé privée) et **ne doit jamais être déployé dans l'école**.
 
 ---
 *Système conçu et développé par Arena.ai & KOGO Informatiques pour l'excellence de votre établissement.*
